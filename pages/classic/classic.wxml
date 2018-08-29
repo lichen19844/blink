@@ -1,2 +1,5 @@
-<!--pages/classic/classic.wxml-->
-<text>pages/classic/classic.wxml</text>
+<view class="chunk-container">
+  <view class="chunk color1">1</view>
+  <view class="chunk color2">2</view>
+  <view class="chunk color3">3</view>
+</view>

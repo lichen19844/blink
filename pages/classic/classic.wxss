@@ -1,1 +1,34 @@
 /* pages/classic/classic.wxss */
+
+.chunk-container {
+  /* 在弹性盒子模型下，子属性的块状属性也会无效 */
+  display: flex;
+  /* 行row  列column */
+  /* 注意在column-reverse row-reverse生效时，chunk-container容器高度或宽度和它们之间的关系，当容器没有指定宽高度时，column-reverse在宽度上是100%，在高度上是自适应的 */
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  height: 400px;
+  background-color: #999;
+}
+
+.chunk {
+  /* 行内元素 *//* inline系列如inline-block用于消除【占行】的块状特性 *//* 如果是inline，是不能带有宽高的 *//* display: inline-block; */
+  width: 100px;
+  height: 100px;
+}
+
+/* flex flexible box 弹性盒子布局 */
+
+/* flex container 弹性容器  flex item 容器下的子元素 */
+
+.color1 {
+  background-color: brown;
+}
+
+.color2 {
+  background-color: aqua;
+}
+
+.color3 {
+  background-color: blue;
+}
