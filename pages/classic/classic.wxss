@@ -5,9 +5,13 @@
   display: flex;
   /* 行row  列column */
   /* 注意在column-reverse row-reverse生效时，chunk-container容器高度或宽度和它们之间的关系，当容器没有指定宽高度时，column-reverse在宽度上是100%，在高度上是自适应的 */
-  flex-direction: column-reverse;
-  justify-content: flex-end;
+  /* flex-direction: row和row-reverse  主轴是align-items 交叉轴是justify-content */
+    /* flex-direction: column和column-reverse  主轴是justify-content 交叉轴是align-items */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
   height: 400px;
+  width: 360px;
   background-color: #999;
 }
 
