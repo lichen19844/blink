@@ -1,5 +1,5 @@
 /* components/like/index.wxss */
 .like-container {
-  height:28px;
-  width: 32px;
+  height:28rpx;
+  width: 32rpx;
 }
