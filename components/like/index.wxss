@@ -1,5 +1,16 @@
 /* components/like/index.wxss */
-.like-container {
+.like-container{
+
+}
+
+.like-container > image {
   height:28rpx;
   width: 32rpx;
+}
+
+.like-container text {
+  /* 苹方  思源 */
+  /* font-family:"PingFangSC-Thin"; */
+  /* font-size: 48rpx; */
+  color: #bbbbbb;
 }

@@ -1,2 +1,5 @@
 <!--components/like/index.wxml-->
-<image class="like-container" src="images/like.png" />
+<view class="like-container">
+<image src="images/like.png" />
+<text>9</text>
+</view>
