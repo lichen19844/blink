@@ -1,6 +1,8 @@
 <!--components/like/index.wxml-->
 <!-- bind:tap和bindtap是一样的效果 -->
 <view bind:tap= "onLike" class="like-container">
-<image src="images/like.png" />
-<text>99k</text>
+<!-- 'images/like.png'是字符串，要加引号，因为src本来用的是双引号，所以字符串要用单引号 -->
+<!-- count1和count2是两个变量，不用加引号 -->
+<image src="{{like?yesSrc:noSrc}}" />
+<text>{{count}}</text>
 </view>
