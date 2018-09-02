@@ -7,12 +7,12 @@ Component({
   properties: {
     // 具体参考文档https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html
     like: {
-      // Boolean的初始值就是false，value可以不写
+      // 如果不写value, Boolean的初始值就是false
       type: Boolean,
-      value: true,
-      observer: function(){
+      // value: true,
+      // observer: function(){
 
-      }
+      // }
     },
     count: {
       // Number的初始值是0
@@ -42,6 +42,15 @@ Component({
    */
   methods: {
     onLike: function(event){
+      let like = this.properties.like;
+      let count = this.properties.count;
+      // like为true表示当前的状态是喜欢，当点击一下我们想要的结果是变成不喜欢，此时count要减去1，这里的like和like的初始值无关，只看此时的状态
+      count = like?count-1: count+1;
+      this.setData({
+        count: count,
+        // 点击后like的状态取决于我们的需要，可以反可以不变
+        like: !like
+      })
       console.log(event)
     }
   }
