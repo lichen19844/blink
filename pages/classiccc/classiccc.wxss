@@ -1,7 +1,7 @@
 /* pages/classic/classic.wxss */
 
 .chunk-container {
-  /* 在弹性盒子模型下，子属性的块状属性也会无效 */
+  /* 在弹性盒子模型下，子属性的块状属性会无效，如chunk 但是容器本身的块状特性仍然存在 */
   display: flex;
   /* 行row  列column */
   /* 注意在column-reverse row-reverse生效时，chunk-container容器高度或宽度和它们之间的关系，当容器没有指定宽高度时，column-reverse在宽度上是100%，在高度上是自适应的 */

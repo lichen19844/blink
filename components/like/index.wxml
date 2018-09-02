@@ -1,5 +1,6 @@
 <!--components/like/index.wxml-->
-<view class="like-container">
+<!-- bind:tap和bindtap是一样的效果 -->
+<view bind:tap= "onLike" class="like-container">
 <image src="images/like.png" />
-<text>9</text>
+<text>99k</text>
 </view>

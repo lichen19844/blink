@@ -1,8 +1,13 @@
 /* components/like/index.wxss */
 .like-container{
-
+  /* background-color: blue; */
+  /* 消除容器本身的块状特性，可以用inline-flex */
+  display: inline-flex;
+  flex-direction: row;
+  padding: 10rpx;
 }
 
+/* .like-container image */
 .like-container > image {
   height:28rpx;
   width: 32rpx;
@@ -11,6 +16,11 @@
 .like-container text {
   /* 苹方  思源 */
   /* font-family:"PingFangSC-Thin"; */
-  /* font-size: 48rpx; */
+  font-size: 24rpx;
+  /* 消除字体间距，去掉空白，使字体整体向上走一点 */
+  line-height: 24rpx;
   color: #bbbbbb;
+  position:relative;
+  bottom: 10rpx;
+  left: 6rpx;
 }
