@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        test: 1
     },
 
     /**
@@ -13,6 +13,14 @@ Page({
      */
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
+        // this指向了Page里面的Object
+        console.log(this.data.test);
+        // node.js
+        // Promiste
+        // 回调地狱，Promise可以解决
+        // 在处理异步操作的时候，如果使用的是回调函数，会剥夺在函数里return的能力,Promise可以解决这个问题，在使用Promise的时候不要带着回调函数的思维
+        //let that = this 和 wx.request({...})是平级关系，所以that可以被wx.request所以引用
+        // let that = this;
         // 小程序里的wx.request是强制异步函数，不可以写成 let data = wx.request({...})的同步形式
         wx.request({
             // console提示 'http://bl.7yue.pro 不在以下 request 合法域名列表中...'， 需要打勾“不校验合法域名...”
@@ -26,8 +34,12 @@ Page({
             header: {
                 appkey: "MA0OKyXMxkLNEAIz"
             },
-            success: function(res) {
-                console.log(res)
+            // res会拿到访问url后，它带有格式的数据
+            // success: function(res) {
+            success: (res) => {
+                // console.log(res)
+                console.log(this.data.test)
+
             }
         })
     },
@@ -36,7 +48,20 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        let promise = new Promise((resolve, reject) => {
+            wx.request({
+                url: 'http://bl.7yue.pro/v1/classic/latest',
+                header: {
+                    appkey: "MA0OKyXMxkLNEAIz"
+                },
+                success: (res) => {
+                    resolve(res)
+                }
+            })
+        })
+        promise.then((res) => {
+            console.log('res is', res)
+        })
     },
 
     /**
