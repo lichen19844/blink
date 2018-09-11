@@ -26,6 +26,7 @@ Page({
             // console提示 'http://bl.7yue.pro 不在以下 request 合法域名列表中...'， 需要打勾“不校验合法域名...”
             // console提示 'GET http://bl.7yue.pro/v1/classic/latest 401 (Unauthorized)'，代表了未授权，可以查看Network
             // Network下点击latest，在Preview中查看到缺少appkey的错误信息，msg:"The appkey is useless，please go to the website www.7yue.pro to apply for the appkey"
+            // 当不写method，默认方法为get
             url: 'http://bl.7yue.pro/v1/classic/latest',
             // 如果不写header，appkey就要写在url中latest后面，以问号?打头
             // url: 'http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz'
