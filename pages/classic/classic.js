@@ -48,20 +48,20 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        let promise = new Promise((resolve, reject) => {
-            wx.request({
-                url: 'http://bl.7yue.pro/v1/classic/latest',
-                header: {
-                    appkey: "MA0OKyXMxkLNEAIz"
-                },
-                success: (res) => {
-                    resolve(res)
-                }
-            })
-        })
-        promise.then((res) => {
-            console.log('res is', res)
-        })
+        // let promise = new Promise((resolve, reject) => {
+        //     wx.request({
+        //         url: 'http://bl.7yue.pro/v1/classic/latest',
+        //         header: {
+        //             appkey: "MA0OKyXMxkLNEAIz"
+        //         },
+        //         success: (res) => {
+        //             resolve(res)
+        //         }
+        //     })
+        // })
+        // promise.then((res) => {
+        //     console.log('res is', res)
+        // })
     },
 
     /**
