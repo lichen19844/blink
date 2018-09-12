@@ -3,9 +3,9 @@
 // 当有多个外部引用时，可以写成 import {config, fun1, fun2} form '...'的形式
 import { config } from '/config.js'
 class HTTP {
-    // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法
+    // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法，但在类Class下叫 【方法】
     request(params) {
-        // url, data, method
+        // params包含我们访问一个api时所需要的全部参数，如 url, data, method 等
         // 这里我们封装的是一个通用方法，是要写method的
         // 如果没有给method，我们默认给一个get
         if (!params.method) {
