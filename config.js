@@ -4,6 +4,7 @@
 // const用于固定不变的常量
 // export可以将文件内部的定义方法或数据导出，被外部引用
 // 外部引用时的写法 import { config } from '/config.js'
+//api文档规定了所有的API发布版本均以 bl.7yue.pro/v1 开头
 export const config = {
     api_base_url: 'http://bl.7yue.pro/v1/',
     appkey: "MA0OKyXMxkLNEAIz"

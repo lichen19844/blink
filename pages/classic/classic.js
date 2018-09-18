@@ -1,4 +1,6 @@
 // pages/classic/classic.js
+import { HTTP } from '/util/http.js'
+let http = new HTTP()
 Page({
 
     /**
@@ -15,6 +17,13 @@ Page({
     onLoad: function(options) {
         // this指向了Page里面的Object
         console.log(this.data.test);
+
+        http.request({
+            url: 'classic/latest',
+            success: (res) => {
+                console.log()
+            }
+        });
         // node.js
         // Promiste
         // 回调地狱，Promise可以解决
