@@ -17,7 +17,7 @@ Page({
     onLoad: function(options) {
         // this指向了Page里面的Object
         console.log(this.data.test);
-
+        // 调用http.request函数，将实参传给http.js中的request函数体
         http.request({
             url: 'classic/latest',
             success: (res) => {
