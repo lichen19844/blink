@@ -21,7 +21,7 @@ Page({
         http.request({
             url: 'classic/latest',
             success: (res) => {
-                console.log()
+                console.log('classic/latest is ', res)
             }
         });
         // node.js

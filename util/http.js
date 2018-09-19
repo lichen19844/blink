@@ -6,9 +6,9 @@ class HTTP {
     // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法，但在类Class下叫 【方法】
     // request(){}是定义出的方法体
     request(params) {
-        // params是假设的已包含了我们访问一个api时所需要的全部参数，如wx.request所含有的 url, data, method 等
+        // 形参params是假设的已包含了我们访问一个api时所需要的全部参数，这里是classic.js中request的实参url, data, method 等
         // 这里我们封装的是一个通用方法，是要写method的
-        // 如果没有给method，我们默认给一个get
+        // 如果在classic.js中没有给method，我们在这默认给一个get
         if (!params.method) {
             params.method = "GET"
         }
