@@ -7,7 +7,7 @@
 //api文档规定了所有的API发布版本均以 bl.7yue.pro/v1 开头
 export const config = {
     api_base_url: 'http://bl.7yue.pro/v1/',
-    appkey: "MA0OKyXMxkLNEAIz"
+    appkey: "qNoN5PUzRYvPA9n4"
 }
 
 // config = 2 报错 const指向了config的内存地址

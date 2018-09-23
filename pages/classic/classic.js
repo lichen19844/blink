@@ -22,7 +22,7 @@ Page({
         console.log(this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
         http.request({
-            url: 'classic/latest',
+            url: 'classic/latest?',
             success: (res) => {
                 console.log('classic/latest is ', res)
             }
