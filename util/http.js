@@ -35,7 +35,7 @@ class HTTP {
                 console.log('res.statusCode is ', res.statusCode)
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
-
+                    params.success('res.data is ', res.data)
                 } else {
 
                 }
