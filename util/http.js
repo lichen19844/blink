@@ -40,6 +40,7 @@ class HTTP {
                 // 通过statusCode来获取状态码，如2XX，4XX，5XX等
                 let code = res.statusCode.toString()
                     // statusCode一般是数字类型，而startsWith只能处理字符串，如果不加toString()会报错：code.startsWith is not a function
+                console.log('res is ', res)
                 console.log('res.statusCode is ', res.statusCode)
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
