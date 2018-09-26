@@ -2,8 +2,11 @@
 
 // 在小程序开发工具中，在Sources中可以观察到'/util/http.js'可能是被系统当成了相对路径来执行，说明 import 只接受相对路径的写法，组件可以使用绝对路径
 // import { HTTP } from '/util/http.js'
-import { HTTP } from '../../util/http.js'
-let http = new HTTP()
+// import { HTTP } from '../../util/http.js'
+// let http = new HTTP()
+import { ClassicModel } from '../../models/classic.js'
+let classic = new ClassicModel()
+
 Page({
 
     /**
@@ -21,13 +24,17 @@ Page({
         // this指向了Page里面的Object
         console.log('this.data.test is ', this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
-        http.request({
-            // 此处的url和success没有直接关系，只是并列的2个实参
-            url: 'classic/latest',
-            success: (res) => {
-                console.log('http data is ', res)
-            }
-        });
+        // http.request({
+        //     // 此处的url和success没有直接关系，只是并列的2个实参
+        //     url: 'classic/latest',
+        //     success: (res) => {
+        //         console.log('http data is ', res)
+        //     }
+        // });
+
+        // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
+        classic.getLatest()
+
         // node.js
         // Promiste
         // 回调地狱，Promise可以解决
