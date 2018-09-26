@@ -5,6 +5,13 @@
 // import { config } from '/config.js'
 
 import { config } from '../config.js'
+
+const tips = {
+    1: '抱歉，出现了一个错误',
+    1005: 'appkey无效，请前往www.7yue.pro申请',
+    3000: '期刊不存在'
+}
+
 class HTTP {
     // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法，但在类Class下叫 【方法】
     // request(){}是定义出的方法体
@@ -37,13 +44,27 @@ class HTTP {
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
                     params.success(res.data)
-                } else {
-
+                }
+                // else里出现的问题叫“服务器异常”，fail里出现的问题叫“API调用失败”
+                else {
+                    let error_code = res.data.error_code;
+                    this._show_error(error_code)
                 }
             },
             fail: (err) => {
-
+                this._show_error(1)
             }
+        })
+    }
+
+    _show_error(error_code) {
+        if (!error_code) {
+            error_code = 1
+        }
+        wx.showToast({
+            title: tips[error_code],
+            icon: 'none',
+            duration: 2000
         })
     }
 }

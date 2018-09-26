@@ -22,6 +22,7 @@ Page({
         console.log('this.data.test is ', this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
         http.request({
+            // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
             success: (res) => {
                 console.log('http data is ', res)

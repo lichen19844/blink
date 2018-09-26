@@ -7,16 +7,16 @@
 //api文档规定了所有的API发布版本均以 bl.7yue.pro/v1 开头
 export const config = {
     api_base_url: 'http://bl.7yue.pro/v1/',
-    appkey: "qNoN5PUzRYvPA9n4"
+    appkey: "qNoN5PUzRYvPA9n44"
 }
 
 // config = 2 报错 const指向了config的内存地址
 // config.appkey = 1 不报错
 
 // 当有多个外部引用时，可以写成 import {config, fun1, fun2} form '...'的形式
-export let fun1 = function() {
+// export let fun1 = function() {
 
-}
+// }
 
 // 也可以写成
 // const config = {
