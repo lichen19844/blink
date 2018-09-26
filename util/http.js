@@ -15,6 +15,7 @@ class HTTP {
         if (!params.method) {
             params.method = "GET"
         }
+        console.log('params is ', params)
         wx.request({
             // params.url是api文档中的 GET   /classic/latest
             url: config.api_base_url + params.url,
@@ -35,7 +36,7 @@ class HTTP {
                 console.log('res.statusCode is ', res.statusCode)
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
-                    params.success('res.data is ', res.data)
+                    params.success(res.data)
                 } else {
 
                 }

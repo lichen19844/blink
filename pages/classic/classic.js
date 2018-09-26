@@ -19,12 +19,12 @@ Page({
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
         // this指向了Page里面的Object
-        console.log(this.data.test);
+        console.log('this.data.test is ', this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
         http.request({
-            url: 'classic/latest?',
+            url: 'classic/latest',
             success: (res) => {
-                console.log('classic/latest is ', res)
+                console.log('http data is ', res)
             }
         });
         // node.js
@@ -39,18 +39,18 @@ Page({
         //     // console提示 'GET http://bl.7yue.pro/v1/classic/latest 401 (Unauthorized)'，代表了未授权，可以查看Network
         //     // Network下点击latest，在Preview中查看到缺少appkey的错误信息，msg:"The appkey is useless，please go to the website www.7yue.pro to apply for the appkey"
         //     // 当不写method，默认方法为get
-        //     url: 'http://bl.7yue.pro/v1/classic/latest',
+        // url: 'http://bl.7yue.pro/v1/classic/latest',
         //     // 如果不写header，appkey就要写在url中latest后面，以问号?打头
-        //     // url: 'http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz'
+        // url: 'http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz',
         //     // 加上appkey后，再次查看Network中的latest，成功获取到了服务器的数据
         //     // 之后要对访问请求做封装
-        //     header: {
-        //         appkey: "MA0OKyXMxkLNEAIz"
-        //     },
+        // header: {
+        //     appkey: "MA0OKyXMxkLNEAIz"
+        // },
         //     // res会拿到访问url后，它带有格式的数据
         //     // success: function(res) {
-        //     success: (res) => {
-        //         // console.log(res)
+        // success: (res) => {
+        //     console.log(res)
         //         console.log(this.data.test)
 
         //     }
