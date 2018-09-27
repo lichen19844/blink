@@ -5,9 +5,10 @@ Component({
     /**
      * 组件的属性列表
      */
-    // 开放在外面的组件写在properties中
+    // 开放在外面的组件数据写在properties中，以方便对数据设置属性，此例有type属性
     properties: {
         // 具体参考文档https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html
+        // type: String, 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
         like: {
             // 如果不写value, Boolean的初始值就是false
             type: Boolean,
@@ -30,8 +31,8 @@ Component({
         // 数据绑定
         // 三元表达式
         // 组件分：封装在内部，开放出来的
-        // 组件的粒度：封装简单的功能，封装复杂的功能
-        // like和count是可以开放在外部的
+        // 组件的粒度：1、封装简单的功能，2、封装复杂的功能
+        // like和count是可以开放在外部的组件数据
         // like: true,
         // count: 99,
         // yesSrc和noSrc是封闭在内部的，可写在data中
@@ -47,13 +48,16 @@ Component({
             let like = this.properties.like;
             let count = this.properties.count;
             // like为true表示当前的状态是已喜欢，点击一下结果会变成不喜欢，此时喜欢的数量count要减去1，这里的like和like的初始值无关，只看此时的状态
+            // 注意，like不是点击之后的状态，是在点击之前的状态
             count = like ? count - 1 : count + 1;
             this.setData({
                 count: count,
                 // 点击后like的状态取决于我们的需要，可以反可以不变
                 like: !like
             })
-            console.log('like event is ', event)
+
+            // event的数据是系统给的js复杂对象，而非api
+            console.log('like event数据是系统给的js复杂对象，而非api ', event)
         }
     }
 })

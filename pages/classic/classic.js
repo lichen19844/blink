@@ -40,6 +40,8 @@ Page({
             })
         })
 
+        console.log('options is ', options)
+
         // node.js
         // Promiste
         // 回调地狱，Promise可以解决
