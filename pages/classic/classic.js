@@ -33,7 +33,12 @@ Page({
         // });
 
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
-        classic.getLatest()
+        classic.getLatest((res) => {
+            console.log('classic res data is ', res)
+            this.setData({
+                res: res
+            })
+        })
 
         // node.js
         // Promiste

@@ -1,1 +1,2 @@
 <like-cmp />
+<view>{{res.title}}</view>
