@@ -47,13 +47,16 @@ Component({
         onLike: function(event) {
             let like = this.properties.like;
             let count = this.properties.count;
+            // 点击了鼠标之后，要对like取反，才能表达为【要么喜欢，要么不喜欢】； 然后count根据like的状态要么+1，要么-1
             // like为true表示当前的状态是已喜欢，点击一下结果会变成不喜欢，此时喜欢的数量count要减去1，这里的like和like的初始值无关，只看此时的状态
-            // 注意，like不是点击之后的状态，是在点击之前的状态
+            // 注意，想要在点击之后得到like取反的状态，取决于this.setData里的设置，在设置之前，无论怎么点击，这里的like是在点击之前上一次的状态
+            // 由count = like ? count - 1 : count + 1 和 this.setData 来整体解释，点击之后，like由喜欢变成了不喜欢，count要-1
             count = like ? count - 1 : count + 1;
             this.setData({
-                count: count,
+
                 // 点击后like的状态取决于我们的需要，可以反可以不变
-                like: !like
+                like: !like,
+                count: count
             })
 
             // event的数据是系统给的js复杂对象，而非api
