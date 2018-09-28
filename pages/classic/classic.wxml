@@ -1,3 +1,5 @@
 <!-- like-cmp组件中的like是properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
+<!-- 将api解析出来的数据如classic.like_status通过组件的like属性，传递到了组件的内部去，成为like属性的值 -->
 <like-cmp like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<!-- 也可以将解析的数据直接显示出来 -->
 <view>{{classic.title}}</view>

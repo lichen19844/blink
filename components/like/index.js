@@ -19,7 +19,8 @@ Component({
         },
         count: {
             // Number的初始值是0
-            type: Number
+            type: Number,
+            // value: 12
         }
 
     },

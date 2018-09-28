@@ -7,7 +7,7 @@ class ClassicModel extends HTTP {
             // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
             success: (res) => {
-                console.log('http data is ', res)
+                console.log('models http 数据 ', res)
                 sCallback(res)
             }
         })
