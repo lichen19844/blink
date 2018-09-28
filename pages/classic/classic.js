@@ -12,7 +12,10 @@ Page({
     /**
      * 页面的初始数据
      */
+    // wxml里所有的数据都是由data来决定的，即data里的数据可以被wxml使用
+    // 建议在wxml中要使用的变量，最好在data里标识一下
     data: {
+        classic: null,
         test: 1
     },
 
@@ -34,10 +37,11 @@ Page({
 
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
         classic.getLatest((res) => {
-            console.log('classic res data is ', res)
+            console.log('(http方法的res数据传递了过来)classic res data is ', res)
             this.setData({
-                res: res
+                classic: res
             })
+            console.log('setData之后的data数据 ', this.data)
         })
 
         console.log('options is ', options)

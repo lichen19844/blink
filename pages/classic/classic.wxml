@@ -1,2 +1,3 @@
-<like-cmp />
-<view>{{res.title}}</view>
+<!-- like-cmp组件中的like是properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
+<like-cmp like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<view>{{classic.title}}</view>

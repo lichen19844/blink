@@ -4,6 +4,7 @@ class ClassicModel extends HTTP {
     getLatest(sCallback) {
         // 不用http, 用this
         this.request({
+            // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
             success: (res) => {
                 console.log('http data is ', res)

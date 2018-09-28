@@ -5,7 +5,7 @@ Component({
     /**
      * 组件的属性列表
      */
-    // 开放在外面的组件数据写在properties中，以方便对数据设置属性，此例有type属性
+    // 开放在外面的组件数据写在properties中，以方便对数据设置属性，此例有type属性，可以被外部访问到，如html
     properties: {
         // 具体参考文档https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html
         // type: String, 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
@@ -27,6 +27,8 @@ Component({
     /**
      * 组件的初始数据
      */
+    // 这里的data是index.wxml私有的数据，不能从外部访问到，比如classic.wxml
+    // 在component组件里，data里的数据可以被wxml使用，properties里的数据也可以被wxml使用
     data: {
         // 数据绑定
         // 三元表达式
