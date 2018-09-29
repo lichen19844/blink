@@ -12,7 +12,8 @@ Page({
     /**
      * 页面的初始数据
      */
-    // wxml里所有的数据都是由data来决定的，即data里的数据可以被wxml使用
+    // wxml里呈现数据都是由data来决定，即data里的数据可以被wxml使用
+    // 而setData是做数据更新
     // 建议在wxml中要使用的变量，最好在data里标识一下初值，如classic: null
     data: {
         classic: null,
