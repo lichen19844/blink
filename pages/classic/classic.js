@@ -16,7 +16,7 @@ Page({
     // 建议在wxml中要使用的变量，最好在data里标识一下初值，如classic: null
     data: {
         classic: null,
-        test: 1
+        // test: 1
     },
 
     /**
@@ -25,7 +25,7 @@ Page({
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
         // this指向了Page里面的Object
-        console.log('this.data.test is ', this.data.test);
+        // console.log('this.data.test is ', this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
         // http.request({
         //     // 此处的url和success没有直接关系，只是并列的2个实参

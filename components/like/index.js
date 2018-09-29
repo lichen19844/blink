@@ -1,5 +1,5 @@
 // components/like/index.js
-// 在对应的json文件中，"component"和"usingComponents"这样的字符是固定的
+// 在对应的json文件中，"component"和"usingComponents"这样的字符是系统固定生成的
 
 Component({
     /**

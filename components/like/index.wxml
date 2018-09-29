@@ -3,6 +3,7 @@
 <view bind:tap= "onLike" class="like-container">
 <!-- 'images/like.png'是字符串，要加引号，因为src本来用的是双引号，所以字符串要用单引号 -->
 <!-- count1和count2是两个变量，不用加引号 -->
+<!-- 这里的like和count是method的setData设置到data里的，但是会被传递到组件属性的值所覆盖 -->
 <image src="{{like?yesSrc:noSrc}}" />
 <text>{{count}}</text>
 </view>
