@@ -4,4 +4,4 @@
 <text>classic.like_status is {{classic.like_status}}</text>
 <!-- 也可以将解析的数据直接显示出来 -->
 <!-- <view>{{classic.title}}</view> -->
-<movie-cmp img="{{classic.image}}"  />
+<movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
