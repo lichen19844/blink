@@ -6,6 +6,7 @@ Component({
      * 组件的属性列表
      */
     // 开放在外面的组件数据写在properties中，以方便对数据设置属性，此例有type属性，可以被外部访问到，如classic.wxml
+    // 如果在index.wxml中设置了和properties属性同名的数据，如like 和 count，那wxml中数据的值是会被外部文件传递到组件属性的值所覆盖，如classic.wxml中的like="{{classic.like_status}}" count="{{classic.fav_nums}}"
     properties: {
         // 具体参考文档https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/component.html
         // type: String, 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
@@ -17,12 +18,15 @@ Component({
 
             // }
         },
+        // 相当于
+        // like: Boolean,
         count: {
             // Number的初始值是0
             type: Number,
             // value: 12
         }
-
+        // 相当于
+        // count: Number
     },
 
     /**
@@ -40,13 +44,17 @@ Component({
         // count: 99,
         // yesSrc和noSrc是封闭在内部的，可写在data中
         yesSrc: 'images/like.png',
-        noSrc: 'images/like@dis.png'
+        noSrc: 'images/like@dis.png',
+        like: null,
+        count: null
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+        // onLike方法内部的数据在点击前是不会去影响wxml页面的数据的，这也是试验classic.wxml和index.js中组件属性为likee和counte，
+        // 而index.wxml数据和此处methods的setData数据仍为like和count，但是页面数据出错的原因，如果是非点击事件，而是直接渲染事件，则可以成功刷新
         onLike: function(event) {
             let like = this.properties.like;
             let count = this.properties.count;

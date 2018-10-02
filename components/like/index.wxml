@@ -3,7 +3,8 @@
 <view bind:tap= "onLike" class="like-container">
 <!-- 'images/like.png'是字符串，要加引号，因为src本来用的是双引号，所以字符串要用单引号 -->
 <!-- count1和count2是两个变量，不用加引号 -->
-<!-- 这里的like和count是method的setData设置到data里的，但是会被传递到组件属性的值所覆盖 -->
+<!-- 这里的like和count直接受index.js中properties（无论是初值还是被覆盖的值）和设置到data里的值的影响，而classic.wxml对组件属性的设置，只能先影响properties，再间接影响这里-->
 <image src="{{like?yesSrc:noSrc}}" />
 <text>{{count}}</text>
+<text>{{like}}</text>
 </view>

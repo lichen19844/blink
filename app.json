@@ -1,17 +1,17 @@
 {
-  "pages": [
-    "pages/classic/classic",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/classiccc/classiccc"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "礼晨的WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "default",
-    "backgroundColor": "#d80000",
-    "enablePullDownRefresh": true
-  }
+    "pages": [
+        "pages/classic/classic",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/classiccc/classiccc"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "礼晨的WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "default",
+        "backgroundColor": "#d80000",
+        "enablePullDownRefresh": true
+    }
 }
