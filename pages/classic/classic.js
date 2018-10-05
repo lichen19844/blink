@@ -79,7 +79,9 @@ Page({
     },
 
     onLike: function(event) {
-        console.log('onLike event is ', event)
+        // event的数据是系统给的js复杂对象，而非api数据
+        console.log('classic onLike event is ', event);
+        let behavior = event.detail.behavior
     },
 
     /**

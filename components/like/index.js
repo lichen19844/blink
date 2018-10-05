@@ -56,6 +56,9 @@ Component({
         // onLike方法内部的数据在点击前是不会去影响wxml页面的数据的，这也是试验classic.wxml和index.js中组件属性为likee和counte，
         // 而index.wxml数据和此处methods的setData数据仍为like和count，但是页面数据出错的原因，如果是非点击事件，而是直接渲染事件，则可以成功刷新
         onLike: function(event) {
+            // event的数据是系统给的js复杂对象，而非api数据
+            console.log('like event数据是系统给的js复杂对象，而非api ', event)
+
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
             let like = this.properties.like;
@@ -65,6 +68,7 @@ Component({
             // 注意，想要在点击之后得到like取反的状态，取决于this.setData里的设置，在设置之前，无论怎么点击，这里的like是在点击之前上一次的状态
             // 由count = like ? count - 1 : count + 1 和 this.setData 来整体解释，点击之后，like由喜欢变成了不喜欢，count要-1
             count = like ? count - 1 : count + 1;
+
             this.setData({
 
                 // 点击后like的状态取决于我们的需要，可以反可以不变
@@ -72,6 +76,7 @@ Component({
                 count: count
             })
 
+            // 激活自定义事件
             // behavior用来表示点赞或取消点赞的状态
             let behavior = this.properties.like ? 'like' : 'cancel'
 
@@ -83,8 +88,6 @@ Component({
                 behavior: behavior
             }, {})
 
-            // event的数据是系统给的js复杂对象，而非api
-            console.log('like event数据是系统给的js复杂对象，而非api ', event)
         }
     }
 })
