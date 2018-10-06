@@ -8,6 +8,7 @@ class ClassicModel extends HTTP {
             url: 'classic/latest',
             success: (res) => {
                 console.log('models http 数据 ', res)
+                    // 接收的数据是http.js中的params.success(res.data)
                 sCallback(res)
             }
         })

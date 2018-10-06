@@ -45,6 +45,7 @@ class HTTP {
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
                     params.success(res.data)
+                    console.log('params success res data is ', res.data)
                 }
                 // else里出现的问题叫“服务器异常”，fail里出现的问题叫“API调用失败”
                 else {
