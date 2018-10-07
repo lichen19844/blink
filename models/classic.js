@@ -1,3 +1,5 @@
+// classic/latest 是最新一期的期刊数据
+
 import { HTTP } from '../util/http.js'
 // 导入HTTP后有两种方式，一种是http.request的方式，一种是继承HTTP类
 class ClassicModel extends HTTP {

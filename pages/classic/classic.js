@@ -38,7 +38,7 @@ Page({
 
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
         classic.getLatest((res) => {
-            console.log('(http方法的res数据传递了过来)classic 的 res is ', res)
+            console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
             this.setData({
                 classic: res
             })
