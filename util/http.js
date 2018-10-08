@@ -50,7 +50,8 @@ class HTTP {
                     // 利用状态执行命令要写成类似这样的，let behavior = this.properties.like ? 'like' : 'cancel'
                     // if(params.success)不如下面的判断方式快捷
                     params.success && params.success(res.data);
-                    console.log('params.success is ', params.success)
+                    console.log('params.success is ', params.success);
+                    // 如果接收的是like的api，res.data会返回201状态码对应的response数据
                     console.log('params success res data is ', res.data)
                 }
                 // else里出现的问题叫“服务器异常”，fail里出现的问题叫“API调用失败”
