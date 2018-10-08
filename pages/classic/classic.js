@@ -5,7 +5,9 @@
 // import { HTTP } from '../../util/http.js'
 // let http = new HTTP()
 import { ClassicModel } from '../../models/classic.js'
-let classic = new ClassicModel()
+import { LikeModel } from '../../models/like.js'
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 
 Page({
 
@@ -37,7 +39,7 @@ Page({
         // });
 
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
-        classic.getLatest((res) => {
+        classicModel.getLatest((res) => {
             console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
             this.setData({
                 classic: res
@@ -78,10 +80,12 @@ Page({
         // })
     },
 
+    // 不需要在onLike接收回调函数的结果，所以在Model like中不需要传递success函数
     onLike: function(event) {
         // event的数据是系统给的js复杂对象，而非api数据
         console.log('classic onLike event is ', event);
-        let behavior = event.detail.behavior
+        let behavior = event.detail.behavior;
+        likeModel.like(behavior, this.data.classic.id, this.data.classic.type)
     },
 
     /**

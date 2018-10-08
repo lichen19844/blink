@@ -16,7 +16,7 @@ class HTTP {
     // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法，但在类Class下叫 【方法】
     // request(){}是定义出的方法体
     request(params) {
-        // 形参params是假设的已包含了我们访问一个api时所需要的全部参数，这里是接收 Model 即 classic.js中request的实参url, success, method 等
+        // 形参params指代了一个对象，包含了我们访问一个api时所需要的全部参数，这里是接收 Model 即 classic.js中request的实参url, success, method 等
         // 这里我们封装的是一个通用方法，是要写method的
         // 如果在classic.js中没有给method，我们在这默认给一个get
         if (!params.method) {
@@ -27,7 +27,7 @@ class HTTP {
             // params.url是api文档中的 GET   /classic/latest
             url: config.api_base_url + params.url,
             method: params.method,
-            //params.data只是作为一般情况下经常会遇到的默认data，是可以写写试试的，但在本例中实际不存在，会返回一个undefined
+            //data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
             data: params.data,
             // header中写入appkey的原因可以参考postman里2种url的写法：
             // 第一种，url中直接填入 GET  http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz
@@ -45,7 +45,12 @@ class HTTP {
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
                     // 将res.data作为实参回传
-                    params.success(res.data)
+                    // 按照顺序先判断params.success是否为空，如果为空就不执行后面的回调函数params.success(res.data)，防止报没有回调函数的错，执行下一行
+                    // 如果一行代码只写params.success本身，系统只会对它的状态进行判断真假，而不会做任何输出
+                    // 利用状态执行命令要写成类似这样的，let behavior = this.properties.like ? 'like' : 'cancel'
+                    // if(params.success)不如下面的判断方式快捷
+                    params.success && params.success(res.data);
+                    console.log('params.success is ', params.success)
                     console.log('params success res data is ', res.data)
                 }
                 // else里出现的问题叫“服务器异常”，fail里出现的问题叫“API调用失败”
