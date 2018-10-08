@@ -5,7 +5,15 @@ Component({
      */
     // 小程序会对properties做特殊处理，会给属性一个默认值，对data则没有
     properties: {
-        index: Number
+        index: {
+            type: Number,
+            // value: '7',
+            observer: function(newVal, oldVar, changePath) {
+                console.log('newVal is ', newVal)
+                console.log('oldVar is ', oldVar)
+                console.log('changePath is ', changePath)
+            }
+        }
     },
 
     /**
