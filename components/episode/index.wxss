@@ -1,1 +1,39 @@
 /* components/episode/index.wxss */
+
+
+/* 组件里不能用带#字的id选择器 */
+
+.episode-container {
+    /* height是根据{{_index}}的字体高度来定的 */
+    height: 60rpx;
+    /* inline-flex 参考 http://www.php.cn/css-tutorial-362740.html */
+    display: inline-flex;
+    flex-direction: row;
+    border: 1px solid;
+}
+
+.index-container {
+    display: flex;
+    flex-direction: row;
+    /* baseline保证容器内3个标签内容的底是一致对齐的 */
+    align-items: baseline;
+    border: 1px solid;
+}
+
+.plain {
+    font-size: 32rpx;
+}
+
+.index {
+    font-size: 60rpx;
+    line-height: 60rpx;
+    font-weight: 800;
+    margin-right: 14rpx;
+}
+
+.line {
+    height: 44rpx;
+    border-left: 1px solid black;
+    margin-right: 14rpx;
+    margin-bottom: 2rpx;
+}
