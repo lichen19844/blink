@@ -23,7 +23,7 @@ Component({
                     //         index: '0' + newVal
                     //     })
                 this.setData({
-                    // 不要改变属性的值，而是改变data下变量的值
+                    // 不要改变属性的值，而是改变data下变量的值，从而不再次惊动observer
                     // index: val
                     _index: val
                 })

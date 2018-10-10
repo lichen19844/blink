@@ -6,7 +6,9 @@
     display: inline-flex;
     flex-direction: row;
     padding: 10rpx;
-    width: 190rpx;
+    width: 150rpx;
+    border: 1px solid;
+    border-right: 2px solid red;
 }
 
 
