@@ -13,3 +13,4 @@
 
 <!-- <view>{{classic.title}}</view> -->
 <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
+<navi-cmp />
