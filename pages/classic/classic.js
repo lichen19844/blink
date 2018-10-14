@@ -20,6 +20,9 @@ Page({
     data: {
         classic: null,
         // test: 1
+        // 由getLatest可以确定这里的latest初值一定为true
+        latest: true,
+        first: false
     },
 
     /**

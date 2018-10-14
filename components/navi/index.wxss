@@ -9,6 +9,7 @@
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    /* center 垂直居中 */    
     align-items: center;
 }
 

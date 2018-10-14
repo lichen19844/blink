@@ -1,16 +1,18 @@
-<view class="episode-header">
-    <episode-cmp class="episode" index="{{classic.index}}" />
-    <!-- like-cmp组件中的like是properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
-    <!-- 将api解析出来的数据如classic.like_status通过设置到like-cmp组件的like属性，传递到了组件的内部去(index.js)，成为properties中like属性的值，会覆盖原来的初值 -->
-    <!-- 1、bind:like="onLike"是个自定义事件，因为写在like-cmp内，首先会先去like组件的index.js中寻找具有自定义特征的triggerEvent，确定事件名、detail对象和事件选项，此处的detail对象为{behavior:behavior}，behavior是一个状态 -->
-    <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
-    <!-- 3、紧接着将behavior状态变成专门处理数据的Model like中like方法的一个实参，待进一步处理 -->
-    <!-- 4、再由上述like方法拿到的behavior状态来确定要传入http.js中request实参对象里的url -->
-    <like-cmp class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
-    <!-- <text>classic.like_status is {{classic.like_status}}</text> -->
-    <!-- 也可以将解析的数据直接显示出来 -->
-</view>
+<view class="classic-container">
+    <view class="episode-header">
+        <episode-cmp class="episode" index="{{classic.index}}" />
+        <!-- like-cmp组件中的like是properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
+        <!-- 将api解析出来的数据如classic.like_status通过设置到like-cmp组件的like属性，传递到了组件的内部去(index.js)，成为properties中like属性的值，会覆盖原来的初值 -->
+        <!-- 1、bind:like="onLike"是个自定义事件，因为写在like-cmp内，首先会先去like组件的index.js中寻找具有自定义特征的triggerEvent，确定事件名、detail对象和事件选项，此处的detail对象为{behavior:behavior}，behavior是一个状态 -->
+        <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
+        <!-- 3、紧接着将behavior状态变成专门处理数据的Model like中like方法的一个实参，待进一步处理 -->
+        <!-- 4、再由上述like方法拿到的behavior状态来确定要传入http.js中request实参对象里的url -->
+        <like-cmp class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+        <!-- <text>classic.like_status is {{classic.like_status}}</text> -->
+        <!-- 也可以将解析的数据直接显示出来 -->
+    </view>
 
-<!-- <view>{{classic.title}}</view> -->
-<movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
-<navi-cmp />
+    <!-- <view>{{classic.title}}</view> -->
+    <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
+    <navi-cmp class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
+</view>

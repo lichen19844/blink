@@ -1,4 +1,13 @@
+.classic-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .episode-header {
+    /* 当元素需要占满整个屏幕，设置width为100% */
+    width: 100%;
     display: flex;
     flex-direction: row;
     height: 100rpx;
@@ -17,4 +26,10 @@
 
 .like {
     margin-top: 6rpx;
+}
+
+.navi{
+    /* 到底部设置绝对高度 */
+    position: absolute;
+    bottom: 40rpx;
 }
