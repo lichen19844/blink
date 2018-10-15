@@ -25,6 +25,13 @@ Component({
      * Component methods
      */
     methods: {
+        onLeft: function(event){
+            this.triggerEvent('left', {}, {})
+        },
+
+        onRight: function(event){
+            this.triggerEvent('right', {}, {})
+        }
 
     }
 })

@@ -53,7 +53,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        // onLike方法内部的数据在点击前是不会去影响wxml页面的数据的，这也是试验classic.wxml和index.js中组件属性为likee和counte，
+        // onLike方法内部的数据在点击前是不会去影响wxml页面的数据的，这也是试验classic.wxml和index.js中组件属性为like和count，
         // 而index.wxml数据和此处methods的setData数据仍为like和count，但是页面数据出错的原因，如果是非点击事件，而是直接渲染事件，则可以成功刷新
         onLike: function(event) {
             // event的数据是系统给的js复杂对象，而非api数据
