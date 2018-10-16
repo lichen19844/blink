@@ -26,11 +26,16 @@ Component({
      */
     methods: {
         onLeft: function(event){
-            this.triggerEvent('left', {}, {})
+            // 如果不是最新一期，则触发事件
+            if(!this.properties.latest){
+                this.triggerEvent('left', {}, {})
+            }
         },
 
         onRight: function(event){
-            this.triggerEvent('right', {}, {})
+            if(!this.properties.first){
+                this.triggerEvent('right', {}, {})
+            }
         }
 
     }

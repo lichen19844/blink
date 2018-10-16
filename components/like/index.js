@@ -61,6 +61,7 @@ Component({
 
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
+            // this.properties.like和this.properties.count，可以写成this.data.like和this.data.count
             let like = this.properties.like;
             let count = this.properties.count;
             // 点击了鼠标之后，要对like取反，才能表达为【要么喜欢，要么不喜欢】； 然后count根据like的状态要么+1，要么-1
@@ -78,6 +79,9 @@ Component({
 
             // 激活自定义事件
             // behavior用来表示点赞或取消点赞的状态
+            // 如果'cancel'改写成'like/cancel'， Model like里只要写let url = behavior;即可
+            // 在小程序的组件中，properties和data两个对象内的数据最终会合并，这样在访问properties或data时，都会指向同一个js对象合集
+            // this.properties.like可以写成this.data.like
             let behavior = this.properties.like ? 'like' : 'cancel'
 
             // triggerEvent通过tis来调用，它接收3个参数，

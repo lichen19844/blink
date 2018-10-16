@@ -14,5 +14,5 @@
 
     <!-- <view>{{classic.title}}</view> -->
     <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
-    <navi-cmp class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
+    <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
 </view>
