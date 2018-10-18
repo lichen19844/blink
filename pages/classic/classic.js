@@ -87,7 +87,7 @@ Page({
     // 此处的onLike和index.js中的onLike不一样
     onLike: function(event) {
         // event的数据是系统给的js复杂对象，而非api数据
-        console.log('classic onLike event is ', event);
+        console.log('class event的数据是系统给的js复杂对象，而非api数据，注意此时event的detail中接收到了triggerEvent绑定的信息behavior ', event);
         let behavior = event.detail.behavior;
         likeModel.like(behavior, this.data.classic.id, this.data.classic.type)
     },

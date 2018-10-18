@@ -57,7 +57,7 @@ Component({
         // 而index.wxml数据和此处methods的setData数据仍为like和count，但是页面数据出错的原因，如果是非点击事件，而是直接渲染事件，则可以成功刷新
         onLike: function(event) {
             // event的数据是系统给的js复杂对象，而非api数据
-            console.log('like event数据是系统给的js复杂对象，而非api ', event)
+            console.log('like event数据是系统给的js复杂对象，而非api，注意detail中此时没有需传递信息 ', event);
 
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
@@ -90,7 +90,10 @@ Component({
             // 第三个参数一般不需要使用，只能使用指定参数
             this.triggerEvent('like', {
                 behavior: behavior
-            }, {})
+            }, {});
+
+            console.log('Component like 用 this 指代，但是证明了triggerEvent不在this之下，是个系统自带的函数，将like里需绑定的event，通过传递系统自带detail，传到class的系统event的detail中 ', this)
+
 
         }
     }
