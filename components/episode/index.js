@@ -49,6 +49,7 @@ Component({
         _index: ''
     },
 
+    // Component的生命周期函数attached的作用，相当于页面Page({})中的onLoad
     attached: function() {
         console.log('attached typeof(Number) is ', typeof(Number));
         console.log('attached Number is ', Number);
@@ -57,6 +58,7 @@ Component({
         console.log('attached properties is ', this.properties);
         console.log('attached data is ', this.data);
         // 相关JS Date对象的参考 http://www.w3school.com.cn/jsref/jsref_obj_date.asp
+        // Date、getFullYear、getMonth等都是 Date 对象方法
         let date = new Date();
         console.log('date is ', date)
         let year = date.getFullYear()
