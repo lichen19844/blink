@@ -26,13 +26,14 @@ Component({
      */
     methods: {
         onLeft: function(event){
-            // 如果不是最新一期，则触发事件
+            // 如果不是最新一期，才触发事件
             if(!this.properties.latest){
                 this.triggerEvent('left', {}, {})
             }
         },
 
         onRight: function(event){
+            // 如果不是第一期，才触发事件
             if(!this.properties.first){
                 this.triggerEvent('right', {}, {})
             }

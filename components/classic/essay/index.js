@@ -1,4 +1,4 @@
-// components/classic/music/index.js
+// components/classic/essay/index.js
 Component({
   /**
    * Component properties
@@ -12,9 +12,7 @@ Component({
    * Component initial data
    */
   data: {
-    // 把图片的路径变成js变量
-    pauseSrc: 'images/player@waitting.png',
-    playSrc: 'images/player@playing.png'
+
   },
 
   /**
