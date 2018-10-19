@@ -1,4 +1,11 @@
+// 以下等效let classicBeh = Behavior({})，但是要去掉 export {classicBeh}
+// export default Behavior({
+// module.exports = Behavior({
+
 let classicBeh = Behavior({
+    // 这里可以完全不写，也可以用空数组
+    behaviors: [],
+
     properties: {
         img: String,
         content: String
