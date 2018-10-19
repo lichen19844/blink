@@ -84,7 +84,7 @@ Component({
             // this.properties.like可以写成this.data.like
             let behavior = this.properties.like ? 'like' : 'cancel'
 
-            // triggerEvent通过tis来调用，它接收3个参数，
+            // triggerEvent通过this来调用，它接收3个参数，
             // 第一个参数是字符串，是自定义事件的名称，比如'like',  后两个是js对象
             // 第二个参数通常用来接收我们自己定义的属性，比如behavior
             // 第三个参数一般不需要使用，只能使用指定参数

@@ -84,7 +84,7 @@ Page({
     },
 
     // 不需要在onLike接收回调函数的结果，所以在Model like中不需要传递success函数
-    // 此处的onLike和index.js中的onLike不一样
+    // 此处的onLike和like的index.js中的onLike不一样，也没有直接关联，不会获取到index.js中onLike的动作过程，只依赖其中的triggerEvent
     onLike: function(event) {
         // event的数据是系统给的js复杂对象，而非api数据
         console.log('class event的数据是系统给的js复杂对象，而非api数据，注意此时event的detail中接收到了triggerEvent绑定的信息behavior ', event);
