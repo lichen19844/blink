@@ -13,6 +13,7 @@ class ClassicModel extends HTTP {
                 console.log('models http 数据 ', res)
                     // 接收的数据是http.js中的params.success(res.data)
                 sCallback(res)
+                this._setLatestIndex(res.index)
             }
         })
     }
@@ -34,6 +35,10 @@ class ClassicModel extends HTTP {
 
     isLatest(){
         return index == 8 ? true: false
+    }
+
+    _setLatestIndex(index){
+        wx.setStorageSync('latest', index)
     }
 }
 
