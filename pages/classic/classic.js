@@ -49,6 +49,10 @@ Page({
             })
             console.log('由classic指代res的数据', this.data.classic)
             console.log('setData之后的data数据 ', this.data)
+            // 此小程序首页默认为latest页面，故这个页面的onLoad所拿到的classic数据我们将其看成是latestClassic
+            // 而由onPrevious所拿到的classic数据我们将其看成是currentClassic
+            // latestClassic latestIndex   currentClassic currentIndex
+            // 运用比较思维，通过比对currentIndex是否等于latestIndex，来确认currentClassic数据是否是当前最新的期刊
         })
 
         console.log('options is ', options)
@@ -97,7 +101,15 @@ Page({
     },
 
     onPrevious: function(event){
-
+        // first、latest的取值变量和classic数据中的index有紧密联系
+        let index = this.data.classic.index;
+        classicModel.getPrevious(index, (res) => {
+            console.log('Previous data is ', res)
+            this.setData({
+                // 更新data里的数据
+                classic: res
+            })
+        })
     },
 
     /**

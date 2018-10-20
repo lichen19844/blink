@@ -19,12 +19,21 @@ class ClassicModel extends HTTP {
 
     getPrevious(index, sCallback){
         this.request({
+            // 这个api规定的语句引起了页面数据的变化
             // url: 'classic/<int:index>/previous',
             url: 'classic/' + index + '/previous',
             success: function(res){
                 sCallback(res)
             }
         })
+    }
+
+    isFirst(){
+        return index == 1 ? true: false
+    }
+
+    isLatest(){
+        return index == 8 ? true: false
     }
 }
 
