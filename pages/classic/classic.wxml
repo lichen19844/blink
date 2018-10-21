@@ -3,6 +3,7 @@
         <episode-cmp class="episode" index="{{classic.index}}" />
         <!-- like-cmp组件中的like是其组件内部properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
         <!-- 将api解析出来的数据如classic.like_status通过设置到like-cmp组件的like属性，传递到了组件的内部去(index.js)，成为properties中like属性的值，会覆盖原来的初值 -->
+        <!-- 点击’喜欢‘图标的瞬间，首先只会激活like组件中 index.js的onLike事件，然后由triggerEvent关联到classic.js中的onLike事件，detail数据的传递过程如下： -->
         <!-- 1、bind:like="onLike"是个自定义事件，因为写在like-cmp内，首先会先去like组件的index.js中寻找具有自定义特征的triggerEvent，确定【事件名、detail对象和事件选项】，此处的detail对象为{behavior:behavior}，behavior是一个状态 -->
         <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
         <!-- 3、紧接着将behavior状态变成专门处理数据的Model like中like方法的一个实参，待进一步处理 -->
@@ -16,5 +17,6 @@
     <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
     <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->
     <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->
+    <!-- 点击右箭头的时候，看似点击的是onPrevious，实际点击瞬间先触发的是navi组件<image bind:tap="onRight">，而后由triggerEvent才关联到了onPrevious -->
     <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
 </view>

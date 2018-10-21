@@ -97,16 +97,46 @@ Page({
     },
 
     onNext: function(event){
-
+        // // first、latest的取值变量和classic数据中的index有紧密联系
+        // let index = this.data.classic.index;
+        // // 当前页的index值决定了res的数据
+        // classicModel.getNext(index, (res) => {
+        //     console.log('Previous data is ', res)
+        //     this.setData({
+        //         // 通过回调sCallback(res)更新data里的数据，res.index是更新后的index
+        //         classic: res,
+        //         latest: classicModel.isLatest(res.index),
+        //         first: classicModel.isFirst(res.index)
+        //     })
+        // })
+        this._updateClassic('next')
     },
 
     onPrevious: function(event){
+        // // first、latest的取值变量和classic数据中的index有紧密联系
+        // let index = this.data.classic.index;
+        // // 当前页的index值决定了res的数据
+        // classicModel.getPrevious(index, (res) => {
+        //     console.log('Previous data is ', res)
+        //     this.setData({
+        //         // 通过回调sCallback(res)更新data里的数据，res.index是更新后的index
+        //         classic: res,
+        //         latest: classicModel.isLatest(res.index),
+        //         first: classicModel.isFirst(res.index)
+        //     })
+        // })
+        this._updateClassic('previous')
+    },
+
+    // 私有函数一般放在整个JS代码的最下部
+    _updateClassic: function(nextOrPrevious){
         // first、latest的取值变量和classic数据中的index有紧密联系
         let index = this.data.classic.index;
-        classicModel.getPrevious(index, (res) => {
+        // 当前页的index值决定了res的数据
+        classicModel.getClassic(index, nextOrPrevious, (res) => {
             console.log('Previous data is ', res)
             this.setData({
-                // 更新data里的数据
+                // 通过回调sCallback(res)更新data里的数据，res.index是更新后的index
                 classic: res,
                 latest: classicModel.isLatest(res.index),
                 first: classicModel.isFirst(res.index)

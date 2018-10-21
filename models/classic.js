@@ -5,7 +5,7 @@ import { HTTP } from '../util/http.js'
 // 导入HTTP后有两种方式，一种是http.request的方式，一种是继承HTTP类
 class ClassicModel extends HTTP {
     getLatest(sCallback) {
-        // 不用http, 用this，调用http.js中的request方法
+        // 继承了HTTP后,用this指代http，来调用http.js中的request方法
         this.request({
             // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
@@ -18,7 +18,20 @@ class ClassicModel extends HTTP {
         })
     }
 
+    getClassic(index, nextOrPrevious, sCallback){
+        // 继承了HTTP后,用this指代http，来调用http.js中的request方法
+        this.request({
+            // 这个api规定的语句引起了页面数据的变化
+            // url: 'classic/<int:index>/previous',
+            url: 'classic/' + index + '/' + nextOrPrevious,
+            success: function(res){
+                sCallback(res)
+            }
+        })
+    }
+
     getPrevious(index, sCallback){
+        // 继承了HTTP后,用this指代http，来调用http.js中的request方法
         this.request({
             // 这个api规定的语句引起了页面数据的变化
             // url: 'classic/<int:index>/previous',
@@ -27,6 +40,17 @@ class ClassicModel extends HTTP {
                 sCallback(res)
             }
         })
+    }
+
+    getNext(index, sCallback){
+        this.request({
+            // 这个api规定的语句引起了页面数据的变化
+            // url: 'classic/<int:index>/previous',
+            url: 'classic/' + index + '/next',
+            success: function(res){
+                sCallback(res)
+            }
+        })        
     }
 
     isFirst(index){
