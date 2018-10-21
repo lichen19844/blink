@@ -1,7 +1,7 @@
 <view class="classic-container">
     <view class="episode-header">
         <episode-cmp class="episode" index="{{classic.index}}" />
-        <!-- like-cmp组件中的like是properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
+        <!-- like-cmp组件中的like是其组件内部properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
         <!-- 将api解析出来的数据如classic.like_status通过设置到like-cmp组件的like属性，传递到了组件的内部去(index.js)，成为properties中like属性的值，会覆盖原来的初值 -->
         <!-- 1、bind:like="onLike"是个自定义事件，因为写在like-cmp内，首先会先去like组件的index.js中寻找具有自定义特征的triggerEvent，确定【事件名、detail对象和事件选项】，此处的detail对象为{behavior:behavior}，behavior是一个状态 -->
         <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
@@ -14,5 +14,7 @@
 
     <!-- <view>{{classic.title}}</view> -->
     <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
+    <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->
+    <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->
     <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
 </view>

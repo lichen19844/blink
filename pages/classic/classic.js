@@ -107,7 +107,9 @@ Page({
             console.log('Previous data is ', res)
             this.setData({
                 // 更新data里的数据
-                classic: res
+                classic: res,
+                latest: classicModel.isLatest(res.index),
+                first: classicModel.isFirst(res.index)
             })
         })
     },
