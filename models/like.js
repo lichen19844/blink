@@ -10,12 +10,20 @@ class LikeModel extends HTTP {
         this.request({
             url: url,
             method: 'POST',
-            // data是向服务器提交的数据，是请求的参数，这里的数据是url对应的parameters:art_id和type
+            // data是向服务器提交的数据，将期刊的指定数据按所调api要求的格式存储，服务器保存后，该期刊页面的like状态和数量将会被服务器保存，除非再次点击改变数据
             data: {
                 art_id: artID,
                 type: category
             }
-            // 不需要在classic.js的onLike方法接收回调函数的结果，所以在Model like中不需要传递success函数
+            // ❤️不需要在classic.js的onLike方法接收success回调函数的结果，因为post提交了data数据，使得服务器记住了当页期刊的like状态和数据，所以在Model like中也就不需要传递success函数
+            // ❤️如果不把动态的点赞状态传到服务器，我们只要销毁当前页面（刷新，重启，翻页等再回来到当前页）都会恢复默认的onLoad状态
+        })
+    }
+
+    getClassicLikeStatus(artID, category, sCallback){
+        this.request({
+            url: 'classic' + category + artID + '/favor',
+            success: sCallback
         })
     }
 }

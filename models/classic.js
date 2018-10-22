@@ -5,10 +5,11 @@ import { HTTP } from '../util/http.js'
 // 导入HTTP后有两种方式，一种是http.request的方式，一种是继承HTTP类
 class ClassicModel extends HTTP {
     getLatest(sCallback) {
-        // 继承了HTTP后,用this指代http，来调用http.js中的request方法
+        // 继承了HTTP后,用this指代http，来调用http.js中的request(params)方法
         this.request({
             // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
+            // 实际就是success(res){拿到res做任何事}函数
             success: (res) => {
                 console.log('models http 数据 ', res);
                 // 接收的数据是http.js中的params.success(res.data)

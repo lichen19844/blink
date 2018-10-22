@@ -27,7 +27,7 @@ class HTTP {
             // params.url是api文档中的 GET   /classic/latest
             url: config.api_base_url + params.url,
             method: params.method,
-            //data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
+            //❤️data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
             data: params.data,
             // header中写入appkey的原因可以参考postman里2种url的写法：
             // 第一种，url中直接填入 GET  http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz
