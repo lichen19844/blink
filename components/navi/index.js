@@ -33,7 +33,7 @@ Component({
         },
 
         onRight: function(event){
-            // 如果不是第一期，才触发事件
+            // 如果不是第一期，才能触发事件，properties.first会追溯到classic.wxml中的navi-cmp，再追溯到对应classic.js的当前最新的first值
             if(!this.properties.first){
                 this.triggerEvent('right', {}, {})
             }

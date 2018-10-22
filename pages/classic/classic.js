@@ -109,6 +109,7 @@ Page({
         //         first: classicModel.isFirst(res.index)
         //     })
         // })
+        // 'next'是看了API文档结合了人的意图而设定的
         this._updateClassic('next')
     },
 
@@ -125,18 +126,21 @@ Page({
         //         first: classicModel.isFirst(res.index)
         //     })
         // })
+        // 'previous'是看了API文档结合了人的意图而设定的
         this._updateClassic('previous')
     },
 
     // 私有函数一般放在整个JS代码的最下部
+    // ❤️nextOrPrevious代替了默认event，常见的函数默认形参有event, options, res, error，我们在设置形参的时候，要多console.log打印看看有没有可能我们要使用的值，其次在想是否要人为添加有目的的形参
     _updateClassic: function(nextOrPrevious){
-        // first、latest的取值变量和classic数据中的index有紧密联系
+        // this.data.classic取决于onLoad函数
         let index = this.data.classic.index;
-        // 当前页的index值决定了res的数据
+        // ❤️当前页的index值决定了res的数据，(res)=>{拿着res想干嘛就干嘛}这种形参设置的方式很聪明，不用在这边操心设置，而是将原本应设置实参的活交给了参数本体所对应的调用函数，捕获接收由其他函数或其他来源的实参
         classicModel.getClassic(index, nextOrPrevious, (res) => {
             console.log('Previous data is ', res)
             this.setData({
                 // 通过回调sCallback(res)更新data里的数据，res.index是更新后的index
+                // first、latest的取值变量和classic数据中的index有紧密联系
                 classic: res,
                 latest: classicModel.isLatest(res.index),
                 first: classicModel.isFirst(res.index)
