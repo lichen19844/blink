@@ -30,6 +30,10 @@ Page({
      */
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
+        let a = 123;
+        console.log('模板字符串使用变量', `${a}456`);
+        console.log('模板字符串使用函数', `${this.testModelString()}4567`)
+    
         // this指向了Page里面的Object
         // console.log('this.data.test is ', this.data.test);
         // 调用http.request函数，将实参传给http.js中的request函数体
@@ -85,6 +89,10 @@ Page({
 
         //     }
         // })
+    },
+
+    testModelString: function(){
+        return 123
     },
 
     // 不需要在onLike接收回调函数的结果，所以在Model like中不需要传递success函数

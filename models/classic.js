@@ -35,7 +35,9 @@ class ClassicModel extends HTTP {
             this.request({
                 // 这个api规定的语句引起了页面数据的变化
                 // url: 'classic/<int:index>/previous',在设置的时候<int:index>的写法要转化为index
-                url: 'classic/' + index + '/' + nextOrPrevious,
+                // url: 'classic/' + index + '/' + nextOrPrevious,
+                // 使用模板字符串
+                url: `classic/${index}/${nextOrPrevious}`,
                 success: (res) => {
                     // 把当前请求到的数据写到缓存中，为以后直接读取缓存做准备
                     wx.setStorageSync(this._getKey(res.index), res)
