@@ -50,6 +50,8 @@ Page({
             console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
             this.setData({
                 classic: res
+                // 扩展运算符...
+                // ...res
             })
             console.log('由classic指代res的数据', this.data.classic)
             console.log('setData之后的data数据 ', this.data)
