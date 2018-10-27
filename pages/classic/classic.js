@@ -22,7 +22,10 @@ Page({
         // test: 1
         // 由getLatest可以确定这里的latest初值一定为true
         latest: true,
-        first: false
+        first: false,
+        // 把和喜欢有关的变量独立起来
+        likeCount: 0,
+        likeStatus: false
     },
 
     /**
@@ -48,10 +51,13 @@ Page({
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
         classicModel.getLatest((res) => {
             console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
+            // this._getLikeStatus(res.id, res.type) //会多请求一次服务器数据，不是很好
             this.setData({
-                classic: res
+                classic: res,
                 // 扩展运算符...
                 // ...res
+                likeCount: res.fav_nums,
+                likeStatus: res.like_status                
             })
             console.log('由classic指代res的数据', this.data.classic)
             console.log('setData之后的data数据 ', this.data)
@@ -148,12 +154,23 @@ Page({
         // ❤️当前页的index值决定了res的数据，(res)=>{拿着res想干嘛就干嘛}这种形参设置的方式很聪明，不用在这边操心设置，而是将原本应设置实参的活交给了参数本体所对应的调用函数，捕获接收由其他函数或其他来源的实参
         classicModel.getClassic(index, nextOrPrevious, (res) => {
             console.log('Previous data is ', res)
+            // 独立更新like组件状态
+            this._getLikeStatus(res.id, res.type)
             this.setData({
                 // 通过回调sCallback(res)更新data里的数据，res.index是更新后的index
                 // first、latest的取值变量和classic数据中的index有紧密联系
                 classic: res,
                 latest: classicModel.isLatest(res.index),
                 first: classicModel.isFirst(res.index)
+            })
+        })
+    },
+
+    _getLikeStatus: function(artID, category){
+        likeModel.getClassicLikeStatus(artID, category, (res)=>{
+            this.setData({
+                likeCount: res.fav_nums,
+                likeStatus: res.like_status
             })
         })
     },

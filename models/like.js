@@ -22,7 +22,8 @@ class LikeModel extends HTTP {
 
     getClassicLikeStatus(artID, category, sCallback){
         this.request({
-            url: 'classic' + category + artID + '/favor',
+            url: `classic/${category}/${artID}/favor`,
+            // ❤️success:sCallback，这样的【属性：赋值】形式并不是函数体success: function(res) {}的样子，也没有res这个形参，故不能写成success: sCallback(res)，所以params.success(res.data)会一直追溯到class.js的likeModel.getClassicLikeStatus(artID, category, (res)=>{}
             success: sCallback
         })
     }

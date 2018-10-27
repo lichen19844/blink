@@ -38,6 +38,8 @@ class ClassicModel extends HTTP {
                 // url: 'classic/' + index + '/' + nextOrPrevious,
                 // 使用模板字符串
                 url: `classic/${index}/${nextOrPrevious}`,
+                // ❤️params.success(res.data)会调用函数success: function(res) {}，相当于执行了success(res)，而这里的【属性：赋值】形式【success: (res) =>{}】就相当于一个函数体，形参res会拿到传递过来的实参res.data，然后被sCallback(res)接收、执行
+                // ❤️而like.js这个Model中的是success:sCallback，这样的【属性：赋值】形式并不是函数体的样子，也没有res这个形参，故不能写成success: sCallback(res)
                 success: (res) => {
                     // 把当前请求到的数据写到缓存中，为以后直接读取缓存做准备
                     wx.setStorageSync(this._getKey(res.index), res)

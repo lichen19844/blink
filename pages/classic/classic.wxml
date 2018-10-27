@@ -8,7 +8,8 @@
         <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
         <!-- 3、紧接着将behavior状态变成专门处理数据的Model like中like方法的一个实参，待进一步处理 -->
         <!-- 4、再由上述like方法拿到的behavior状态来确定要传入http.js中request实参对象里的url -->
-        <like-cmp class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+        <!-- 使用独立变量后，就不再写成like="{{classic.like_status}}" count="{{classic.fav_nums}}"  -->
+        <like-cmp class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
         <!-- <text>classic.like_status is {{classic.like_status}}</text> -->
         <!-- 也可以将解析的数据直接显示出来 -->
     </view>
