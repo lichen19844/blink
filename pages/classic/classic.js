@@ -33,6 +33,7 @@ Page({
      */
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
+        // 实验模板字符串
         let a = 123;
         console.log('模板字符串使用变量', `${a}456`);
         console.log('模板字符串使用函数', `${this.testModelString()}4567`)
@@ -51,11 +52,12 @@ Page({
         // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接处理数据给return
         classicModel.getLatest((res) => {
             console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
-            // this._getLikeStatus(res.id, res.type) //会多请求一次服务器数据，不是很好
+            // this._getLikeStatus(res.id, res.type) //会多请求一次服务器数据，不是很好，getLatest的时候已经包含了更新后的favor
             this.setData({
                 classic: res,
                 // 扩展运算符...
                 // ...res
+                // 使用独立变量
                 likeCount: res.fav_nums,
                 likeStatus: res.like_status                
             })
@@ -98,7 +100,7 @@ Page({
         //     }
         // })
     },
-
+    // 实验模板字符串
     testModelString: function(){
         return 123
     },

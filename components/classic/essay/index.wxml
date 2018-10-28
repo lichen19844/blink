@@ -1,6 +1,7 @@
 <!--components/classic/essay/index.wxml-->
 <view class="classic-container">
     <!-- 大图来源于服务器，是外部数据，logo型的小图片是内部数据，文字也是外部服务器的数据 -->
+    <!-- {{img}}和{{content}}是相应index.js中的properties参数 -->
     <image class="classic-img" src="{{img}}" />
     <image class="tag" src="images/essay@tag.png" />
     <text class="content">{{content}}</text>
