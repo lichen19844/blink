@@ -18,6 +18,7 @@
     <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
     <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->
     <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->
+    
     <!-- 点击右箭头的时候，看似点击的是onPrevious，实际点击瞬间先触发的是navi组件<image bind:tap="onRight">，而后由triggerEvent才关联到了onPrevious -->
     <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
 </view>
