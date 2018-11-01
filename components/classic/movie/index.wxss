@@ -1,29 +1,3 @@
 /* components/classic/movie/index.wxss */
 
-.classic-container {
-    display: flex;
-    flex-direction: column;
-    /* 围绕column竖直方向的中轴线两边对称 */
-    /* 如果是row，则围绕水平方向的中轴线两边对称 */
-    align-items: center;
-}
-
-.classic-img {
-    width: 750rpx;
-    height: 500rpx;
-}
-
-.tag {
-    width: 46rpx;
-    height: 142rpx;
-    /* position和right等会受align-items的影响 */
-    position: relative;
-    right: 310rpx;
-    bottom: 58rpx;
-}
-
-.content {
-    font-size: 36rpx;
-    /* max-width在一定范围内会自适应宽度 */
-    max-width: 500rpx;
-}
+@import "../common.wxss";

@@ -1,5 +1,6 @@
 <!--components/classic/movie/index.wxml-->
-<view class="classic-container">
+<!-- hidden="{{hidden}}"中第一个hidden是条件渲染hidden，第二个hidden是自定义的properties属性 -->
+<view hidden="{{hidden}}" class="classic-container">
     <!-- 大图来源于服务器，是外部数据，logo型的小图片是内部数据，文字也是外部服务器的数据 -->
     <!-- {{img}}和{{content}}是相应index.js中的properties参数 -->
     <image class="classic-img" src="{{img}}" />

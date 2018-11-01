@@ -15,10 +15,12 @@
     </view>
 
     <!-- <view>{{classic.title}}</view> -->
-    <movie-cmp img="{{classic.image}}" content="{{classic.content}}" />
+    <!-- 自定义组件可以使用wx:if，但不直接支持条件渲染hidden，需要通过properties自定义一个属性变通一下，这里仍然取hidden -->
+    <movie-cmp hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <music-cmp hidden="{{classic.type!=200}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <essay-cmp hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}" />
     <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->
-    <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->
-    
+    <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->    
     <!-- 点击右箭头的时候，看似点击的是onPrevious，实际点击瞬间先触发的是navi组件<image bind:tap="onRight">，而后由triggerEvent才关联到了onPrevious -->
     <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
 </view>
