@@ -18,8 +18,8 @@ Component({
    */
   data: {
     // 把图片的路径变成js变量
-    pauseSrc: 'images/player@waitting.png',
-    playSrc: 'images/player@playing.png'
+    pauseSrc: 'images/player@pause.png',
+    playSrc: 'images/player@play.png'
   },
 
   /**

@@ -22,3 +22,12 @@
     bottom: 270rpx;
     border: 1px solid;
 }
+
+.tag{
+    width: 44rpx;
+    height: 128rpx;
+    position: relative;
+    bottom: 160rpx;
+    right: 310rpx;
+    border: 1px solid;
+}
