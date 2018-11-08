@@ -2,6 +2,9 @@
 
 import {classicBeh} from '../classic-beh.js';
 
+// 定义一个变量，作为音乐管理对象的方法
+const mMgr = wx.getBackgroundAudioManager();
+
 Component({
   /**
    * Component properties
@@ -33,6 +36,8 @@ Component({
       this.setData({
         playing: true
       })
+      // 默认为空字符串，当设置了新的 src 时，会自动开始播放
+      mMgr.src = this.properties.src
     }
   }
 })
