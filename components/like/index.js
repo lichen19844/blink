@@ -61,11 +61,11 @@ Component({
 
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
-            // this.properties.like和this.properties.count，可以写成this.data.like和this.data.count
+            // this.properties.like和this.properties.count，也可以写成this.data.like和this.data.count
             let like = this.properties.like;
             let count = this.properties.count;
             // 点击了鼠标之后，要对like取反，才能表达为【要么喜欢，要么不喜欢】； 然后count根据like的状态要么+1，要么-1
-            // like为true表示当前的状态是已喜欢，点击一下结果会变成不喜欢，此时喜欢的数量count要减去1，这里的like和like的初始值无关，只看此时的状态
+            // ❤️like为true表示当前的状态是已喜欢，点击一下结果会变成不喜欢，此时喜欢的数量count要减去1，这里的like和like的初始值无关，只看此时的状态
             // 注意，想要在点击之后得到like取反的状态，取决于this.setData里的设置，在设置之前，无论怎么点击，这里的like是在点击之前上一次的状态
             // 由count = like ? count - 1 : count + 1 和 this.setData 来整体解释，点击之后，like由喜欢变成了不喜欢，count要-1
             count = like ? count - 1 : count + 1;
