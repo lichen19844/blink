@@ -28,6 +28,17 @@ Component({
     playing: false
   },
 
+  // 频繁使用wx:if会执行完整的生命周期并初始化，如data里的值会恢复初值；而hidden不会触发生命周期函数，所以detached只对wx:if生效，对hidden无效
+  // detached: function(event){
+  //   mMgr.stop()
+  //   console.log('detached')
+  // },
+
+  attached: function(event){
+    // 不惜要写成this.method._recoverStatus
+    this._recoverStatus()
+  },
+
   /**
    * Component methods
    */
@@ -50,8 +61,22 @@ Component({
         })
         mMgr.pause()
       }
+    },
 
-
+    _recoverStatus: function(){
+      // 判断音乐如果暂停了
+      if(mMgr.paused){
+        this.setData({
+          playing: false
+        })
+        return
+      }
+      // 判断当前播放的音乐地址就是properties中的音乐地址
+      if(mMgr.src == this.properties.src){
+        this.setData({
+          playing: true
+        })
+      }
     }
   }
 })
