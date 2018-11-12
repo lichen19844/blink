@@ -1,7 +1,7 @@
 /* components/navi/navi.wxss */
 
 .navi-container {
-    width: 600rpx;
+    width: 650rpx;
     height: 80rpx;
     background-color: #f7f7f7;
     border: 1px solid;
@@ -16,6 +16,8 @@
 .icon {
     height: 30rpx;
     width: 30rpx;
+    padding: 10rpx;
+    margin: 20rpx;
 }
 
 .title {

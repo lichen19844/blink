@@ -8,6 +8,7 @@ const mMgr = wx.getBackgroundAudioManager();
 Component({
   /**
    * Component properties
+   * 动画API CSS3 canvas
    */
 
   behaviors: [classicBeh],
@@ -34,9 +35,11 @@ Component({
   //   console.log('detached')
   // },
 
+  // ❤️最好不要在有初始化功能的生命周期里写具体业务逻辑，具体业务逻辑用更加明确的私有函数封装起来，被生命周期调用
   attached: function(event){
     // 不惜要写成this.method._recoverStatus
     this._recoverStatus()
+    this._monitorSwitch()
   },
 
   /**
@@ -59,24 +62,57 @@ Component({
         this.setData({
           playing: false
         })
+        // mMgr.pause()是个方法是个动作，和属性mMgr.paused有区别
         mMgr.pause()
       }
     },
 
     _recoverStatus: function(){
-      // 判断音乐如果暂停了
+      // 判断音乐如果暂停了 mMgr.paused是属性，更像一种拥有的状态
+      // ❤️页面的操作如onPlay函数和监听后台事件如mMgr.onPlay()等方法都会影响mMgr.paused
+      // ❤️网上摘抄实验有bug，如果单纯的用:if(mMgr.paused)则会判断无音乐和音乐播放时都为假，这样两种不同的情况执行相同的操作，则会发生意外，所以需要添加这样的判断，if (typeof (mMgr.paused) !== "undefined") 用以区分播放和无音乐事件。
+      // if(typeof(mMgr.paused)!== "undefined"){
       if(mMgr.paused){
-        this.setData({
+          this.setData({
           playing: false
         })
+        console.log('testPlayingPause')
         return
       }
-      // 判断当前播放的音乐地址就是properties中的音乐地址
+      else{
+        console.log('testWhatHappened 1')
+      }
+      // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         this.setData({
           playing: true
         })
+        console.log('testPlayingPlay')        
       }
+      else{
+        console.log('testWhatHappened 2')
+      }
+    },
+
+    _monitorSwitch: function(){
+      // ❤️监听到【后台】有小程序给定的触发事件，执行该函数里面的参数——相应你设置的回调函数
+      mMgr.onPlay(()=> {
+        this._recoverStatus()
+        console.log('testOnPlay')
+        if(mMgr.src == this.properties.src){
+          console.log('consolePlayingPlay')        
+        }
+      }),
+      mMgr.onPause(()=> {
+        this._recoverStatus()
+        console.log('testOnPause')
+      }),
+      mMgr.onStop(()=> {
+        this._recoverStatus()
+      }),
+      mMgr.onEnded(()=> {
+        this._recoverStatus()
+      })
     }
   }
 })
