@@ -33,7 +33,11 @@ Component({
     // {{!playing ? playSrc: pauseSrc}}等同于{{playing ? pauseSrc: playSrc}}更直观一点，其中playing是我们人为定义的“正在播放”，然而我们给playing的初值是false，初值false、true和播不播放的状态无关，只和图标有关，当!playing为true显示play图标，人为定义不播放；点击一下，!playing变成false，显示pause图标，人为定义正在播放
     // 视图层的!playing，其中playing的值false和true只是!的开关，出现在视图层的!只关联图片的切换，然后再映射到视图层
     playing: false,
-    animationStyle: ''
+    animationStyle: '',
+    // 唱片指针
+    stylusW: 50,
+    // 唱片黑边
+    panW: 5
   },
 
   // 频繁使用wx:if会执行完整的生命周期并初始化，如data里的值会恢复初值；而hidden不会触发生命周期函数，所以detached只对wx:if生效，对hidden无效
