@@ -47,6 +47,11 @@
     -o-animation: rotation_css 1s linear infinite; */
 }
 
+/* ❤️试验animation暂停，在小程序里无效 */
+.suspended{
+    animation-play-state:paused;
+}
+
 @keyframes rotation_css {
     from {
         -webkit-transform: rotate(0deg);
