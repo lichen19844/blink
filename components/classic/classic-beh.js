@@ -2,7 +2,8 @@
 // export default Behavior({
 // module.exports = Behavior({
 
-let classicBeh = Behavior({
+// 使用const代替let
+const classicBeh = Behavior({
     // 这里可以完全不写，也可以用空数组
     behaviors: [],
 

@@ -1,17 +1,45 @@
 {
-    "pages": [
-        "pages/classic/classic",
-        "pages/index/index",
-        "pages/logs/logs",
-        "pages/classiccc/classiccc"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "礼晨的WeChat",
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "default",
-        "backgroundColor": "#d80000",
-        "enablePullDownRefresh": true
-    }
+  "pages": [
+    "pages/classic/classic",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/classiccc/classiccc",
+    "pages/book/book",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "礼晨的WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#d80000",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#0097A7",
+    "backgroundColor": "#405f80",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "流行",
+        "iconPath": "images/tab/classic.png",
+        "selectedIconPath": "images/tab/classic@highlight.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "书籍",
+        "iconPath": "images/tab/book.png",
+        "selectedIconPath": "images/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "喜欢",
+        "iconPath": "images/tab/my.png",
+        "selectedIconPath": "images/tab/my@highlight.png"
+      }
+    ]
+  }
 }

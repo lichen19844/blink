@@ -66,7 +66,8 @@ Component({
         let month = date.getMonth()
         console.log('month is ', month)
         this.setData({
-            year: year,
+            // year: year, // 编程规范：属性值同名可以简写
+            year,
             month: this.data.months[month]
         })
 

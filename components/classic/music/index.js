@@ -1,6 +1,8 @@
 // components/classic/music/index.js
 
-import {classicBeh} from '../classic-beh.js';
+import {
+  classicBeh
+} from '../classic-beh.js';
 
 // 定义一个变量，作为音乐管理对象的方法
 const mMgr = wx.getBackgroundAudioManager();
@@ -48,6 +50,8 @@ Component({
 
   // ❤️最好不要在有初始化功能的生命周期里写具体业务逻辑，具体业务逻辑用更加明确的私有函数封装起来，被生命周期调用
   attached: function(event){
+  // 编程规范：function方法的简写，但好像对业务逻辑有影响，比如navi切换回来，播放图标失灵
+  // attatched(event){
     // 不惜要写成this.method._recoverStatus
     this._recoverStatus()
     this._monitorSwitch()
@@ -99,7 +103,7 @@ Component({
       // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         // 播放小图标的动画
-        _animation.rotate(360).scale(1.2).translate(0, 0).step();
+        _animation.rotate(180).scale(1.2).translate(0, 0).step();
         this.setData({
           playing: true,
           animationStyle: _animation.export()
