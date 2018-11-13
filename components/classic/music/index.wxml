@@ -39,7 +39,6 @@
                               <view class='level_3 level_4'>
                                 <view class='level_3 level_5'>
     <image class="classic-img {{playing ? 'rotationCss': 'suspended'}}" src= "{{img}}" />
-    <image class="player-img" animation="{{animationStyle}}" bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />                                </view>
                               </view>
                             </view>
                           </view>
@@ -54,11 +53,14 @@
         </view>
       </view>
     </view>
-  </view> -->
+  </view>
+  <image class="player-img" animation="{{animationStyle}}" bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />                                </view> -->
 
 
-
-    <image class="classic-img {{playing ? 'rotationCss': 'suspended'}}" src= "{{img}}" />
+    <!-- 试验animation暂停，用style形式 -->
+    <image class="classic-img {{playing ? 'rotationCss': 'rotationCss'}}" style="animation-play-state:{{playing?'running':''}}" src= "{{img}}" />
+    <!-- 试验animation暂停，class需要连写成 rotationCss suspended -->
+    <!-- <image class="classic-img {{playing ? 'rotationCss': 'rotationCss suspended'}}" src= "{{img}}" /> -->
     <image class="player-img" animation="{{animationStyle}}" bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />
     <image class="tag" src= "images/music@tag.png" />
     <text class="content">{{content}}</text>

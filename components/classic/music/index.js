@@ -5,7 +5,7 @@ import {classicBeh} from '../classic-beh.js';
 // 定义一个变量，作为音乐管理对象的方法
 const mMgr = wx.getBackgroundAudioManager();
 const _animation = wx.createAnimation({
-  duration: 500,
+  duration: 1000,
   timingFunction: 'linear',
   delay: 0,
   transformOrigin: '50% 50% 0'  
@@ -99,7 +99,7 @@ Component({
       // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         // 播放小图标的动画
-        _animation.rotate(45).scale(1.2).translate(0, 0).step();
+        _animation.rotate(360).scale(1.2).translate(0, 0).step();
         this.setData({
           playing: true,
           animationStyle: _animation.export()
