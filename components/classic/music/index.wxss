@@ -32,20 +32,33 @@
     border: 1px solid;
 }
 
-.rotation {
-    -webkit-transform: rotate(0deg);
-    animation: rotation 12s linear infinite;
-    /* -moz-animation: rotation 12s linear infinite;
-    -webkit-animation: rotation 12s linear infinite;
-    -o-animation: rotation 12s linear infinite; */
+.rotationCss {
+    /* -webkit-transform: rotate(360deg); 貌似无效 */
+    animation: rotation_css 10s linear infinite;
+    -moz-animation: rotation_css 12s linear infinite;
+    -webkit-animation: rotation_css 12s linear infinite;
+    -o-animation: rotation_css 12s linear infinite;
 }
 
-@-webkit-keyframes rotation {
+.rotationCssSlow {
+    /* animation: rotation_css 0s linear infinite; */
+    /* -moz-animation: rotation_css 1s linear infinite;
+    -webkit-animation: rotation_css 1s linear infinite;
+    -o-animation: rotation_css 1s linear infinite; */
+}
+
+@keyframes rotation_css {
     from {
         -webkit-transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(360deg);
     }
-
-    to {
+}
+/* 兼容ios */
+@-webkit-keyframes rotation_css {
+    from {
+        -webkit-transform: rotate(0deg);
+    } to {
         -webkit-transform: rotate(360deg);
     }
 }
