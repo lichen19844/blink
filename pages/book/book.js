@@ -5,7 +5,8 @@ Page({
    * Page initial data
    */
   data: {
-
+    // 纯粹callback 回调地狱  剥夺return
+    // promise 代码风格 ❤️多个异步等待合并
   },
 
   /**
