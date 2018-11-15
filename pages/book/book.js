@@ -6,7 +6,8 @@ Page({
    */
   data: {
     // 纯粹callback 回调地狱  剥夺return
-    // promise 代码风格 ❤️多个异步等待合并
+    // promise 代码风格 ❤️多个异步等待合并 本质上没有剥夺函数的return能力 不需要每一层传递回调函数callback
+    // async await ES2017 小程序暂不支持
   },
 
   /**

@@ -50,6 +50,7 @@ class HTTP {
                     // 如果一行代码只写params.success本身，系统只会对它的状态进行判断真假，而不会做任何输出
                     // 利用状态执行命令要写成类似这样的，let behavior = this.properties.like ? 'like' : 'cancel'
                     // if(params.success)不如下面的判断方式快捷
+                    // ❤️params.success(res.data)很关键
                     params.success && params.success(res.data);
                     console.log('params.success is ', params.success);
                     // 如果接收的是like的api，res.data会返回201状态码对应的response数据

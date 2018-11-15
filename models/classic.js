@@ -9,7 +9,7 @@ class ClassicModel extends HTTP {
         this.request({
             // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',
-            // 实际就是success(res){拿到res做任何事}函数
+            // 实际就是success(res){拿到res做任何事}函数，这个success可以写成其它名字
             success: (res) => {
                 console.log('models http 数据 ', res);
                 // 接收的数据是http.js中的params.success(res.data)
