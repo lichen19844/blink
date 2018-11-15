@@ -16,7 +16,23 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const promise = new Promise((resolve, reject)=>{
+      // Promise的3种状态：进行中pendding  已成功fulfilled  已失败rejected
+      // resolve是把“进行中”变成“已成功”，reject是把“进行中”变成“已失败”，状态一旦设定，promise会凝固这种状态
+      wx.getSystemInfo({
+        success: res=>resolve(res),
+        fail: (error)=>{
+          reject(error)
+        }
+      })
+    })
+    // promise的精髓：随时通过promise变量来拿到异步调用的结果
+    // then接收2个回调函数，顺序不能颠倒，回调函数不是必填项
+    promise.then((res)=>{
+      console.log('通过promise调用成功的系统信息', res)
+    },(error)=>{
+      console.log(error)
+    })
   },
 
   /**
