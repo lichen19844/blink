@@ -1,11 +1,15 @@
 // Model classic 的意义是处理数据
 // classic/latest 是最新一期的期刊数据
 
-import { HTTP } from '../util/http.js'
+import {
+     HTTP 
+    } 
+from '../util/http.js'
 // 导入HTTP后有两种方式，一种是http.request的方式，一种是继承HTTP类
 class ClassicModel extends HTTP {
     getLatest(sCallback) {
-        // 继承了HTTP后,用this指代http，来调用http.js中的request(params)方法
+        // 继承了HTTP后,用this指代http，来调用http.js中的request(params)方法，params是个对象
+        // 因为是默认GET请求，不用在params中明传data和method
         this.request({
             // 此处的url和success没有直接关系，只是并列的2个实参
             url: 'classic/latest',

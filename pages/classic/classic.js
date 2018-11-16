@@ -49,7 +49,7 @@ Page({
         //     }
         // });
 
-        // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内的this.request也是个异步函数，没有办法直接、马上处理数据给return
+        // 如果是写成let latest = classic.getLatest()的形式，是需要在getLatest函数体内return res  但是在函数体内关联http.js的this.request是个异步函数，没有办法直接、马上处理数据给return
         classicModel.getLatest((res) => {
             console.log('(http方法的res数据传递了过来)classic 的 res is（实际是http.js中的res.data）', res)
             // this._getLikeStatus(res.id, res.type) //会多请求一次服务器数据，不是很好，getLatest的时候已经包含了更新后的favor

@@ -62,6 +62,7 @@ Component({
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
             // this.properties.like和this.properties.count，也可以写成this.data.like和this.data.count
+            // 这里的let不能随意改成const，因为like 和count的状态是会变化
             let like = this.properties.like;
             let count = this.properties.count;
             // 点击了鼠标之后，要对like取反，才能表达为【要么喜欢，要么不喜欢】； 然后count根据like的状态要么+1，要么-1
