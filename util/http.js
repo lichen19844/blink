@@ -17,7 +17,7 @@ class HTTP {
     // 在现代编程中，很多时候是不区分【函数】和【方法】的叫法，但在类Class下叫 【方法】
     // request(){}是定义出的方法体
     request(params) {
-        // 形参params指代了一个对象，包含了我们访问一个api时所需要的全部参数，这里是接收 Model 即 classic.js中request的实参url, success, method 等
+        // ❤️形参params指代了一个对象，包含了我们访问一个api时所需要的全部参数，这里是接收 Model 即 classic.js中request的实参url, success, method 等
         // 这里我们封装的是一个通用方法，是要写method的
         // 如果在classic.js中没有给method，我们在这默认给一个get
         if (!params.method) {
@@ -28,7 +28,7 @@ class HTTP {
             // params.url是api文档中的 GET   /classic/latest
             url: config.api_base_url + params.url,
             method: params.method,
-            //❤️data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
+            // ❤️data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
             data: params.data,
             // header中写入appkey的原因可以参考postman里2种url的写法：
             // 第一种，url中直接填入 GET  http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz
@@ -72,8 +72,9 @@ class HTTP {
         if (!error_code) {
             error_code = 1
         }
+        const tip = tips[error_code]
         wx.showToast({
-            title: tips[error_code],
+            title: tip?tip:tips[1],
             icon: 'none',
             duration: 2000
         })

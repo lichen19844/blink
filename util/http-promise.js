@@ -38,8 +38,8 @@ class HTTP {
                     // ❤️这里用到了resolve，resolve可以全盘接收success拿到的res数据
                     // 因为resolve是必传参数，所以不需要做resolve存在的判断，写resolve && resolve(res.data)
                     resolve(res.data);
-                    console.log('params.success is ', resolve);
-                    console.log('params success res data is ', res.data)
+                    console.log('resolve is ', resolve);
+                    console.log('resolve res data is ', res.data)
                 }
                 else {
                     // 放入reject是为了告诉promise，如果错误的话要改变状态，reject不需要放入参数
@@ -59,8 +59,9 @@ class HTTP {
         if (!error_code) {
             error_code = 1
         }
+        const tip = tips[error_code]
         wx.showToast({
-            title: tips[error_code],
+            title: tip?tip:tips[1],
             icon: 'none',
             duration: 2000
         })

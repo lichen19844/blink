@@ -45,6 +45,7 @@ Page({
     // });
     // console.log('Promise is ', promise)
 
+    // getHotList()拿到的是Promise
     const hotList = bookModel.getHotList()
     hotList.then(
       res=>console.log(res)
