@@ -1,1 +1,37 @@
 /* components/book/index.wxss */
+.book-container {
+    margin-top: 30rpx;
+    display: flex;
+    /* 如果不写positon，会默认给static，然后下面的absolute会以外部的page来定位，从而出错 */
+    position: relative;
+    box-shadow: 2px 2px 3px #e3e3e3;
+    flex-direction: column;
+    width: 240rpx;
+    height: 360rpx;
+    border: 1px solid;
+}
+
+.book-container image {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    border: 1px solid red;
+}
+
+.description {
+    width: 100%;
+    /* 不给height值，可以使高度自适应 */
+    /* absolute根据非static的父元素定位 */
+    position: absolute;
+    /* top: 0px; */
+    bottom: 0px;
+    /* 设置底色 */
+    background-color: #fff;
+    padding: 5rpx 10rpx 8rpx 15rpx;
+    /* box-sizing:border-box; */
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
