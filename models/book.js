@@ -20,6 +20,12 @@ class BookModel extends HTTP {
         //     age: 18
         // }, 'POST')
     }
+
+    getMyBookCount(){
+        return this.request({
+            url: '/book/favor/count'
+        })
+    }
 }
 
 export {BookModel}
