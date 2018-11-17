@@ -17,6 +17,7 @@ Page({
     // Promise 是具体意义上的对象，不是函数
     // 对象可以保存状态，而函数（包括回调函数）不能，因为它必须立即返回结果，除了闭包函数
     // 一次调用 多次调用服务器API  链式调用 3个API API1 API2 API3S
+    books: []
   },
 
   /**
@@ -68,17 +69,19 @@ Page({
 
     bookModel.getHotList()
       .then(res => {
-        console.log('模拟第一次调用API', res);
-        return bookModel.getMyBookCount()
-        // console.log(res)
+        // console.log('模拟第一次调用API', res);
+        // return bookModel.getMyBookCount()
+        this.setData({
+          books: res
+        })
       })
-      .then(res => {
-        console.log('模拟第二次调用API', res);
-        return bookModel.getMyBookCount()
-      })
-      .then(res => {
-        console.log('模拟第三次调用API', res)
-      })
+      // .then(res => {
+      //   console.log('模拟第二次调用API', res);
+      //   return bookModel.getMyBookCount()
+      // })
+      // .then(res => {
+      //   console.log('模拟第三次调用API', res)
+      // })
   },
 
   /**
