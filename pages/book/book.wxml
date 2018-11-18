@@ -1,2 +1,20 @@
 <!--pages/book/book.wxml-->
-<book-cmp book="{{books[0]}}" />
+<!-- 不用block也可以使用wx:for 和 wx:if -->
+<!-- <book-cmp wx:for="{{books}}" book="{{item}}" /> -->
+<!-- block标签和wx:for配合使用 -->
+<!-- <block wx:for="{{books}}" wx:for-item="book">
+    <book-cmp book="{{book}}" />
+</block> -->
+
+<view class="book-container">
+    <view class="header">
+        <view class="box">
+            <image src="/images/icon/search.png" />
+            <text>搜索书籍</text>
+        </view>
+    </view>
+
+    <view class="sub-container">
+        <image class="head-img" src="/images/icon/quality.png" />
+    </view>
+</view>

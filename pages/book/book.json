@@ -1,5 +1,7 @@
 {
     "usingComponents": {
         "book-cmp": "/components/book/index"
-    }
+    },
+    "navigationBarTitleText": "旧岛小样"
+    
 }

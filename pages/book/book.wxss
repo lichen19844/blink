@@ -1,1 +1,66 @@
 /* pages/book/book.wxss */
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+}
+
+.header {
+    /* border: 1px solid; */
+    position: fixed;
+    background-color: #fff000; /* #ffffff */
+    height: 100rpx;
+    width: 100%;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 13px 0 #e3e3e3;
+    z-index: 99;    
+}
+
+.box {
+  /* 行row row-reverse  列column column-reverse */    
+  /* 注意在row row-reverse column column-reverse 生效时，box容器高度或宽度和它们之间的关系 */
+  /* 当容器没有指定宽宽度时，row 和 row-reverse在高度上是100%，在宽度上是自适应的 */
+  /* 当容器没有指定宽高度时，column 和 column-reverse在宽度上是100%，在高度上是自适应的 */
+  /* ❤️ 当flex-direction: row和row-reverse        要先设置好主轴，水平方向是主轴justify-content(可以想象成水平的一条线，将元素空间切成上下两瓣，justify-content的值在这条水平线上)， 再设置垂直方向是交叉轴align-items */
+  /* ❤️ 当flex-direction: column和column-reverse  要先设置好主轴，垂直方向是主轴justify-content(可以想象成垂直的一条线，将元素空间切成左右两瓣，justify-content的值在这条垂直线上)， 再设置水平方向是交叉轴align-items */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #f5f5f5;
+    height: 68rpx;
+    width: 600rpx;
+    color: #999999;
+}
+
+.box image {
+    margin-right: 10px;
+    width: 14px;
+    height: 14px;
+    margin-bottom: -2px;
+    border: 1px solid;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f;  /* #f5f5f5 */
+    margin-top: 100rpx;
+}
+
+.head-img {
+    width: 106rpx;
+    height: 34rpx;
+    margin-top: 40rpx;
+    border: 1px solid;
+}

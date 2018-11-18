@@ -19,6 +19,8 @@
 }
 
 .description {
+    /* ❤️ 一个元素的总宽度会是width加上左右padding */
+    /* width: 216rpx; */
     width: 100%;
     /* 不给height值，可以使高度自适应 */
     /* absolute根据非static的父元素定位 */
@@ -28,10 +30,40 @@
     /* 设置底色 */
     background-color: #fff;
     padding: 5rpx 10rpx 8rpx 15rpx;
-    /* box-sizing:border-box; */
+    box-sizing:border-box;
     font-size: 24rpx;
     display: flex;
     flex-direction: column;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
+    border: 1px solid green;
+}
+
+.title {
+    margin-top: 10rpx;
+    text-overflow: ellipsis;
+    /* nowrap和border-box尽量不可同时使用，不然当文本很长时，会造成显示重叠 */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.author {
+    font-size: 20rpx;
+    collor: #999999;
+    margin-bottom: 10rpx;
+    /* ellipsis	显示省略符号来代表被修剪的文本 */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.foot {
+    font-size: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.footer {
+    color: #666666;
 }

@@ -3,10 +3,12 @@
 .chunk-container {
   /* 在弹性盒子模型下，子属性的块状属性会无效，如chunk 但是容器本身的块状特性仍然存在 */
   display: flex;
-  /* 行row  列column */
-  /* 注意在column-reverse row-reverse生效时，chunk-container容器高度或宽度和它们之间的关系，当容器没有指定宽高度时，column-reverse在宽度上是100%，在高度上是自适应的 */
-  /* flex-direction: row和row-reverse  水平方向是主轴justify-content， 垂直方向是交叉轴align-items */
-    /* flex-direction: column和column-reverse  垂直方向是主轴justify-content 水平方向是交叉轴align-items */
+  /* 行row row-reverse  列column column-reverse */    
+  /* 注意在row row-reverse column column-reverse 生效时，chunk-container容器高度或宽度和它们之间的关系 */
+  /* 当容器没有指定宽宽度时，row 和 row-reverse在高度上是100%，在宽度上是自适应的 */
+  /* 当容器没有指定宽高度时，column 和 column-reverse在宽度上是100%，在高度上是自适应的 */
+  /* ❤️ 当flex-direction: row和row-reverse        要先设置好主轴，水平方向是主轴justify-content(可以想象成水平的一条线，将元素空间切成上下两瓣，justify-content的值在这条水平线上)， 再设置垂直方向是交叉轴align-items */
+  /* ❤️ 当flex-direction: column和column-reverse  要先设置好主轴，垂直方向是主轴justify-content(可以想象成垂直的一条线，将元素空间切成左右两瓣，justify-content的值在这条垂直线上)， 再设置水平方向是交叉轴align-items */
   flex-direction: row;
   /* flex换行会产生间距 */
   flex-wrap: wrap-reverse;
