@@ -16,5 +16,8 @@
 
     <view class="sub-container">
         <image class="head-img" src="/images/icon/quality.png" />
+        <block wx:for="{{books}}" wx:for-item="book">
+            <book-cmp book="{{book}}" />
+        </block>
     </view>
 </view>
