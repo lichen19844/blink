@@ -55,8 +55,15 @@
 
 .comment-container {
     border: 1px solid red;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center;
     align-items: center; */
+}
+
+/* 给组件之间间隙的方法：1、不太推荐的，使得组件本身的两边就有间距，具体在tag组件的index.wxss添加margin，但这样使得复用性变差 2、推荐的方法，在页面使用组件的时候给它一个margin，这样不破坏组件本身的复用性 */
+.comment-container tag-cmp {
+    margin-right: 15rpx;
+    margin-bottom: 10rpx;
 }
