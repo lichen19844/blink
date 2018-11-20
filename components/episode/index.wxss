@@ -7,6 +7,7 @@
     /* height是根据{{_index}}的字体高度来定的 */
     height: 60rpx;
     /* inline-flex 参考 http://www.php.cn/css-tutorial-362740.html */
+    /* 消除容器本身的块状特性，可以用inline-flex,inline-flex 将对象作为内联块级弹性伸缩盒显示,自适应自己和内部子元素的宽度和高度 */
     display: inline-flex;
     flex-direction: row;
     border: 1px solid;

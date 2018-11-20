@@ -52,3 +52,11 @@
     margin-bottom: 20rpx;
     border: 1px solid blue;
 }
+
+.comment-container {
+    border: 1px solid red;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}

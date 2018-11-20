@@ -40,7 +40,7 @@ Page({
     comments.then(res => {
       console.log('comments is ', res)
       this.setData({
-        comments: res
+        comments: res.comments
       })
     })
 

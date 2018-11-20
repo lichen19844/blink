@@ -1,0 +1,14 @@
+/* components/tag/index.wxss */
+.tag-container {
+    padding: 4rpx 12rpx;
+    background-color: #f5f5f5;
+    color: #666666;
+    border-radius: 2px;
+    /* 消除容器本身的块状特性，可以用inline-flex,inline-flex 将对象作为内联块级弹性伸缩盒显示,自适应自己和内部子元素的宽度和高度 */
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    border: 1px solid;    
+}
