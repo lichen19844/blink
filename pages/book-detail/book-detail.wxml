@@ -10,7 +10,10 @@
         <view class="comment-container">
             <!-- 注意细节 AppData中的comments -->
             <block wx:key="content" wx:for="{{comments}}" wx:for-item="comment">
-                  <tag-cmp text="{{comment.content}}" />
+                  <tag-cmp tag-class="ex-tag" text="{{comment.content}}">
+                    <text class="num" slot="after">{{'+'+comment.nums}}</text>     
+                    <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
+                  </tag-cmp>
             </block>        
         </view>
     </view>

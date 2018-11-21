@@ -1,4 +1,8 @@
 <!--components/tag/index.wxml-->
-<view class="tag-container">
+<!-- tag-container普通样式 tag-class是外部样式 小程序目前只能二选一 如果需要并存，需要用到!important强制优先 -->
+<view class="tag-container tag-class">
+    <slot name="before"></slot>
     <text>{{text}}</text>
+    <!-- <text>{{num}}</text> -->
+    <slot name="after"></slot>
 </view>

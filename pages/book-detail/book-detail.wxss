@@ -67,3 +67,31 @@
     margin-right: 15rpx;
     margin-bottom: 10rpx;
 }
+
+.num {
+    margin-left: 10rpx;
+    font-size: 22rpx;
+    color: #aaa;
+}
+
+/* 霸道 hack的方式，强行修改了组件内部的样式 */
+/* nth-child可以用来选择第几个tag-cmp，冒号:不能有空格 */
+/* .comment-container > tag-cmp:nth-child(1)和.comment-container > tag-cmp:nth-child(1) > tag-container是不生效的 */
+/* .comment-container > tag-cmp:nth-child(1) > view {
+    background-color: #fffbdd;
+}
+
+.comment-container > tag-cmp:nth-child(2) > view {
+    background-color: #eefbff;
+} */
+/* tag-cmp 自定义组件只是一组内置组件的总称 css对自定义组件的支持不明确，容易不生效 */
+/* view text image等是内置组件 css对内置组件是生效的 */
+/* 开源组件  UI */
+/* 默认样式 自定义样式 开发者 要求用户不违反组件封装原则的 修改默认样式的 机制 */
+/* 组件属性 slot 参数传递  css */
+/* 外部样式 externalClass */
+
+/* 使用!important强制优先 */
+.ex-tag {
+    background-color: #fffbdd !important;
+}
