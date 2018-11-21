@@ -92,6 +92,10 @@
 /* 外部样式 externalClass */
 
 /* 使用!important强制优先 */
-.ex-tag {
+.ex-tag1 {
     background-color: #fffbdd !important;
+}
+
+.ex-tag2 {
+    background-color: #eefbff !important;
 }

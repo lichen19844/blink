@@ -10,7 +10,8 @@
         <view class="comment-container">
             <!-- 注意细节 AppData中的comments -->
             <block wx:key="content" wx:for="{{comments}}" wx:for-item="comment">
-                  <tag-cmp tag-class="ex-tag" text="{{comment.content}}">
+                <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
+                  <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
                   </tag-cmp>
