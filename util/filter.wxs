@@ -1,0 +1,10 @@
+// 不能用 Javascript ES6语法 const let
+// wxs拥有自己独立的运行环境，只是在语法形式上比较近似  可以参考ES5的语法
+var format = function(text){
+    // wxs
+    return '123123123'
+}
+
+module.exports = {
+    format:format
+}

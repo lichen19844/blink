@@ -1,4 +1,7 @@
 <!--pages/book-detail/book-detail.wxml-->
+
+<wxs src="../../util/filter.wxs" module="util" />
+
 <view class="book-detail-container">
     <view class="head">
         <image src="{{book.image}}"></image>
@@ -14,16 +17,17 @@
                   <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
+                    <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
+                    <!-- \u4e66\u4fe1\u3002\\n\u4e0d\u53ef中的\是一个转义字符，\\n会将第二个\转义，n将不会被转义，于是\\n的结果是\n -->
+                    <!-- \n 转义的结果是换行；\\n转义的结果是\n -->        
                   </tag-cmp>
             </block>        
         </view>
     </view>
+
     <view class="sub-container">
         <text class="headline">内容简介</text>
-        <text class="content">{{book.summary}}</text>
-        <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
-        <!-- \u4e66\u4fe1\u3002\\n\u4e0d\u53ef中的\是一个转义字符，\\n会将第二个\转义，n将不会被转义，于是\\n的结果是\n -->
-        <!-- \n 转义的结果是换行；\\n转义的结果是\n -->
-        <text>aaaaaa\nbbbbbbbb</text>
+        <text class="content">{{util.format(book.summary)}}</text>
+
     </view>
 </view>
