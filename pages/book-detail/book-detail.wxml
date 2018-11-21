@@ -18,4 +18,12 @@
             </block>        
         </view>
     </view>
+    <view class="sub-container">
+        <text class="headline">内容简介</text>
+        <text class="content">{{book.summary}}</text>
+        <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
+        <!-- \u4e66\u4fe1\u3002\\n\u4e0d\u53ef中的\是一个转义字符，\\n会将第二个\转义，n将不会被转义，于是\\n的结果是\n -->
+        <!-- \n 转义的结果是换行；\\n转义的结果是\n -->
+        <text>aaaaaa\nbbbbbbbb</text>
+    </view>
 </view>
