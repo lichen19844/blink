@@ -53,6 +53,12 @@
     border: 1px solid blue;
 }
 
+/* 针对第一段文本的空格css */
+.content {
+    text-indent: 60rpx;
+    font-weight: 500;
+}
+
 .comment-container {
     border: 1px solid red;
     display: flex;

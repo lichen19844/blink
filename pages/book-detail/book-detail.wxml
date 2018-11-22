@@ -12,7 +12,7 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <!-- 注意细节 AppData中的comments -->
-            <block wx:key="content" wx:for="{{comments}}" wx:for-item="comment">
+            <block wx:key="content" wx:for="{{util.limit(comments, 4)}}" wx:for-item="comment">
                 <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
                   <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
@@ -27,7 +27,8 @@
 
     <view class="sub-container">
         <text class="headline">内容简介</text>
-        <text class="content">{{util.format(book.summary)}}</text>
+        <!-- ❤️decode是text的属性，可以解码&nbsp; -->
+        <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
 
     </view>
 </view>

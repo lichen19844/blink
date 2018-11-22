@@ -2,9 +2,24 @@
 // wxs拥有自己独立的运行环境，只是在语法形式上比较近似  可以参考ES5的语法
 var format = function(text){
     // wxs
-    return '123123123'
+    // ❤️wxml的{{}}会刷新2次数据，第一次是数据初始化，第二次是setData更新的数据
+    // 1、if的作用，如果传进来的text是不存在的或空值，就终止getRegExp函数的运行
+    if(!text){
+        return
+    }
+    // 2、因为会运行第二次，text数据会在第二次加载setData
+    // 因为要找的是双反斜杠\\n，所以要在每个\之前都加一个\进行转义
+    var reg = getRegExp('\\\\n', 'g');
+    return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+    // return '123123123'
+    // console.log("text is ", text)
+}
+
+var limit = function(array, length){
+    return array.slice(0, length)
 }
 
 module.exports = {
-    format:format
+    format:format,
+    limit: limit
 }
