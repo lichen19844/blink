@@ -3,7 +3,13 @@ import {
   BookModel
 } from '../../models/book.js'
 
+import {
+  LikeModel
+} from '../../models/like.js'
+
 const bookModel = new BookModel()
+
+let likeModel = new LikeModel()
 
 Page({
 
@@ -14,7 +20,8 @@ Page({
     comments: [],
     book: null,
     likeStatus: false,
-    likeCount: 0
+    likeCount: 0,
+    posting: false
   },
 
   /**
@@ -50,6 +57,20 @@ Page({
         likeStatus: res.like_status,
         likeCount: res.fav_nums
       })
+    })
+  },
+
+  onLike: function(event) {
+    // event的数据是系统给的js复杂对象，而非api数据
+    console.log('class event的数据是系统给的js复杂对象，而非api数据，注意此时event的detail中接收到了triggerEvent绑定的信息behavior ', event);
+    let like_or_cancel = event.detail.behavior;
+    // 不能写this.data.book.type 因为book的数据中没有type
+    likeModel.like(like_or_cancel, this.data.book.id, 400)
+  },
+
+  onFakePost: function(event) {
+    this.setData({
+      posting: true
     })
   },
 

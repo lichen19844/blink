@@ -2,6 +2,7 @@
 
 import { HTTP } from '../util/http.js'
 class LikeModel extends HTTP {
+    
     // 用字符category代替api参数type
     like(behavior, artID, category) {
         // url由组件的状态behavior决定 这里==和===都可以

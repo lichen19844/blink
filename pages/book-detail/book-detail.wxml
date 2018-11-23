@@ -29,6 +29,46 @@
         <text class="headline">内容简介</text>
         <!-- ❤️decode是text的属性，可以解码&nbsp; -->
         <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
+    </view>
+
+    <view class="sub-container">
+        <text class="headline">内容简介</text>
+        <view class="detail-container">
+            <view class="vertical description">
+                <text>出版社</text>
+                <text>出版年</text>
+                <text>页数</text>
+                <text>定价</text>
+                <text>装帧</text>
+            </view>
+            <view class="vertical">
+                <text>{{book.publisher}}</text>
+                <text>{{book.pubdate}}</text>
+                <text>{{book.pages}}</text>
+                <text>{{book.price}}</text>
+                <text>{{book.binding}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="post-container">
+    <view bind:tap="onFakePost" class="post-fake">
+        <text>输入短评</text>
+    </view>
+    <view class="like-container">
+        <like-cmp class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+    </view>
+</view>
+
+<view class="posting-container">
+    <view class="post-header">
+        <text>仅可点击标签+1</text>
+        <text class="cancel">取消</text>
+    </view>
+    <view class="comment-container">
 
     </view>
+    <input class="post" placeholder='短评最多12个字'></input>
+    
 </view>
