@@ -61,7 +61,7 @@
     <image class="classic-img {{playing ? 'rotationCssss': 'rotationCssss'}}" style="animation-play-state:{{playing?'running':''}}" src= "{{img}}" />
     <!-- 试验animation暂停，class需要连写成 rotationCss suspended -->
     <!-- <image class="classic-img {{playing ? 'rotationCss': 'rotationCss suspended'}}" src= "{{img}}" /> -->
-    <image class="player-img" animation="{{animationStyless}}" bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />
+    <image class="player-img"  bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />
     <image class="tag" src= "images/music@tag.png" />
     <text class="content">{{content}}</text>
 </view>

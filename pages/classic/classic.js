@@ -87,7 +87,7 @@ Page({
         //     // 当不写method，默认方法为get
         // url: 'http://bl.7yue.pro/v1/classic/latest',
         //     // 如果不写header，appkey就要写在url中latest后面，以问号?打头
-        // url: 'http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz',
+        // url: 'http://bl.7yue.pro/v1/classic/latest?appkey=qNoN5PUzRYvPA9n4',
         //     // 加上appkey后，再次查看Network中的latest，成功获取到了服务器的数据
         //     // 之后要对访问请求做封装
         // header: {
@@ -188,7 +188,7 @@ Page({
         //     wx.request({
         //         url: 'http://bl.7yue.pro/v1/classic/latest',
         //         header: {
-        //             appkey: "MA0OKyXMxkLNEAIz"
+        //             appkey: "qNoN5PUzRYvPA9n4"
         //         },
         //         success: (res) => {
         //             resolve(res)

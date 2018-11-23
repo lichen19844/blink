@@ -31,8 +31,8 @@ class HTTP {
             // ❤️data是向服务器提交的数据，是请求的参数，给它一个params.data可以试试是否有数据，如果不存在需请求的参数，会返回一个undefined
             data: params.data,
             // header中写入appkey的原因可以参考postman里2种url的写法：
-            // 第一种，url中直接填入 GET  http://bl.7yue.pro/v1/classic/latest?appkey=MA0OKyXMxkLNEAIz
-            // 第二种，url中填入 GET  http://bl.7yue.pro/v1/classic/latest   然后在header中填入对应的key和value，即appkey和MA0OKyXMxkLNEAIz
+            // 第一种，url中直接填入 GET  http://bl.7yue.pro/v1/classic/latest?appkey=qNoN5PUzRYvPA9n4
+            // 第二种，url中填入 GET  http://bl.7yue.pro/v1/classic/latest   然后在header中填入对应的key和value，即appkey和qNoN5PUzRYvPA9n4
             header: {
                 'content-type': 'application/json',
                 'appkey': config.appkey

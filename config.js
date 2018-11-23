@@ -21,7 +21,7 @@ export const config = {
 // 也可以写成
 // const config = {
 //     api_base_url: 'http://bl.7yue.pro/v1/',
-//     appkey: "MA0OKyXMxkLNEAIz"
+//     appkey: "qNoN5PUzRYvPA9n4"
 // }
 // fun1 = function() {
 // }
