@@ -22,7 +22,8 @@ Component({
   behaviors: [classicBeh],
 
   properties: {
-    src: String
+    src: String,
+    title: String
   },
 
   /**
@@ -70,7 +71,8 @@ Component({
         })
         // 默认为空字符串，不启动音乐，当设置了新的 src 时，会自动开始播放
         // 根据惯例，暂停图标所关联的音乐要开始播放
-        mMgr.src = this.properties.src        
+        mMgr.src = this.properties.src
+        mMgr.title = this.properties.title         
       } 
       // 因为上次点击后playing的值变为true，此时再点击的话，!this.data.playing的结果就会为假，执行else
       else{
