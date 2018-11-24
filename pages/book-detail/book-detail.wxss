@@ -194,3 +194,13 @@
 .post-header text {
     padding: 25rpx;
 }
+
+.post-header > text:first-child {
+    font-size: 28rpx;
+    color: #bbb;
+}
+
+.posting-container .comment-container {
+    width: 690rpx;
+    padding: 40rpx 30rpx 0 30rpx;
+}

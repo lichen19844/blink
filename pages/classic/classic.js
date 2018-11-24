@@ -33,7 +33,7 @@ Page({
      */
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
-        console.log('1234onLoad')
+        console.log('classic onLoad')
         // ❤️实验{{}}的数据，第一次刷新的是初始化数据，第二次刷新的setData更新的数据
         console.log('classic的初始化数据', this.data.classic)
         // 实验模板字符串

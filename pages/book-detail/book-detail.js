@@ -74,6 +74,12 @@ Page({
     })
   },
 
+  onCancel: function(event) {
+    this.setData({
+      posting: false
+    })
+  },
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */

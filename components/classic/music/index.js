@@ -71,13 +71,17 @@ Component({
         })
         // 默认为空字符串，不启动音乐，当设置了新的 src 时，会自动开始播放
         // 根据惯例，暂停图标所关联的音乐要开始播放
-        
+        // mMgr.src = this.properties.src
+
         if(!mMgr.src){
+          console.log('!mMgr.src')
           mMgr.src = this.properties.src
         }  else {
           if(mMgr.src !== this.properties.src){
+            console.log('mMgr.src !== this.properties.src')
             mMgr.src = this.properties.src
           }else {
+            console.log('mMgr.play()')
             mMgr.play()
           }
         }      
@@ -99,6 +103,7 @@ Component({
       // ❤️页面的操作如onPlay函数和监听后台事件如mMgr.onPlay()等方法都会影响mMgr.paused
       // ❤️网上摘抄实验有bug，如果单纯的用:if(mMgr.paused)则会判断无音乐和音乐播放时都为假，这样两种不同的情况执行相同的操作，则会发生意外，所以需要添加这样的判断，if (typeof (mMgr.paused) !== "undefined") 用以区分播放和无音乐事件。
       // if(typeof(mMgr.paused)!== "undefined"){
+      // 属性paused指当前是否暂停或停止
       if(mMgr.paused){
           // 播放小图标的动画
           _animation.rotate(0).scale(1).translate(0, 0).step();
@@ -107,11 +112,10 @@ Component({
           animationStyle: _animation.export()
         })
         console.log('testPlayingPause')
+        // 有了这个return，这两个if只能执行其中一个
         return
       }
-      else{
-        console.log('testWhatHappened 1')
-      }
+      
       // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         // 播放小图标的动画
@@ -121,9 +125,6 @@ Component({
           animationStyle: _animation.export()
         })
         console.log('testPlayingPlay')        
-      }
-      else{
-        console.log('testWhatHappened 2')
       }
     },
 
@@ -136,13 +137,16 @@ Component({
           console.log('consolePlayingPlay')        
         }
       }),
+
       mMgr.onPause(()=> {
         this._recoverStatus()
         console.log('testOnPause')
       }),
+
       mMgr.onStop(()=> {
         this._recoverStatus()
       }),
+
       mMgr.onEnded(()=> {
         this._recoverStatus()
       })
