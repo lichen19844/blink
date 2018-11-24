@@ -17,6 +17,7 @@
     <!-- <view>{{classic.title}}</view> -->
     <!-- 自定义组件可以使用wx:if，但不直接支持条件渲染hidden，需要通过properties自定义一个属性变通一下，这里仍然取hidden -->
     <movie-cmp hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <!-- <music-cmp hidden="{{classic.type!=200}}" img="{{classic.image}}" content="{{classic.content}}" src= "{{classic.url}}" title="{{classic.title}}" /> -->
     <music-cmp wx:if="{{classic.type==200}}" img="{{classic.image}}" content="{{classic.content}}" src= "{{classic.url}}" title="{{classic.title}}" />
     <essay-cmp hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}" />
     <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->

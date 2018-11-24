@@ -33,6 +33,7 @@ Page({
      */
     // onLoad比onReady和onShow要更早调用
     onLoad: function(options) {
+        console.log('1234onLoad')
         // ❤️实验{{}}的数据，第一次刷新的是初始化数据，第二次刷新的setData更新的数据
         console.log('classic的初始化数据', this.data.classic)
         // 实验模板字符串
@@ -184,6 +185,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
+        console.log('classic onReady')
         // let promise = new Promise((resolve, reject) => {
         //     wx.request({
         //         url: 'http://bl.7yue.pro/v1/classic/latest',
@@ -204,21 +206,21 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        console.log('classic onShow')
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {
-
+        console.log('classic onHide')
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
-
+        console.log('classic onUnload')
     },
 
     /**
