@@ -21,7 +21,8 @@ Page({
     book: null,
     likeStatus: false,
     likeCount: 0,
-    posting: false
+    posting: false,
+    content: null
   },
 
   /**
@@ -80,6 +81,37 @@ Page({
     })
   },
 
+  onPost(event) {
+    console.log('onPost event', event)
+    const content = event.detail.text;
+    if(content.length > 12) {
+      WebGLTexture.showToast({
+        title: '短评最多12个字',
+        icon: 'none'
+      })
+      // 如果超出了if条件，return可以终结掉onPost方法的执行流程，从而不向服务器提交数据
+      return
+    }
+
+    bookModel.postComment(this.data.book.id, content)
+    .then(res => {
+      // 监听客户端的提示处理
+      wx.showToast({
+        title: '+1',
+        icon: 'none'
+      })
+      // unshift可以将新的元素添加到数组的首位，数组comments
+      this.data.comments.unshift({
+        content: content,
+        nums: 1
+      })
+      this.setData({
+        comments: this.data.comments,
+        posting: false
+      })
+    })
+  },
+  
   /**
    * Lifecycle function--Called when page is initially rendered
    */

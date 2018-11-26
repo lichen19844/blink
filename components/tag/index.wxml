@@ -1,6 +1,7 @@
 <!--components/tag/index.wxml-->
 <!-- tag-container普通样式 tag-class是外部样式 小程序目前只能二选一 如果需要并存，需要用到!important强制优先 -->
-<view class="tag-container tag-class">
+<view bind:tap="onTap" class="tag-container tag-class">
+    <!-- 组件内部可以嵌入任意多的slot，外部的同名的slot才能够激活内部同名的slot，此处before无效 -->
     <slot name="before"></slot>
     <text>{{text}}</text>
     <!-- <text>{{num}}</text> -->

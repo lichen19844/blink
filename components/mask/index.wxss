@@ -1,0 +1,11 @@
+/* components/mask/index.wxss */
+.mask-container {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    opacity: 0.6;
+    /* width和height设100%，可以充满整个手机的屏幕 */
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
