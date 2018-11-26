@@ -12,7 +12,7 @@
         <text class="headline">短评</text>
         <view class="comment-container">
             <!-- 注意细节 AppData中的comments -->
-            <block wx:key="content" wx:for="{{util.limit(comments, 4)}}" wx:for-item="comment">
+            <block wx:key="content" wx:for="{{util.limit(comments, 15)}}" wx:for-item="comment">
                 <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
                   <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
@@ -54,7 +54,7 @@
 
 <view class="post-container" wx:if="{{!posting}}">
     <view bind:tap="onFakePost" class="post-fake">
-        <text>输入短评</text>
+        <text class="fakePost">输入短评</text>
     </view>
     <view class="like-container">
         <like-cmp class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
@@ -67,7 +67,16 @@
         <text bind:tap="onCancel" class="cancel">取消</text>
     </view>
     <view class="comment-container">
-
+            <block wx:key="content" wx:for="{{util.limit(comments, 3)}}" wx:for-item="comment">
+                <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
+                  <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
+                    <text class="num" slot="after">{{'+'+comment.nums}}</text>     
+                    <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
+                    <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
+                    <!-- \u4e66\u4fe1\u3002\\n\u4e0d\u53ef中的\是一个转义字符，\\n会将第二个\转义，n将不会被转义，于是\\n的结果是\n -->
+                    <!-- \n 转义的结果是换行；\\n转义的结果是\n -->        
+                  </tag-cmp>
+            </block>         
     </view>
     <input class="post" placeholder='短评最多12个字'></input>
     
