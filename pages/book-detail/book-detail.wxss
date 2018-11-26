@@ -220,3 +220,7 @@
     padding-left: 25rpx;
     font-size: 25rpx;
 }
+
+.shadow {
+    color: #999999;
+}

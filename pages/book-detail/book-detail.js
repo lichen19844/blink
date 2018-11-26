@@ -83,7 +83,17 @@ Page({
 
   onPost(event) {
     console.log('onPost event', event)
-    const content = event.detail.text;
+    // const content = event.detail.text;
+    // const contentInput = event.detail.value
+    const content = event.detail.text || event.detail.value;
+    console.log('content is ', content)
+    // console.log('contentInput is ', contentInput)
+
+    // 剔除空字符串的判断
+    if(!comment) {
+      return
+    }
+
     if(content.length > 12) {
       WebGLTexture.showToast({
         title: '短评最多12个字',
