@@ -14,7 +14,7 @@
             <!-- 注意细节 AppData中的comments -->
             <block wx:key="content" wx:for="{{util.limit(comments, 15)}}" wx:for-item="comment">
                 <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
-                  <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
+                  <tag-cmp tag-class="{{tool.hightlight(index)}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
                     <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
@@ -68,8 +68,9 @@
     </view>
     <view class="comment-container">
             <block wx:key="content" wx:for="{{util.limit(comments, 3)}}" wx:for-item="comment">
-                <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
-                  <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}">
+                <!-- ❤️使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
+                  <!-- <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}"> -->
+                  <tag-cmp tag-class="{{tool.hightlight(index)}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
                     <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
@@ -81,3 +82,20 @@
     <input class="post" placeholder='短评最多12个字'></input>
     
 </view>
+
+<wxs module = "tool"> 
+    // 接收一个index序号
+    var highlight = function(index) {
+        if(index == 0) {
+            return 'ex-tag1'
+        }
+        if(index == 1) {
+            return 'ex-tag2'
+        }
+        return ''
+    }
+
+    module.exports = {
+        hightlight: highlight
+    }
+</wxs>
