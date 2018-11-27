@@ -120,7 +120,7 @@ Page({
     // console.log('contentInput is ', contentInput)
 
     // 剔除空字符串的判断
-    if(!comment) {
+    if(!content) {
       return
     }
 

@@ -65,7 +65,7 @@ class BookModel extends HTTP {
                         title: '煮茶读书，甚好~',
                         icon: 'none'
                     }));
-            }, 1000)
+            }, 1500)
         })
     }
 }
