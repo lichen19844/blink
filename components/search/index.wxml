@@ -1,0 +1,14 @@
+<!--components/search/index.wxml-->
+<view class="container">
+    <view class="header">
+        <view class="search-container">
+            <image class="icon" src="images/search.png"></icon>
+            <!-- input组件里设置好value属性可以操作清空搜索框 -->
+            <input class="bar" placeholder="书籍名称" placeholder-class="in-bar" auto-focus="true" />
+            <image class="cancel-img" src="images/cancel.png"></image>
+        </view>
+        <view class="cancel">取消</view>
+    </view>
+</view>
+
+
