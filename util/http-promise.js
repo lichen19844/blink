@@ -25,6 +25,7 @@ class HTTP {
             this._request(url, resolve, reject, data, method)
         })
     }
+
     // 必填参数必须在默认参数之前
     // ❤️_request方法不能直接拿到resolve，必须将resolve作为参数传进来，然后在success中来改变Promise状态
     _request(url, resolve, reject, data={}, method='GET') {

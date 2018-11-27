@@ -29,6 +29,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
+
     // ❤️ 大白话，组件通过properties传递和接收参数，如果向一个页面传参，可以通过options来接收外部传递进来的参数、数据，页面所有的参数都在onLoad生命周期函数的options参数中
     // 可以接收到从外部传向页面的参数
     const bid = options.bid
@@ -37,28 +41,54 @@ Page({
     const detail = bookModel.getDetail(bid);
     const comments = bookModel.getComments(bid);
     const likeStatus = bookModel.getLikeStatus(bid);
+    const testTimeout = bookModel.testTimeout();
 
-    detail.then(res =>{
-      console.log('detail is ', res)
-      this.setData({
-        book: res
-      })
+    // 1 2 3 wx.hideLoading()
+    // 同时发送了3个请求 串行
+    // 2s 2s 2s
+    // 2s 2s 2s = 6s
+    // 新的Promise 合体
+    // 2s 2.5s 1.8s
+    // .race 竞争
+    Promise.all([detail, comments, likeStatus, testTimeout])
+    .then(res => {
+       console.log('Promise.all ', res)
+       this.setData({
+         book: res[0],
+         comments: res[1].comments,
+         likeStatus: res[2].like_status,
+         likeCount: res[2].fav_nums
+       })
+       wx.hideLoading()
+    })
+    .catch(function(reson){
+      console.log('reson is', reson)
     })
 
-    comments.then(res => {
-      console.log('comments is ', res)
-      this.setData({
-        comments: res.comments
-      })
-    })
+    // detail.then(res =>{
+    //   console.log('detail is ', res)
+    //   this.setData({
+    //     book: res
+    //   })
+    // })
 
-    likeStatus.then(res => {
-      console.log('like res is ', res)
-      this.setData({
-        likeStatus: res.like_status,
-        likeCount: res.fav_nums
-      })
-    })
+    // comments.then(res => {
+    //   console.log('comments is ', res)
+    //   this.setData({
+    //     comments: res.comments
+    //   })
+    // })
+
+    // likeStatus.then(res => {
+    //   console.log('like res is ', res)
+    //   this.setData({
+    //     likeStatus: res.like_status,
+    //     likeCount: res.fav_nums
+    //   })
+    // })
+
+    // setTimeout(wx.hideLoading(), 1500)
+    
   },
 
   onLike: function(event) {
@@ -95,7 +125,7 @@ Page({
     }
 
     if(content.length > 12) {
-      WebGLTexture.showToast({
+      wx.showToast({
         title: '短评最多12个字',
         icon: 'none'
       })

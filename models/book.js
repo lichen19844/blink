@@ -55,6 +55,19 @@ class BookModel extends HTTP {
             }
         })
     }
+
+    // 实验Promise延时
+    testTimeout(){
+        return new Promise((resolve, reject) => {
+            setTimeout(function(){
+                resolve(
+                    wx.showToast({
+                        title: '煮茶读书，甚好~',
+                        icon: 'none'
+                    }));
+            }, 1000)
+        })
+    }
 }
 
 export {BookModel}
