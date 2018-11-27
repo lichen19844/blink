@@ -114,6 +114,7 @@ Page({
         // event的数据是系统给的js复杂对象，而非api数据
         console.log('class event的数据是系统给的js复杂对象，而非api数据，注意此时event的detail中接收到了triggerEvent绑定的信息behavior ', event);
         let behavior = event.detail.behavior;
+        // 参数从期刊详细信息中获取
         likeModel.like(behavior, this.data.classic.id, this.data.classic.type)
     },
 

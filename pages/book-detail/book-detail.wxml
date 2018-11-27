@@ -15,7 +15,7 @@
             <!-- 注意细节 AppData中的comments -->
             <block wx:key="content" wx:for="{{util.limit(comments, 15)}}" wx:for-item="comment">
                 <!-- 使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
-                  <tag-cmp tag-class="{{tool.hightlight(index)}}" text="{{comment.content}}">
+                  <tag-cmp tag-class="{{tool.highlight(index)}}" text="{{comment.content}}">
                     <!-- slot插槽可以是任意的小程序标签，组件标签要闭合，在组件标签内设置若干准备传入的slot插槽类型，此处没有顺序要求，然后向组件内部传递小程序标签，组件内使不使用插槽由组件内部决定 -->
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
@@ -74,7 +74,7 @@
             <block wx:key="content" wx:for="{{util.limit(comments, 3)}}" wx:for-item="comment">
                 <!-- ❤️使用{{index}}，只有wxml才能获取到index，js则不能直接拿到。可以将tag-class的内容写成函数来调用 -->
                   <!-- <tag-cmp tag-class="{{index==0?'ex-tag1': '' || index==1 ? 'ex-tag2': ''}}" text="{{comment.content}}"> -->
-                  <tag-cmp bind:tapping="onPost" tag-class="{{tool.hightlight(index)}}" text="{{comment.content}}">
+                  <tag-cmp bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{comment.content}}">
                     <text class="num" slot="after">{{'+'+comment.nums}}</text>     
                     <!-- <text slot="before">{{'++'+comment.nums}}</text> -->
                     <!-- Network中的Response才是返回的原始数据，而Preview是预览的效果 -->
@@ -102,6 +102,6 @@
     }
 
     module.exports = {
-        hightlight: highlight
+        highlight: highlight
     }
 </wxs>

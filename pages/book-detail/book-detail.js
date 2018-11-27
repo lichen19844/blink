@@ -95,7 +95,7 @@ Page({
     // event的数据是系统给的js复杂对象，而非api数据
     console.log('class event的数据是系统给的js复杂对象，而非api数据，注意此时event的detail中接收到了triggerEvent绑定的信息behavior ', event);
     let like_or_cancel = event.detail.behavior;
-    // 不能写this.data.book.type 因为book的数据中没有type
+    // 不能写this.data.book.type 因为book的详细数据中没有type
     likeModel.like(like_or_cancel, this.data.book.id, 400)
   },
 
@@ -115,11 +115,12 @@ Page({
     console.log('onPost event', event)
     // const content = event.detail.text;
     // const contentInput = event.detail.value
+    // value是input原生组件中键入的内容
     const content = event.detail.text || event.detail.value;
     console.log('content is ', content)
     // console.log('contentInput is ', contentInput)
 
-    // 剔除空字符串的判断
+    // 判断如果有空字符串，不做任何处理
     if(!content) {
       return
     }
@@ -140,7 +141,7 @@ Page({
         title: '+1',
         icon: 'none'
       })
-      // unshift可以将新的元素添加到数组的首位，数组comments
+      // ❤️unshift可以将新的元素置顶到数组comments的首位，实现当下写的短评置顶，页面刷新后则恢复秩序
       this.data.comments.unshift({
         content: content,
         nums: 1

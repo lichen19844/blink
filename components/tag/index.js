@@ -6,7 +6,7 @@ Component({
     multipleSlots: true
   },
 
-  // 启用外部样式
+  // 启用外部css样式
   externalClasses: ['tag-class'],
 
   /**
