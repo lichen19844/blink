@@ -2,12 +2,27 @@
 <view class="container">
     <view class="header">
         <view class="search-container">
-            <image class="icon" src="images/search.png"></icon>
+            <image class="icon" src="images/search.png"></image>
             <!-- input组件里设置好value属性可以操作清空搜索框 -->
             <input class="bar" placeholder="书籍名称" placeholder-class="in-bar" auto-focus="true" />
             <image class="cancel-img" src="images/cancel.png"></image>
         </view>
-        <view class="cancel">取消</view>
+        <view bind:tap="onCancel" class="cancel">取消</view>
+    </view>
+
+    <view>
+        <view class="history">
+            <view class="title">
+                <view class="chunk"></view>
+                <text>历史搜索</text>
+            </view>
+        </view>
+        <view class="history hot-search">
+            <view class="title">
+                <view class="chunk"></view>
+                <text>热门搜索</text>
+            </view>
+        </view>
     </view>
 </view>
 

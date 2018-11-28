@@ -18,6 +18,8 @@ Component({
    * Component methods
    */
   methods: {
-
+    onCancel(event){
+      this.triggerEvent('cancel', {}, {})
+    }
   }
 })
