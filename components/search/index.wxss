@@ -123,20 +123,20 @@
     margin-right: 20rpx;
 }
 
-/* .tags { */
+.tags {
     /* padding-left:15px; */
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 24rpx;
     padding-left: 30rpx;
     width: 630rpx;
-} */
+}
 
-/* .tags v-tag {
+.tags tag-cmp {
     margin-right: 20rpx;
     margin-bottom: 20rpx;
-} */
+}
 
 /* .bar {
     border-top-right-radius: 15px;
