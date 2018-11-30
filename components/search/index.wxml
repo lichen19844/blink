@@ -18,8 +18,8 @@
             </view>
             <!-- 组件中也能引入组件 -->
             <view class="tags">
-                <block wx:for="{{historyWords}}">
-                    <tag-cmp text="{{item}}" />
+                <block wx:key="" wx:for="{{historyWords}}" wx:for-item="historyword">
+                    <tag-cmp text="{{historyword}}" />
                 </block>
             </view>            
         </view>
