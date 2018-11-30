@@ -39,7 +39,7 @@ Component({
 
     onConfirm(event) {
       const word = event.detail.value;
-      keywordModel.addToHistory(word);  
+      keywordModel.addToHistory(word); 
     }
 
 
