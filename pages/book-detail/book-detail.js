@@ -22,7 +22,9 @@ Page({
     likeStatus: false,
     likeCount: 0,
     posting: false,
-    content: null
+    content: null,
+    testtext: '&nbsp',
+    inputValue: ''
   },
 
   /**
@@ -200,5 +202,40 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  
+  /**
+   * ❤️刷新页面试验区
+   */
+  formSubmit(e) {
+    console.log('formSubmit e is ', e)
+  },
+
+  bindInput(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+    var pages = getCurrentPages();
+    if(pages.length > 1){
+      //上一个页面实例对象
+      var prePage = pages[pages.length - 2];
+      //关键在这里
+      prePage.changeData(this.data.inputValue)
   }
+  },
+
+  bindButton(e) {
+    this.setData({
+      testtext: this.data.inputValue
+    })
+    var pages = getCurrentPages();
+    if(pages.length > 1){
+        //上一个页面实例对象
+        var prePage = pages[pages.length - 2];
+        //关键在这里
+        prePage.changeData(this.data.testtext)
+    }
+  }
+
+
 })

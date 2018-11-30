@@ -18,7 +18,9 @@ Page({
     // 对象可以保存状态，而函数（包括回调函数）不能，因为它必须立即返回结果，除了闭包函数
     // 一次调用 多次调用服务器API  链式调用 3个API API1 API2 API3S
     books: [],
-    searching: false
+    searching: false,
+
+    testbook: 'aho'
   },
 
   /**
@@ -145,5 +147,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  changeData: function(testbook) {
+    this.setData({
+      testbook: testbook
+    })
   }
 })
