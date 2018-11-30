@@ -166,7 +166,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    // this.onLoad()
   },
 
   /**
@@ -235,6 +235,8 @@ Page({
         //关键在这里
         prePage.changeData(this.data.testtext)
     }
+    //刷新当前页面的数据，不知道是否有效
+    // getCurrentPages()[getCurrentPages().length - 1].onShow()
   }
 
 

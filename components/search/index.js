@@ -22,6 +22,10 @@ Component({
     historyWords: []
   },
 
+  // ready: function(){
+  //   this.onConfirm()
+  // },
+
   attached() {
     const historyWords = keywordModel.getHistory();
     this.setData({
@@ -40,6 +44,11 @@ Component({
     onConfirm(event) {
       const word = event.detail.value;
       keywordModel.addToHistory(word);
+      // 实时记录历史搜索，不能用this.attatched()会报错
+      const historyWords = keywordModel.getHistory();
+      this.setData({
+        historyWords: historyWords
+      })
     }
 
 

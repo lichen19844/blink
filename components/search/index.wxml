@@ -1,5 +1,5 @@
 <!--components/search/index.wxml-->
-<view class="container">
+<view id="test" class="container">
     <view class="header">
         <view class="search-container">
             <image class="icon" src="images/search.png"></image>

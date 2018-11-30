@@ -32,4 +32,4 @@
     </view>
 </view>
 
-<search-cmp bind:cancel="onCancel" wx:if="{{searching}}" />
+<search-cmp bind:cancel="onCancel" wx:if="{{searching}}" id="test" />

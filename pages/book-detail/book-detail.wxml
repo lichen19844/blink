@@ -33,7 +33,7 @@
         <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
         
         <!-- ❤️试验区❤️ -->
-        <view>实时获取输入值：{{inputValue}}</view>
+        <!-- <view>实时获取输入值：{{inputValue}}</view> -->
         <view>
             <text>{{testtext}}</text>
             <form bindsubmit="formSubmit">

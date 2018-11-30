@@ -111,7 +111,15 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    // 这里的作用是，父组件更新子组件，而不是反过来子组件更新父组件
+    // var that = this
+    // this.setData({
+    //   searching: true
+    // })
+    // this.setData({
+    //   searching: false
+    // })
+    // console.log('selectComponent is ', that.selectComponent('#test'))
   },
 
   /**
@@ -149,6 +157,9 @@ Page({
 
   },
 
+  /**
+   * ❤️页面刷新实验
+   */  
   changeData: function(testbook) {
     this.setData({
       testbook: testbook
