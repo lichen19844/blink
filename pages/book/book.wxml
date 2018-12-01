@@ -25,7 +25,7 @@
             <!-- wx:key是为wx:for后的数据列表中的每一个元素指定一个唯一的标识 -->
             <!-- 列表下的元素是object 且有属性的值是不重复的数字或是字符串 -->
             <block wx:key="id" wx:for="{{books}}" wx:for-item="book">
-                <book-cmp book="{{book}}" />
+                <book-cmp book="{{book}}" id="toast" />
             </block>        
         </view>
 

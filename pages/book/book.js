@@ -104,7 +104,8 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    this.selectComponent("#toast")
+    this.selectAllComponents("#toast")
   },
 
   /**
@@ -140,7 +141,16 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
-
+    // wx.showToast({
+    //   title: '测试selectComponent',
+    //   icon: 'none',
+    //   image: '../../images/icon/testShowToast.png',
+    //   duration: 1000
+    // })
+    // this.selectAllComponents("#toast").setData({
+    //   test: '2'
+    // })
+    this.selectComponent("#toast").onLongpress()
   },
 
   /**
