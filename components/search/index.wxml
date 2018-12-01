@@ -4,7 +4,7 @@
         <view class="search-container">
             <image class="icon" src="images/search.png"></image>
             <!-- input组件里设置好value属性可以操作清空搜索框 -->
-            <input bind:confirm="onConfirm" class="bar" placeholder="书籍名称" placeholder-class="in-bar" auto-focus="true" />
+            <input value="{{text}}" bind:confirm="onConfirm" class="bar" placeholder="书籍名称" placeholder-class="in-bar" auto-focus="true" />
             <image class="cancel-img" src="images/cancel.png"></image>
         </view>
         <view bind:tap="onCancel" class="cancel">取消</view>

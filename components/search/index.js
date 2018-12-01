@@ -19,7 +19,8 @@ Component({
    */
   data: {
     // 调用Models中的相关方法，获取到历史搜索的所有关键字数据，然后做setData数据绑定
-    historyWords: []
+    historyWords: [],
+    text: ''
   },
 
   attached() {
@@ -43,7 +44,8 @@ Component({
       // 实时记录历史搜索，不能用this.attatched()会报错
       const historyWords = keywordModel.getHistory();
       this.setData({
-        historyWords: historyWords
+        historyWords: historyWords,
+        text: ''
       })
     }
 
