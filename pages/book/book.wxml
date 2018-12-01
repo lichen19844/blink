@@ -18,18 +18,22 @@
         <image class="head-img" src="/images/icon/quality.png" />
 
         <!-- ❤️试验区❤️ -->
-        <text>{{testbook}}</text>
+        <picker bindchange="pickChange" value="{{index}}" range="{{array}}">
+            <view>
+                当前选择的国家：{{array[index]}}
+            </view>
+        </picker>        
         <!-- ❤️试验区❤️ -->
 
         <view class="books-container">
             <!-- wx:key是为wx:for后的数据列表中的每一个元素指定一个唯一的标识 -->
             <!-- 列表下的元素是object 且有属性的值是不重复的数字或是字符串 -->
             <block wx:key="id" wx:for="{{books}}" wx:for-item="book">
-                <book-cmp book="{{book}}" id="toast" />
+                <book-cmp book="{{book}}" id="toast"></book-cmp>
             </block>        
         </view>
 
     </view>
 </view>
 
-<search-cmp bind:cancel="onCancel" wx:if="{{searching}}" id="test" />
+<search-cmp bind:cancel="onCancel" wx:if="{{searching}}" />

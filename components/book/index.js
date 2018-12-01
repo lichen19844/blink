@@ -12,7 +12,7 @@ Component({
    * Component initial data
    */
   data: {
-    test: '1'
+
   },
 
   /**
@@ -35,8 +35,9 @@ Component({
     },
 
     onTap(event) {
+      const bid = this.properties.book.id;
       wx.showToast({
-        title: '测试selectComponent',
+        title: 'ID:' + bid + '，长按进入',
         icon: 'none',
         image: '../../images/icon/testShowToast.png',
         duration: 1000

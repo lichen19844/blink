@@ -4,7 +4,7 @@
 <view bind:longpress="onLongpress" bind:tap="onTap" class="book-container">
     <image src="{{book.image}}"></image>
     <view class="description">
-        <text>{{test}}</text>
+        <text>{{book.id}}</text>
         <text class="title">{{book.title}}</text>
         <text class="author">{{book.author}}</text>
         <view class="foot">

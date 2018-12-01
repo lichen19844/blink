@@ -20,7 +20,8 @@ Page({
     books: [],
     searching: false,
 
-    testbook: 'aho'
+    array:['中国','美国','日本','韩国'],
+    index:0
   },
 
   /**
@@ -104,8 +105,8 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    this.selectComponent("#toast")
-    this.selectAllComponents("#toast")
+    this.toast = this.selectComponent("#toast")
+    // this.selectAllComponents("#toast")
   },
 
   /**
@@ -150,7 +151,9 @@ Page({
     // this.selectAllComponents("#toast").setData({
     //   test: '2'
     // })
-    this.selectComponent("#toast").onLongpress()
+    this.selectComponent("#toast").onTap()
+    // this.toast.onTap()
+    // this.selectAllComponents("#toast").onTap()
   },
 
   /**
@@ -170,9 +173,10 @@ Page({
   /**
    * ❤️页面刷新实验
    */  
-  changeData: function(testbook) {
+
+  pickChange:function(e){
     this.setData({
-      testbook: testbook
-    })
+      index:e.detail.value
+    });
   }
 })
