@@ -19,7 +19,7 @@ Component({
    * Component methods
    */
   methods: {
-    onTap: function(event){
+    onLongpress: function(event){
       // 使用 data-bId="{{book.id}} 结合 event.currentTarget.dataset.bid形式也可以拿到book.id
       // const bid = event.currentTarget.dataset.bid;
       // ❤️book组件properties的属性book可以拿到id号
@@ -32,7 +32,16 @@ Component({
       wx.navigateTo({
         url:`/pages/book-detail/book-detail?bid=${bid}`
       })
-    }
+    },
 
+    onTap: function(event){
+      const bid = this.properties.book.id;
+      wx.showToast({
+        title: 'ID:' + bid + '，长按进入',
+        icon: 'none',
+        image: '../../images/icon/testShowToast.png',
+        duration: 1000
+      })
+    }
   }
 })
