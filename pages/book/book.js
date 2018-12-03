@@ -154,9 +154,12 @@ Page({
     // this.selectComponent(".toast").onTap()
     // this.selectAllComponents(".toast").onTap()
     // this.toast.onTap()
-    // console.info('this.selectComponent(".toast").data', this.selectComponent('.toast').data)
-    console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast').data)
-    
+    var selectAll = this.selectAllComponents('.toast')
+    console.info('this.selectComponent(".toast").data', this.selectComponent('.toast'))
+    console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast'))
+    for( var i = 0; i< selectAll.length; i++){
+      selectAll[i].onTap()
+    }
   },
 
   /**
