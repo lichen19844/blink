@@ -5,18 +5,13 @@ Component({
    */
   properties: {
     // properties的属性book可以拿到id号
-    book: Object,
-
-    array: Array
+    book: Object
   },
 
   /**
    * Component initial data
    */
   data: {
-    toast:[
-      'a', 'b', 'c'
-    ],
     testing: false
   },
 
@@ -50,8 +45,14 @@ Component({
     // },
 
     onTap(event) {
-      console.log('onTap is ')
-      const array = this.properties.array;
+      // const bid = this.properties.book.id;
+      wx.showToast({
+        // title: 'ID:' + bid + '，长按进入',
+        title: '下拉all，长按进入',
+        icon: 'none',
+        image: '../../images/icon/testShowToast.png',
+        duration: 1000
+      })      
       this.setData({
         testing: true
       })

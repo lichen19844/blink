@@ -157,8 +157,9 @@ Page({
     var selectAll = this.selectAllComponents('.toast')
     console.info('this.selectComponent(".toast").data', this.selectComponent('.toast'))
     console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast'))
-    for( var i = 0; i< selectAll.length; i++){
-      selectAll[i].onTap()
+    // for( var i = 0; i< selectAll.length; i++){
+    for( var i in selectAll){
+        selectAll[i].onTap()
     }
   },
 
