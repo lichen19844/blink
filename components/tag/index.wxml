@@ -4,6 +4,7 @@
     <!-- 组件内部可以嵌入任意多的slot，外部的同名的slot才能够激活内部同名的slot，此处before无效 -->
     <slot name="before"></slot>
     <text>{{text}}</text>
+    <text class="red-text">~好的</text>
     <!-- <text>{{num}}</text> -->
     <slot name="after"></slot>
 </view>

@@ -68,3 +68,9 @@
 .footer {
     color: #666666;
 }
+
+.test {
+    border: 1px solid red;
+    width:100px;
+    height: 40px;
+}

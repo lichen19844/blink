@@ -151,9 +151,12 @@ Page({
     // this.selectAllComponents("#toast").setData({
     //   test: '2'
     // })
-    this.selectComponent("#toast").onTap()
+    // this.selectComponent(".toast").onTap()
+    // this.selectAllComponents(".toast").onTap()
     // this.toast.onTap()
-    // this.selectAllComponents("#toast").onTap()
+    // console.info('this.selectComponent(".toast").data', this.selectComponent('.toast').data)
+    console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast').data)
+    
   },
 
   /**

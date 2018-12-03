@@ -12,3 +12,9 @@
     font-size: 28rpx;
     border: 1px solid;    
 }
+
+/* 组件整体样式 */
+:host {
+    border: 5px solid yellow;
+}
+

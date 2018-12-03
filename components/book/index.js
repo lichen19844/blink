@@ -5,14 +5,19 @@ Component({
    */
   properties: {
     // properties的属性book可以拿到id号
-    book: Object
+    book: Object,
+
+    array: Array
   },
 
   /**
    * Component initial data
    */
   data: {
-
+    toast:[
+      'a', 'b', 'c'
+    ],
+    testing: false
   },
 
   /**
@@ -34,14 +39,22 @@ Component({
       })
     },
 
+    // onTap(event) {
+    //   const bid = this.properties.book.id;
+    //   wx.showToast({
+    //     title: 'ID:' + bid + '，长按进入',
+    //     icon: 'none',
+    //     image: '../../images/icon/testShowToast.png',
+    //     duration: 1000
+    // })
+    // },
+
     onTap(event) {
-      const bid = this.properties.book.id;
-      wx.showToast({
-        title: 'ID:' + bid + '，长按进入',
-        icon: 'none',
-        image: '../../images/icon/testShowToast.png',
-        duration: 1000
-    })
+      console.log('onTap is ')
+      const array = this.properties.array;
+      this.setData({
+        testing: true
+      })
     }
 
   }
