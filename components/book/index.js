@@ -12,7 +12,7 @@ Component({
    * Component initial data
    */
   data: {
-
+    testing: false
   },
 
   /**
@@ -34,13 +34,17 @@ Component({
       })
     },
 
-    onTap: function(event){
-      const bid = this.properties.book.id;
+    onTap(event) {
+      // const bid = this.properties.book.id;
       wx.showToast({
-        title: 'ID:' + bid + '，长按进入',
+        // title: 'ID:' + bid + '，长按进入',
+        title: '下拉all，长按进入',
         icon: 'none',
         image: '../../images/icon/testShowToast.png',
         duration: 1000
+      })      
+      this.setData({
+        testing: true
       })
     }
   }
