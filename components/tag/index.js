@@ -3,7 +3,8 @@ Component({
   
   // 启用slot需要加上
   options: {
-    multipleSlots: true
+    multipleSlots: true,
+    addGlobalClass: true
   },
 
   // 启用外部css样式
