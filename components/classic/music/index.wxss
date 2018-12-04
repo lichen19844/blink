@@ -74,6 +74,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    /* border: 1px solid blue; */
   }
   
   .stylus_1{
@@ -84,6 +85,8 @@
     transform:rotate(-18deg);
     transition: all 2s ease-in-out;
     animation: mymovess 2s;  
+    /* border: 1px solid pink; */
+
   }
   
   @keyframes mymovess{
@@ -105,6 +108,7 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
+    /* border: 1px solid black; */
   }
   
   .stylus_3{
@@ -112,15 +116,17 @@
     height: 40%;
     border-radius: 50%;
     background-color: #e5e5e5;
+    /* border: 1px solid blueviolet; */
   }
   
   .stylus_4{
     width: 20%;
     height: 170%;
     position: absolute;
-    z-index: -1;
+    z-index: 111;
     border-radius: 50px;
     background: linear-gradient(to right, #b3b3b1, #d3d3d3, #b3b3b1); 
+    /* border: 1px solid red; */
   }
   
   .stylus_5{
@@ -131,6 +137,7 @@
     left: 18rpx;
     background: linear-gradient(to right, #b3b3b1, #d3d3d3, #b3b3b1); 
     transform:rotate(-25deg);
+    /* border: 1px solid green; */
   }
   
   .stylus_6{
@@ -141,6 +148,7 @@
     bottom: 0;
     left: 35%;
     border-radius: 10px 10px 0 0;
+    /* border: 1px solid blue; */
   }
   
   .stylus_7{
@@ -151,6 +159,7 @@
     bottom: -58%;
     left: -15%;
     background: linear-gradient(#b3b3b1, #d3d3d3);
+    /* border: 1px solid blueviolet; */
   }
   
   .stylus_8{
@@ -161,6 +170,7 @@
     left: -6rpx;
     border-radius: 5px;
     background: linear-gradient(to right, #b3b3b1, #d3d3d3, #b3b3b1); 
+    /* border: 1px solid red; */
   }
   
   .stylus_9{
@@ -169,6 +179,7 @@
     background-color: #b1b1b1;
     position: absolute;
     top: 20%;
+    /* border: 1px solid blueviolet; */
   }
   
   .stylus_10{
