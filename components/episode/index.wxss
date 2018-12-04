@@ -10,7 +10,7 @@
     /* 消除容器本身的块状特性，可以用inline-flex,inline-flex 将对象作为内联块级弹性伸缩盒显示,自适应自己和内部子元素的宽度和高度 */
     display: inline-flex;
     flex-direction: row;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .index-container {
@@ -18,7 +18,7 @@
     flex-direction: row;
     /* baseline保证容器内3个标签内容的底是一致对齐的，并且baseline对文字text是不生效的，要改用view */
     align-items: baseline;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .plain {

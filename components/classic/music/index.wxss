@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     /* border: 1px solid; */
 }
 
@@ -12,6 +13,7 @@
     height: 362rpx;
     margin-top: 150rpx;
     border-radius: 50%;
+    /* position: relative; */
 }
 
 .vinyl-img{
@@ -20,7 +22,7 @@
   width: 580rpx;
   height: 580rpx;
   position: absolute;
-  bottom: 380rpx;
+  bottom: 180rpx;
   z-index: -1;
   animation: mymove 10s linear infinite;
   animation-delay: 1.5s;
@@ -50,6 +52,11 @@
     bottom: 180rpx;
     right: 310rpx;
     /* border: 1px solid; */
+}
+
+.content {
+  position: relative;
+  bottom: 100rpx;
 }
 
 .rotationCss {
@@ -90,7 +97,7 @@
  */
  .stylusBox{
     position: absolute;
-    top: -25px;
+    top: -75px;
     width: 100%;
     display: flex;
     justify-content: center;
