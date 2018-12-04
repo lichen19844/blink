@@ -31,6 +31,7 @@ Component({
    */
   data: {
     // 把图片的路径变成js变量
+    vinylSrc: 'images/play.png',
     pauseSrc: 'images/player@pause.png',
     playSrc: 'images/player@play.png',
     // {{!playing ? playSrc: pauseSrc}}等同于{{playing ? pauseSrc: playSrc}}更直观一点，其中playing是我们人为定义的“正在播放”，然而我们给playing的初值是false，初值false、true和播不播放的状态无关，只和图标有关，当!playing为true显示play图标，人为定义不播放；点击一下，!playing变成false，显示pause图标，人为定义正在播放

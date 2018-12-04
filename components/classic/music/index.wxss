@@ -4,22 +4,42 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .classic-img{
-    width: 422rpx;
-    height: 422rpx;
-    margin-top: 60rpx;
+    width: 362rpx;
+    height: 362rpx;
+    margin-top: 150rpx;
     border-radius: 50%;
-    /* border: 1px solid; */
 }
+
+.vinyl-img{
+  border-radius: 50%;
+  /* border: 1px solid; */
+  width: 580rpx;
+  height: 580rpx;
+  position: absolute;
+  bottom: 380rpx;
+  z-index: -1;
+  animation: mymove 10s linear infinite;
+  animation-delay: 1.5s;
+}
+  @keyframes mymove
+  {
+    from {
+      transform:rotate(0deg);
+    }
+    to {
+      transform:rotate(360deg);
+    }
+  }
 
 .player-img{
     width: 120rpx;
     height: 120rpx;
     position: relative;
-    bottom: 270rpx;
+    bottom: 240rpx;
     /* border: 1px solid; */
 }
 
@@ -27,7 +47,7 @@
     width: 44rpx;
     height: 128rpx;
     position: relative;
-    bottom: 160rpx;
+    bottom: 180rpx;
     right: 310rpx;
     /* border: 1px solid; */
 }
@@ -65,12 +85,12 @@
 }
 
 
-
 /**
  * 黑胶唱片唱针样式效果
  */
  .stylusBox{
     position: absolute;
+    top: -25px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -82,7 +102,7 @@
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    transform:rotate(-18deg);
+    transform:rotate(-22deg);
     transition: all 2s ease-in-out;
     animation: mymovess 2s;  
     /* border: 2px solid pink; */
@@ -94,7 +114,7 @@
       transform:rotate(-40deg);
     }
     to {
-      transform:rotate(-18deg);
+      transform:rotate(-22deg);
     }
   }
   
