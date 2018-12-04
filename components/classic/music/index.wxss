@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid; */
+    border: 1px solid;
 }
 
 .classic-img{
@@ -85,7 +85,7 @@
     transform:rotate(-18deg);
     transition: all 2s ease-in-out;
     animation: mymovess 2s;  
-    /* border: 1px solid pink; */
+    /* border: 2px solid pink; */
 
   }
   
@@ -195,16 +195,17 @@
    */
   /* .level_1{
     background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 auto;
+    margin: auto auto;
     position: relative;
     top: 150rpx;
     border-radius: 50%;
     padding: 1.5%;
     animation: mymove 10s linear infinite;
     animation-delay: 2s;
-  }
+    border: 1px solid;
+  } */
   
-  @keyframes mymove
+  /* @keyframes mymove
   {
     from {
       transform:rotate(0deg);
@@ -212,9 +213,9 @@
     to {
       transform:rotate(360deg);
     }
-  }
+  } */
   
-  .level_2{
+  /* .level_2{
     width: 97%;
     height: 97%;
     background-color: #262628;
