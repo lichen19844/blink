@@ -46,6 +46,7 @@
     height: 120rpx;
     position: relative;
     bottom: 240rpx;
+    opacity: 0.5;
     /* border: 1px solid; */
 }
 
