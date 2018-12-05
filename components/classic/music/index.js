@@ -71,27 +71,27 @@ Component({
       // 图片要能切换
       // 因为初始playing为false，点击后，给当前playing一个!，当!和false结合，使得if的结果为真，执行playing:true，图片变为为暂停图标
       if(!this.data.playing){
+        mMgr.title = this.properties.title
         this.setData({
           playing: true
         })
         // 默认为空字符串，不启动音乐，当设置了新的 src 时，会自动开始播放
         // 根据惯例，暂停图标所关联的音乐要开始播放
         // mMgr.src = this.properties.src
-
-        if(!mMgr.src){
-          console.log('!mMgr.src')
+        if(
+          !mMgr.src
+          ){
+          console.log('!mMgr.src')       
           mMgr.src = this.properties.src
         }  else {
           if(mMgr.src !== this.properties.src){
-            console.log('mMgr.src !== this.properties.src')
+            console.log('mMgr.src !== this.properties.src')        
             mMgr.src = this.properties.src
           }else {
-            console.log('mMgr.play()')
+            console.log('mMgr.play()')         
             mMgr.play()
           }
-        }      
-        
-        mMgr.title = this.properties.title
+        }              
       } 
       // 暂停
       // 因为上次点击后playing的值变为true，此时再点击的话，!this.data.playing的结果就会为假，执行else
