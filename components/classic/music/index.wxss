@@ -75,9 +75,9 @@
 
 
 /* ❤️试验animation暂停，在小程序里class需要连写成 rotationCss suspended */
-.suspended{
+/* .suspended{
     animation-play-state:paused;
-}
+} */
 
 @keyframes rotation_css {
     from {
@@ -108,19 +108,19 @@
     /* border: 1px solid blue; */
   }
   
-  .stylus_1{
+  .stylus_1_1{
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     position: relative;
     z-index: 1;
     transform:rotate(-22deg);
     transition: all 2s ease-in-out;
-    animation: mymovess 2s;  
+    animation: mymovess_1 2s;
+    animation-play-state:paused;
     /* border: 2px solid pink; */
-
   }
   
-  @keyframes mymovess{
+  @keyframes mymovess_1{
     from {
       transform:rotate(-40deg);
     }
@@ -128,7 +128,7 @@
       transform:rotate(-22deg);
     }
   }
-  
+
   .stylus_2{
     width: 76%;
     height: 76%;

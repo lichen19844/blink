@@ -3,7 +3,8 @@
 <view class="classic-container" hidden="{{hidden}}">
   <!-- 黑胶唱片唱针部分 -->
     <view class='stylusBox'>
-        <view class='stylus_1' style='width: {{ stylusW }}px; height: {{ stylusW }}px'>
+        <!-- <view class='stylus_1' style='width: {{ stylusW }}px; height: {{ stylusW }}px'> -->
+        <view class="{{playing ? 'stylus_1_1': 'stylus_1_1'}}" style="animation-play-state:{{playing?'running':''}}; transform:{{playing? '':'rotate(-40deg)'}}; width: {{ stylusW }}px; height: {{ stylusW }}px">
           <view class='stylus_2'>
               <view class='stylus_3'></view>
               <view class='stylus_4' style='top: {{ stylusW*0.8 }}px'>
@@ -21,21 +22,12 @@
         </view>
     </view>
 
-  <!-- 黑胶唱片部分 -->
- 
-    <!-- <view class="vinyl_1">
-      <view class="vinyl_2">
-        <view class="vinyl_3">
-          <view class="vinyl_4"></view>
-        </view>
-      </view>
-    </view> -->
-
     <!-- 试验animation暂停，用style形式 -->
-    <image class="classic-img {{playing ? 'rotationCss': 'rotationCss'}}" style="animation-play-state:{{playing?'running':''}}" src= "{{img}}" />
+    <image bind:tap="onPlay" class="classic-img {{playing ? 'rotationCss': 'rotationCss'}}" style="animation-play-state:{{playing?'running':''}}" src= "{{img}}" />
     
     <!-- 试验animation暂停，class需要连写成 rotationCss suspended -->
     <!-- <image class="classic-img {{playing ? 'rotationCss': 'rotationCss suspended'}}" src= "{{img}}" /> -->
+    <!-- 黑胶唱片部分 -->
     <image class="vinyl-img" src="{{vinylSrc}}" />
     <image class="player-img" animation="{{playerAnimationStyle}}" bind:tap="onPlay" src= "{{!playing ? playSrc: pauseSrc}}" />
     <image class="tag" src= "images/music@tag.png" />

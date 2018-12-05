@@ -8,9 +8,12 @@ import {
 const mMgr = wx.getBackgroundAudioManager();
 const _PlayerAnimation = wx.createAnimation({
   duration: 1000,
-  timingFunction: 'linear',
+  timingFunction: 'ease-out',
   delay: 0,
   transformOrigin: '50% 50% 0'  
+});
+const _CoverAnimation = wx.createAnimation({
+  // timingFunction: 'ease-out'
 });
 
 Component({
@@ -93,11 +96,15 @@ Component({
       // 暂停
       // 因为上次点击后playing的值变为true，此时再点击的话，!this.data.playing的结果就会为假，执行else
       else{
+
         this.setData({
           playing: false
         })
         // mMgr.pause()是个方法是个动作，和属性mMgr.paused有区别
         mMgr.pause()
+      //   setTimeout(function(){
+      //     mMgr.pause()
+      // }, 1500)
       }
     },
 
@@ -112,7 +119,7 @@ Component({
           _PlayerAnimation.rotate(0).scale(1).translate(0, 0).step();
           this.setData({
           playing: false,
-          playerAnimationStyle: _PlayerAnimation.export()
+          playerAnimationStyle: _PlayerAnimation.export(),
         })
         console.log('testPlayingPause')
         // 有了这个return，这两个if只能执行其中一个
