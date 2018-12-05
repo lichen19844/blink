@@ -6,7 +6,7 @@ import {
 
 // 定义一个变量，作为音乐管理对象的方法
 const mMgr = wx.getBackgroundAudioManager();
-const _animation = wx.createAnimation({
+const _PlayerAnimation = wx.createAnimation({
   duration: 1000,
   timingFunction: 'linear',
   delay: 0,
@@ -37,7 +37,7 @@ Component({
     // {{!playing ? playSrc: pauseSrc}}等同于{{playing ? pauseSrc: playSrc}}更直观一点，其中playing是我们人为定义的“正在播放”，然而我们给playing的初值是false，初值false、true和播不播放的状态无关，只和图标有关，当!playing为true显示play图标，人为定义不播放；点击一下，!playing变成false，显示pause图标，人为定义正在播放
     // 视图层的!playing，其中playing的值false和true只是!的开关，出现在视图层的!只关联图片的切换，然后再映射到视图层
     playing: false,
-    animationStyle: '',
+    playerAnimationStyle: '',
     // 唱片指针
     stylusW: 50,
     // 唱片黑边
@@ -64,6 +64,7 @@ Component({
    */
   methods: {
     onPlay: function(event){
+      // 播放
       // 图片要能切换
       // 因为初始playing为false，点击后，给当前playing一个!，当!和false结合，使得if的结果为真，执行playing:true，图片变为为暂停图标
       if(!this.data.playing){
@@ -89,6 +90,7 @@ Component({
         
         mMgr.title = this.properties.title
       } 
+      // 暂停
       // 因为上次点击后playing的值变为true，此时再点击的话，!this.data.playing的结果就会为假，执行else
       else{
         this.setData({
@@ -107,10 +109,10 @@ Component({
       // 属性paused指当前是否暂停或停止
       if(mMgr.paused){
           // 播放小图标的动画
-          _animation.rotate(0).scale(1).translate(0, 0).step();
+          _PlayerAnimation.rotate(0).scale(1).translate(0, 0).step();
           this.setData({
           playing: false,
-          animationStyle: _animation.export()
+          playerAnimationStyle: _PlayerAnimation.export()
         })
         console.log('testPlayingPause')
         // 有了这个return，这两个if只能执行其中一个
@@ -120,10 +122,10 @@ Component({
       // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         // 播放小图标的动画
-        _animation.rotate(180).scale(1.14).translate(0, 0).step();
+        _PlayerAnimation.rotate(180).scale(1.14).translate(0, 0).step();
         this.setData({
           playing: true,
-          animationStyle: _animation.export()
+          playerAnimationStyle: _PlayerAnimation.export()
         })
         console.log('testPlayingPlay')        
       }
