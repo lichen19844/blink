@@ -164,8 +164,10 @@
     width:100%;
     height:56%;
     position:relative;
-    bottom:-88%;
-    left: 18rpx;
+    /* 修正唱针形状偏移 */
+    bottom:-92%;
+    left: 21rpx;
+    border-radius: 10%;
     background: linear-gradient(to right, #b3b3b1, #d3d3d3, #b3b3b1); 
     transform:rotate(-25deg);
     /* border: 1px solid green; */
