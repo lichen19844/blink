@@ -17,8 +17,10 @@
 .icon {
     height: 30rpx;
     width: 30rpx;
-    padding: 10rpx;
-    margin: 20rpx;
+    /* padding的作用是用来增大手指触碰面积 */
+    padding: 25rpx;
+    /* margin: 20rpx; */
+    /* border: 1px solid; */
 }
 
 .title {

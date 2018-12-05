@@ -47,8 +47,13 @@ Component({
         historyWords: historyWords,
         text: ''
       })
-    }
+    },
 
+    onClear(event){
+      this.setData({
+        text: ''
+      })
+    }
 
   }
 })

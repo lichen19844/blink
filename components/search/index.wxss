@@ -18,6 +18,7 @@
     width: 750rpx;
     align-items: center;
     z-index: 99;
+    /* border: 1px solid; */
 }
 
 .search-container {
@@ -27,6 +28,7 @@
     background-color: #f5f5f5;
     border-radius: 50px;
     margin-left: 20rpx;
+    width: 100%;
 }
 
 .in-bar {
@@ -36,9 +38,11 @@
 .bar {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    /* 行内元素 *//* inline系列如inline-block用于消除【占行】的块状特性 */
+    /* 如果是inline，是不能带有宽高的 */
     display: inline-block;
     height: 68rpx;
-    width: 500rpx;
+    width: 100%;
     font-size: 28rpx;
 }
 
@@ -52,15 +56,19 @@
 .cancel {
     line-height: 68rpx;
     width: 120rpx;
+    right: 0;
     text-align: center;
     display: inline-block;
-    border: none;
+    /* border: 1px solid; */
 }
 
 .cancel-img {
     width: 28rpx;
     height: 28rpx;
-    margin-right: 20rpx;
+    /* padding的作用是用来增大手指触碰面积 */
+    padding: 14rpx 14rpx 14rpx 20rpx;
+    /* margin-right: 20rpx; */
+    /* border: 1px solid; */
 }
 
 .history {

@@ -137,6 +137,7 @@ Page({
     for( var i in selectAll){
         selectAll[i].onTap()
     }
+    wx.stopPullDownRefresh();
   },
 
   /**

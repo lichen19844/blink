@@ -22,7 +22,9 @@
 }
 
 .chunk {
-  /* 行内元素 *//* inline系列如inline-block用于消除【占行】的块状特性 *//* 如果是inline，是不能带有宽高的 *//* display: inline-block; */
+  /* 行内元素 *//* inline系列如inline-block用于消除【占行】的块状特性 */
+  /* 如果是inline，是不能带有宽高的 */
+  /* display: inline-block; */
   width: 150px;
   /* 没有高度的时候会根据内容自适应，比如根据文字 */
   height: 100px;
