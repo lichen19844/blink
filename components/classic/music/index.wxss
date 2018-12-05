@@ -13,19 +13,23 @@
     height: 362rpx;
     margin-top: 150rpx;
     border-radius: 50%;
+    box-sizing: border-box;
+    border: 12px solid rgba(82, 1, 1, 0.7);
+    /* box-shadow: 0 0 0 10px rgba(243, 106, 34, .4); */
     /* position: relative; */
 }
 
 .vinyl-img{
-  border-radius: 50%;
+  /* border-radius: 50%; */
   /* border: 1px solid; */
   width: 580rpx;
   height: 580rpx;
   position: absolute;
-  bottom: 180rpx;
+  bottom: 185rpx;
   z-index: -1;
   animation: mymove 10s linear infinite;
   animation-delay: 1.5s;
+  transform-origin: 50.6% 50.6%;
 }
   @keyframes mymove
   {
@@ -62,9 +66,9 @@
 .rotationCss {
     /* -webkit-transform: rotate(360deg); 貌似无效 */
     animation: rotation_css 10s linear infinite;
-    -moz-animation: rotation_css 12s linear infinite;
-    -webkit-animation: rotation_css 12s linear infinite;
-    -o-animation: rotation_css 12s linear infinite;
+    -moz-animation: rotation_css 10s linear infinite;
+    -webkit-animation: rotation_css 10s linear infinite;
+    -o-animation: rotation_css 10s linear infinite;
     /* class结合style时，需要如下写法 */
     animation-play-state:paused;
 }

@@ -120,7 +120,7 @@ Component({
       // 判断当前播放的音乐地址就是properties中的音乐地址，mMgr.src是属性，更像一种拥有的状态
       if(mMgr.src == this.properties.src){
         // 播放小图标的动画
-        _animation.rotate(180).scale(1.2).translate(0, 0).step();
+        _animation.rotate(180).scale(1.14).translate(0, 0).step();
         this.setData({
           playing: true,
           animationStyle: _animation.export()
