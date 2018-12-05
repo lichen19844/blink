@@ -49,6 +49,7 @@ class BookModel extends HTTP {
         return this.request({
             url: 'book/add/short_comment',
             method: 'POST',
+            // 当method为POST时才要填写data内容，GET不要
             data: {
                 book_id: bid,
                 content: content

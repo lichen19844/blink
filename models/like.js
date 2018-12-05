@@ -11,6 +11,7 @@ class LikeModel extends HTTP {
         this.request({
             url: url,
             method: 'POST',
+            // 当method为POST时才要填写data内容，GET不要
             // data是向服务器提交的数据，将期刊的指定数据按所调api要求的格式存储，服务器保存后，该期刊页面的like状态和数量将会被服务器保存，除非再次点击改变数据
             data: {
                 art_id: artID,

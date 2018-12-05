@@ -19,7 +19,7 @@ class HTTP {
     // 这个params对象的好处是用一个参数名来表示所接收的多个参数，但是可读性很差
     // ❤️❤️对象的解构：(url, data={}, method='GET')改成({url, data={}, method='GET'})
     request({url, data={}, method='GET'}){
-        // 省略了const promise，直接返回promise给request方法
+        // 省略了const promise = new Promise()，直接返回promise给request方法
         return new Promise((resolve, reject)=>{
             // 这里要写异步代码，已经封装在了_request方法中，直接调用过来
             this._request(url, resolve, reject, data, method)
@@ -43,7 +43,7 @@ class HTTP {
                 console.log('res.statusCode is ', res.statusCode)
                 console.log('string "code" is ', code)
                 if (code.startsWith('2')) {
-                    // ❤️这里用到了resolve，resolve可以全盘接收success拿到的res数据
+                    // ❤️这里用到了resolve，resolve可以全盘接收success拿到的res数据或者它的子数据，返回给使用Promise的函数，最终返回给使用then的函数
                     // 因为resolve是必传参数，所以不需要做resolve存在的判断，写resolve && resolve(res.data)
                     resolve(res.data);
                     console.log('resolve is ', resolve);

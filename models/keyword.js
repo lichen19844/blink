@@ -1,22 +1,27 @@
-class KeywordModel {
+import {HTTP} from '../util/http-promise.js'
+
+class KeywordModel extends HTTP {
 
     key = 'q'
     maxLength = 10
     // words = []
 
-    // 获取历史
+    // 获取历史数据，来源于缓存
     getHistory() {
-        // 利用缓存
         const words = wx.getStorageSync(this.key)
         if(!words) {
+            // 如果缓存不存在，返回一个空数组[]给getHistory方法
             return []
         }
+        // 如果缓存存在，读取缓存
         return words
     }
 
-    // 获取热门
+    // 获取热门数据，来源于服务器的API
     getHot() {
-        // 利用服务器
+        return this.request({
+            url: 'book/hot_keyword'
+        })
     }
 
     // 将关键字写入缓存
