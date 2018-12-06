@@ -23,11 +23,17 @@
                 </block>
             </view>            
         </view>
+
         <view class="history hot-search">
             <view class="title">
                 <view class="chunk"></view>
                 <text>热门搜索</text>
             </view>
+            <view class="tags">
+                <block wx:key="" wx:for="{{hotWords}}" wx:for-item="hotword">
+                    <tag-cmp text="{{hotword}}" />
+                </block>
+            </view>              
         </view>
     </view>
 </view>

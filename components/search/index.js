@@ -21,21 +21,38 @@ Component({
     // 调用Models中的相关方法，获取到历史搜索的所有关键字数据，然后做setData数据绑定
     historyWords: [],
     hotWords: [],
-    text: ''
+    text: '',
+    maxLength: 5
   },
 
   attached() {
     // getHot返回的是个Promise，getHistory返回的是数组
-    const historyWords = keywordModel.getHistory();
-    const hotWords = keywordModel.getHot();
+    // const historyWords = keywordModel.getHistory();
+    // const hotWords = keywordModel.getHot();
+
     this.setData({
-      historyWords: historyWords
+      historyWords: keywordModel.getHistory()
     })
-    hotWords.then((res) => {
-      this.setData({
-        hotWords: res.hot
-      })
-    })
+
+    keywordModel.getHot().then(
+      (res) => {
+        const hot = res.hot;
+        const has = hot.includes();
+        if(!has){
+          const length = hot.length;
+          console.log('hotWords res is ', hot)
+          console.log('hot length is ', length)
+          if(length >= this.data.maxLength) {
+              hot
+          }
+          console.log('hot is ', hot.length)
+          this.setData({
+            hotWords: hot
+          })
+        }
+      }
+    )
+    
   },
 
   /**
