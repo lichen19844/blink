@@ -22,7 +22,7 @@ Component({
     historyWords: [],
     hotWords: [],
     text: '',
-    maxLength: 5
+    maxLength: 4
   },
 
   attached() {
@@ -32,27 +32,30 @@ Component({
 
     this.setData({
       historyWords: keywordModel.getHistory()
-    })
+    });
 
     keywordModel.getHot().then(
       (res) => {
         const hot = res.hot;
-        const has = hot.includes();
-        if(!has){
-          const length = hot.length;
-          console.log('hotWords res is ', hot)
-          console.log('hot length is ', length)
-          if(length >= this.data.maxLength) {
-              hot
-          }
-          console.log('hot is ', hot.length)
+        // 3种方法获取数组的前面一部分
+        // 1、用slice获取
+        // const hotdata = hot.slice(0, this.data.maxLength)
+        // 2、用for循环获取
+        // const hotdata_a =[];
+        // for(let i=0; i<this.data.maxLength; i++){
+        //   hotdata_a.push(hot[i])
+        // }
+        // 3、用filter和indexOf获取
+        console.log('hot is ', hot)
+        const hotdata_b = hot.filter((x, index,self) => {
+          return self.indexOf(x) < this.data.maxLength
+        })
           this.setData({
-            hotWords: hot
+            // hotWords: hotdata
+            // hotWords: hotdata_a
+            hotWords: hotdata_b
           })
-        }
-      }
-    )
-    
+        });
   },
 
   /**
