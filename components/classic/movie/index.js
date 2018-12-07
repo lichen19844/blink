@@ -39,7 +39,9 @@ Component({
         //     title: '煮茶读书，甚好~',
         //     icon: 'none'
         // })
-        this.settimer_b()
+        // this.settimer_b()
+        // this.settimer_c()
+        this.showtoast()
     },
 
     /**
@@ -72,20 +74,34 @@ Component({
                 // this.settimer_a();
                 // }, 
                 wx.stopPullDownRefresh,
-                1000);
+                2000);
         },
 
         settimer_b(event) {
-            setTimeout(
-                this.showtoast,
-                1400);
+            // setTimeout(
+            //     this.showtoast,
+            //     1400);
         },
 
-        showtoast(event){
+        settimer_c(event) {
+            console.log('settimer_c this', this)
+
+            console.log('aaaaaaa')
+        },
+        showtoast(event) {
+            wx.startPullDownRefresh()
             wx.showToast({
               title: '文艺气息扑面而来',
               icon: 'none'
-          })    
-          }
+            })
+            console.log('this', this)
+            // ❤️this.settimer_a()这种写法会报错 is not a function，暂时不知道原因
+            this.settimer_a()
+            this.settimer_b()
+            // this.settimer_c()
+            // setTimeout(
+            //     wx.stopPullDownRefresh,
+            //     1000)
+        }
     }
 })
