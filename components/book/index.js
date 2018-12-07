@@ -15,6 +15,10 @@ Component({
     testing_tap: false
   },
 
+  attached(event){
+    // this._attached_book()
+  },
+
   /**
    * Component methods
    */
@@ -43,6 +47,12 @@ Component({
         image: '../../images/icon/testShowToast.png',
         duration: 1000
       })      
+      this.setData({
+        testing_tap: true
+      })
+    },
+
+    _attached_book(event) {
       this.setData({
         testing_tap: true
       })

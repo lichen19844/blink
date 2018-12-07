@@ -27,7 +27,7 @@ Component({
 
     },
 
-    attatched() {
+    attached() {
         // ❤️实验，在attatched中直接 使用wx.xxx是无效的
         // wx.startPullDownRefresh({
         //     success: function(){
@@ -39,6 +39,7 @@ Component({
         //     title: '煮茶读书，甚好~',
         //     icon: 'none'
         // })
+        this.settimer_b()
     },
 
     /**
@@ -46,12 +47,14 @@ Component({
      */
     methods: {
         onTap(event){
+            // this.settimer(event)
             wx.startPullDownRefresh({
-                success: function(){
+                success: ()=>{
                     {
+                        this.settimer_a(),
                         // ❤️注意wx.stopPullDownRefresh的用法
-                        setTimeout(wx.stopPullDownRefresh
-                        , 1000),
+                        // setTimeout(wx.stopPullDownRefresh
+                        // , 1000),
                         wx.showToast({
                             title: '生活就像电影',
                             icon: 'none'
@@ -59,6 +62,30 @@ Component({
                     }
                 }
             })
-        }
+        },
+
+        settimer_a(event) {
+            setTimeout(
+                // (event)=> {
+                // console.log("----Countdown----");
+                // 每1秒自触发一次
+                // this.settimer_a();
+                // }, 
+                wx.stopPullDownRefresh,
+                1000);
+        },
+
+        settimer_b(event) {
+            setTimeout(
+                this.showtoast,
+                1400);
+        },
+
+        showtoast(event){
+            wx.showToast({
+              title: '文艺气息扑面而来',
+              icon: 'none'
+          })    
+          }
     }
 })

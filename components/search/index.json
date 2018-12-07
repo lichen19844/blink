@@ -3,5 +3,6 @@
   "usingComponents": {
     "tag-cmp": "/components/tag/index",
     "book-cmp": "/components/book/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

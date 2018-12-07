@@ -106,6 +106,5 @@ Component({
         text: ''
       })
     }
-
   }
 })

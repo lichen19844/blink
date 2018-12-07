@@ -130,14 +130,12 @@ Page({
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
-    var selectAll = this.selectAllComponents('.toast')
-    console.info('this.selectComponent(".toast").data', this.selectComponent('.toast'))
-    console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast'))
-    // for( var i = 0; i< selectAll.length; i++){
-    for( var i in selectAll){
-        selectAll[i].onTap()
-    }
-    wx.stopPullDownRefresh();
+
+    wx.stopPullDownRefresh({
+      success: ()=>{
+        this.settimer()
+      }
+    });
   },
 
   /**
@@ -152,5 +150,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  settimer(event) {
+    setTimeout(
+      this.showtoast
+      ,1000);
+  },
+
+  showtoast(event){
+    var selectAll = this.selectAllComponents('.toast')
+    console.info('this.selectComponent(".toast").data', this.selectComponent('.toast'))
+    console.info('this.selectAllComponents(".toast").data', this.selectAllComponents('.toast'))
+    // for( var i = 0; i< selectAll.length-17; i++){
+    for( var i in selectAll){
+        selectAll[i].onTap()
+    }
+    wx.showToast({
+      title: '翻翻书本，有书卷气',
+      icon: 'none'
+  })    
   }
 })
