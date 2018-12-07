@@ -4,6 +4,12 @@ import {
   KeywordModel
 } from '../../models/keyword.js'
 
+import {
+  BookModel
+} from '../../models/book.js'
+
+const bookModel = new BookModel()
+
 const keywordModel = new KeywordModel();
 
 Component({
@@ -23,7 +29,8 @@ Component({
     hotWords: [],
     text: '',
     maxLength: 4,
-    dataArray: []
+    dataArray: [],
+    searching: false
   },
 
   attached() {
@@ -69,24 +76,29 @@ Component({
     },
 
     onConfirm(event) {
-      // 使用input组件的confirm属性读取写入的值，再传给addToHistory方法
-      const word = event.detail.value;
-      // 放在这里不好，因为用户的搜索关键词中可能会包含很多无效的信息，缓存应该储存更有效的信息，所以应该在返回搜素结果之后再把关键字添加到缓存中
-      keywordModel.addToHistory(word);
-      // 实时刷新记录历史搜索，不能用this.attatched()会报错
-      const historyWords = keywordModel.getHistory();
       this.setData({
-        historyWords: historyWords,
-        text: ''
-      });
+        searching: true
+      })
+      // 使用input组件的confirm属性读取写入的值，再传给addToHistory方法
+      // const word = event.detail.value;
+      // 放在这里不好，因为用户的搜索关键词中可能会包含很多无效的信息，缓存应该储存更有效的信息，所以应该在返回搜素结果之后再把关键字添加到缓存中
+      // keywordModel.addToHistory(word);
+
       const q = event.detail.value;
-      // keywordModel.search(0, q)
-      // .then(res => {
-      //   this.setData({
-      //     dataArray: res.books
-      //   })
-      //   keywordModel.addToHistory(word);
-      // })
+      bookModel.search(0, q)
+      .then(res => {
+        this.setData({
+          dataArray: res.books
+        })
+        console.log('dataArray is ', this.data.dataArray)
+        keywordModel.addToHistory(q);
+        // 实时刷新记录历史搜索，不能用this.attatched()会报错
+        const historyWords = keywordModel.getHistory();
+        this.setData({
+          historyWords: historyWords,
+          text: ''
+        })        
+      })
     },
 
     onClear(event){

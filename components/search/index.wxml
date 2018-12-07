@@ -10,7 +10,7 @@
         <view bind:tap="onCancel" class="cancel">取消</view>
     </view>
 
-    <view>
+    <view wx:if = "{{!searching}}">
         <view class="history">
             <view class="title">
                 <view class="chunk"></view>
@@ -35,6 +35,12 @@
                 </block>
             </view>              
         </view>
+    </view>
+
+    <view wx:if = "{{searching}}" class="books-container">
+        <block wx:key="data_array.id" wx:for="{{dataArray}}" wx:for-item="data_array">
+            <book-cmp book="{{data_array}}" class="toast book"></book-cmp>
+        </block>  
     </view>
 </view>
 

@@ -154,3 +154,19 @@
     width: 500rpx;
     font-size: 28rpx;
 } */
+
+.books-container {
+    margin-top: 10rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* height: 100%; */
+    padding: 0 90rpx 0 90rpx;
+    border: 2px solid;
+}
+
+.book-container book-cmp {
+    margin-bottom: 10rpx;
+}

@@ -27,10 +27,38 @@ Component({
 
     },
 
+    attatched() {
+        // ❤️实验，在attatched中直接 使用wx.xxx是无效的
+        // wx.startPullDownRefresh({
+        //     success: function(){
+        //         setTimeout(wx.stopPullDownRefresh
+        //         , 1000)
+        //     }
+        // })
+        // wx.showToast({
+        //     title: '煮茶读书，甚好~',
+        //     icon: 'none'
+        // })
+    },
+
     /**
      * Component methods
      */
     methods: {
-
+        onTap(event){
+            wx.startPullDownRefresh({
+                success: function(){
+                    {
+                        // ❤️注意wx.stopPullDownRefresh的用法
+                        setTimeout(wx.stopPullDownRefresh
+                        , 1000),
+                        wx.showToast({
+                            title: '生活就像电影',
+                            icon: 'none'
+                        })    
+                    }
+                }
+            })
+        }
     }
 })

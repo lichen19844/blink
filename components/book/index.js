@@ -12,7 +12,7 @@ Component({
    * Component initial data
    */
   data: {
-    testing: false
+    testing_tap: false
   },
 
   /**
@@ -44,7 +44,7 @@ Component({
         duration: 1000
       })      
       this.setData({
-        testing: true
+        testing_tap: true
       })
     }
   }

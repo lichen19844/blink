@@ -2,13 +2,13 @@
 <!-- 使用 data-bId="{{book.id}} 形式也可以拿到book.id -->
 <!-- <view bind:tap="onTap" data-bId="{{book.id}}" class="book-container"> -->
 <view bind:longpress="onLongpress" bind:tap="onTap" class="book-container">
-    <block wx:if="{{testing}}">
+    <block wx:if="{{testing_tap}}">
         <image src="{{book.image}}"></image>
         <view class="description">
 
             <!-- <text>{{book.id}}</text>
             <view class="test"  bind:tap="onTap">
-                <block wx:for="{{toast}}" wx:if="{{testing}}">
+                <block wx:for="{{toast}}" wx:if="{{testing_tap}}">
                     <text>{{item}}</text>
                 </block>
             </view> -->
