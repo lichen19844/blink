@@ -14,7 +14,7 @@
     "navigationBarTitleText": "礼晨的WeChat",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default",
-    "backgroundColor": "#a0f1f2",
+    "backgroundColor": "#E0F7FA",
     "enablePullDownRefresh": true
   },
   "tabBar": {

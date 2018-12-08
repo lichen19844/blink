@@ -9,6 +9,7 @@
     width: 240rpx;
     height: 360rpx;
     border: 1px solid;
+    background: #ffebee;
 }
 
 .book-container image {

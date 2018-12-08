@@ -15,5 +15,5 @@
 
 /* 组件整体样式 */
 :host {
-    border: 5px solid yellow;
+    border: 5px solid #BBDEFB;
 }
