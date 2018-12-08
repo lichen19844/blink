@@ -15,6 +15,7 @@ Component({
                 console.log('newVal is ', newVal);
                 console.log('oldVar is ', oldVar);
                 console.log('changePath is ', changePath);
+                
                 let val = newVal < 10 ? '0' + newVal : newVal;
                 // let val = parseInt(newVal) < 10 ? '0' + parseInt(newVal) : parseInt(newVal);
                 // let val = parseFloat(newVal) < 10 ? '0' + parseFloat(newVal) : parseFloat(newVal);

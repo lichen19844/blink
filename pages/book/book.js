@@ -3,6 +3,10 @@ import {
   BookModel
 } from '../../models/book.js'
 
+import {
+  random
+} from '../../util/common.js'
+
 const bookModel = new BookModel()
 
 Page({
@@ -18,7 +22,10 @@ Page({
     // 对象可以保存状态，而函数（包括回调函数）不能，因为它必须立即返回结果，除了闭包函数
     // 一次调用 多次调用服务器API  链式调用 3个API API1 API2 API3S
     books: [],
-    searching: false
+    searching: false,
+    // more: false,
+    // more: 0,
+    more: '',
   },
 
   /**
@@ -142,7 +149,13 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
+    console.log('加载更多');
+    this.setData({
+      // more: true,
+      // more: !this.data.more,
+      more: random(16)
+    })
+    console.log('more value is ', this.data.more);
   },
 
   /**

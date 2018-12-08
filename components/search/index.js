@@ -17,7 +17,13 @@ Component({
    * Component properties
    */
   properties: {
-
+    more: {
+      type: String,
+      // observer: function(newVal, oldVal, changePath) {
+      // },
+      // observer的另外一种表达方式，先在methods中定义一个方法，再赋值给它
+      observer: '_load_more'
+    }
   },
 
   /**
@@ -71,6 +77,11 @@ Component({
    * Component methods
    */
   methods: {
+
+    _load_more() {
+      console.log('123123')
+    },
+
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
     },
@@ -112,5 +123,7 @@ Component({
         searching: false
       })
     }
+
+    // 上滑触底加载更多 scroll-view  | Page  onReachBottom
   }
 })
