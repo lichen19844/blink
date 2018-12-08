@@ -2,7 +2,8 @@
 <!-- 使用 data-bId="{{book.id}} 形式也可以拿到book.id -->
 <!-- <view bind:tap="onTap" data-bId="{{book.id}}" class="book-container"> -->
 <view bind:longpress="onLongpress" bind:tap="onTap" class="book-container">
-    <block wx:if="{{testing_tap}}">
+    <!-- <block wx:if="{{testing_tap}}"> -->
+    <block>
         <image src="{{book.image}}"></image>
         <view class="description">
 
