@@ -84,7 +84,6 @@ Component({
       // 放在这里不好，因为用户的搜索关键词中可能会包含很多无效的信息，缓存应该储存更有效的信息，所以应该在返回搜素结果之后再把关键字添加到缓存中
       // keywordModel.addToHistory(word);
       console.log('event.detail text is ', event.detail.text)
-      // ❤️在wxml层使用bind:tapping或catch:tapping可以拿到event.detail.text，但小程序文档里为什么没有呢
       const q = event.detail.value || event.detail.text;
       // 在调用搜索方法之前，提前setData绑定，这样用户体验好
       this.setData({

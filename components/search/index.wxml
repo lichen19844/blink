@@ -19,7 +19,6 @@
             <!-- 组件中也能引入组件 -->
             <view class="tags">
                 <block wx:key="" wx:for="{{historyWords}}" wx:for-item="historyword">
-                    <!-- ❤️在wxml层使用bind:tapping或catch:tapping可以拿到event.detail.text，但小程序文档里为什么没有呢 -->
                     <tag-cmp bind:tapping="onConfirm" text="{{historyword}}" />
                 </block>
             </view>            
