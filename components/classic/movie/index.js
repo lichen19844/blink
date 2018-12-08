@@ -29,79 +29,58 @@ Component({
 
     attached() {
         // ❤️实验，在attatched中直接 使用wx.xxx是无效的
-        // wx.startPullDownRefresh({
-        //     success: function(){
-        //         setTimeout(wx.stopPullDownRefresh
-        //         , 1000)
-        //     }
-        // })
         // wx.showToast({
         //     title: '煮茶读书，甚好~',
         //     icon: 'none'
         // })
-        // this.settimer_b()
-        // this.settimer_c()
-        this.showtoast()
+
+        // ❤️attatched和methods其实有互通关系        
+        // setTimeout(()=>{
+        //     wx.showToast({
+        //         title: '煮茶读书，甚好~',
+        //         icon: 'none'
+        //     }) 
+        // },1000)
+        this.settimer_B()
     },
 
     /**
      * Component methods
      */
     methods: {
-        onTap(event){
-            // this.settimer(event)
-            wx.startPullDownRefresh({
-                success: ()=>{
-                    {
-                        this.settimer_a(),
-                        // ❤️注意wx.stopPullDownRefresh的用法
-                        // setTimeout(wx.stopPullDownRefresh
-                        // , 1000),
-                        wx.showToast({
-                            title: '生活就像电影',
-                            icon: 'none'
-                        })    
-                    }
-                }
-            })
+        onTap(){
+            this.settimer_B()
+
         },
 
-        settimer_a(event) {
+        settimer_A() {
             setTimeout(
-                // (event)=> {
+                ()=> {
                 // console.log("----Countdown----");
                 // 每1秒自触发一次
-                // this.settimer_a();
-                // }, 
-                wx.stopPullDownRefresh,
-                2000);
+                wx.stopPullDownRefresh()
+            }, 1000);
         },
 
-        settimer_b(event) {
-            // setTimeout(
-            //     this.showtoast,
-            //     1400);
-        },
-
-        settimer_c(event) {
-            console.log('settimer_c this', this)
-
-            console.log('aaaaaaa')
-        },
-        showtoast(event) {
+        settimer_B() {
             wx.startPullDownRefresh()
+            
+            setTimeout(function() {
+                this.showtoast()
+            }.bind(this),1000);
+            // 另一种写法，使用bind将创建一个新函数，并将第一个参数作为新函数运行时的this
+            // setTimeout(
+            //     this.showtoast
+            // .bind(this),1000);
+        },
+
+        showtoast() {
             wx.showToast({
               title: '文艺气息扑面而来',
               icon: 'none'
             })
-            console.log('this', this)
-            // ❤️this.settimer_a()这种写法会报错 is not a function，暂时不知道原因
-            this.settimer_a()
-            this.settimer_b()
-            // this.settimer_c()
-            // setTimeout(
-            //     wx.stopPullDownRefresh,
-            //     1000)
+            console.log('this指向', this)
+            this.settimer_A()
         }
     }
 })
