@@ -1,24 +1,23 @@
 <!--components/classic/music/index.wxml-->
-
 <view class="classic-container" hidden="{{hidden}}">
-  <!-- 黑胶唱片唱针部分 -->
+<!-- 黑胶唱片唱针部分 -->
     <view class='stylusBox'>
         <!-- <view class='stylus_1' style='width: {{ stylusW }}px; height: {{ stylusW }}px'> -->
         <view class="{{playing ? 'stylus_1_1': 'stylus_1_1'}}" style="animation-play-state:{{playing?'running':''}}; transform:{{playing? '':'rotate(-40deg)'}}; width: {{ stylusW }}px; height: {{ stylusW }}px">
-          <view class='stylus_2'>
-              <view class='stylus_3'></view>
-              <view class='stylus_4' style='top: {{ stylusW*0.8 }}px'>
+        <view class='stylus_2'>
+            <view class='stylus_3'></view>
+            <view class='stylus_4' style='top: {{ stylusW*0.8 }}px'>
                 <view class='stylus_5'>
                     <view class='stylus_6'></view>
                     <view class='stylus_7'>
-                      <view class='stylus_8'>
-                          <view class='stylus_9 stylus_10'></view>
-                          <view class='stylus_9 stylus_11'></view>
-                      </view>
+                    <view class='stylus_8'>
+                        <view class='stylus_9 stylus_10'></view>
+                        <view class='stylus_9 stylus_11'></view>
+                    </view>
                     </view>
                 </view>
-              </view>
-          </view>
+            </view>
+        </view>
         </view>
     </view>
 
@@ -34,3 +33,4 @@
     <text class="content">{{content}}</text>
 
 </view>
+

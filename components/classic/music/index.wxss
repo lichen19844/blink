@@ -1,11 +1,19 @@
 /* components/classic/music/index.wxss */
 
+/* .music-container{
+    background: linear-gradient(112.53245250420684deg, rgba(167, 204, 225,1) 5.736111111111111%,rgba(236, 246, 237,1) 96.29166666666666%);
+    width: 100%;
+    height: 100%;
+} */
+
 .classic-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    /* border: 1px solid; */
+    /* background: linear-gradient(112.53245250420684deg, rgba(167, 204, 225,1) 5.736111111111111%,rgba(236, 246, 237,1) 96.29166666666666%);
+    width: 100%;
+    height: 100%; */
 }
 
 .classic-img{
@@ -15,6 +23,7 @@
     border-radius: 50%;
     box-sizing: border-box;
     border: 12px solid rgba(82, 1, 1, 0.7);
+    z-index: 3;
     /* box-shadow: 0 0 0 10px rgba(243, 106, 34, .4); */
     /* position: relative; */
 }
@@ -26,7 +35,7 @@
   height: 580rpx;
   position: absolute;
   bottom: 185rpx;
-  z-index: -1;
+  z-index: 2;
   animation: mymove 10s linear infinite;
   animation-delay: 1.5s;
   transform-origin: 50.6% 50.6%;
@@ -45,6 +54,7 @@
     width: 120rpx;
     height: 120rpx;
     position: relative;
+    z-index: 3;
     bottom: 240rpx;
     opacity: 0.5;
     /* border: 1px solid; */
@@ -113,7 +123,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
     position: relative;
-    z-index: 1;
+    z-index: 4;
     transform:rotate(-22deg);
     transition: all 2s ease-in-out;
     animation: mymovess_1 2s;
@@ -139,7 +149,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 4;
     /* border: 1px solid black; */
   }
   
@@ -155,7 +165,7 @@
     width: 20%;
     height: 170%;
     position: absolute;
-    z-index: 111;
+    z-index: 4;
     border-radius: 50px;
     background: linear-gradient(to right, #b3b3b1, #d3d3d3, #b3b3b1); 
     /* border: 1px solid red; */

@@ -77,6 +77,11 @@ Component({
                 like: !like,
                 count: count
             })
+                wx.showToast({
+                    title: this.data.like ? '喜欢❤️': '移除❤',
+                    duration: 1000,
+                    icon: 'none'
+                })
 
             // 激活自定义事件
             // behavior用来表示点赞或取消点赞的状态

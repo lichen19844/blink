@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.classic-container-music{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100%;
+    background: linear-gradient(112.53245250420684deg, rgba(248, 198, 215,1) 5.736111111111111%,rgba(175, 233, 249,1) 96.29166666666666%);
+}
+
 .episode-header {
     /* 当元素需要占满整个屏幕，设置width为100% */
     width: 100%;
