@@ -21,7 +21,7 @@ Component({
       type: String,
       // observer: function(newVal, oldVal, changePath) {
       // },
-      // observer的另外一种表达方式，先在methods中定义一个方法，再赋值给它
+      // ❤️observer的另外一种表达方式，先在methods中定义一个方法，再以String的名字赋值给它
       observer: '_load_more'
     }
   },
@@ -36,7 +36,8 @@ Component({
     text: '',
     maxLength: 4,
     dataArray: [],
-    searching: false
+    searching: false,
+    loading: false
   },
 
   attached() {
@@ -80,6 +81,29 @@ Component({
 
     _load_more() {
       console.log('123123')
+      if(!this.data.text) {
+        return
+      }
+      // 同时发送了2个请求，要求一次只发送一个请求
+      // 锁
+      if(this.data.loading) {
+        return
+      }
+      const length = this.data.dataArray.length;
+      // 锁住
+      this.data.loading = true;
+      bookModel.search(length, this.data.text)
+      .then(res => {
+        // 老数据 this.data.dataArray
+        // 新数据 res.books
+        const tempArray = this.data.dataArray.concat(res.books)
+        this.setData({
+          dataArray: tempArray,
+          // loading: false
+        })
+        // 解锁
+        this.data.loading = false;
+      })
     },
 
     onCancel(event) {
@@ -94,8 +118,8 @@ Component({
       // const word = event.detail.value;
       // 放在这里不好，因为用户的搜索关键词中可能会包含很多无效的信息，缓存应该储存更有效的信息，所以应该在返回搜素结果之后再把关键字添加到缓存中
       // keywordModel.addToHistory(word);
-      console.log('event.detail text is ', event.detail.text)
       const q = event.detail.value || event.detail.text;
+      console.log('event.detail text is ', event.detail.text)
       // 在调用搜索方法之前，提前setData绑定，这样用户体验好
       this.setData({
         text: q     

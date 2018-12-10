@@ -148,6 +148,7 @@ Page({
   /**
    * Called when page reach bottom
    */
+  // 每一次触底more的值都会变化，导致组件的属性more也会变
   onReachBottom: function () {
     console.log('加载更多');
     this.setData({
