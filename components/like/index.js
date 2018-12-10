@@ -78,9 +78,10 @@ Component({
                 count: count
             })
                 wx.showToast({
-                    title: this.data.like ? '喜欢❤️': '移除❤',
-                    duration: 1000,
-                    icon: 'none'
+                    title: this.data.like ? '喜欢': '移除喜欢',
+                    image: this.data.like ? '/components/like/images/like.png': '../../components/like/images/unlike-image.png',
+                    duration: 1000
+
                 })
 
             // 激活自定义事件
