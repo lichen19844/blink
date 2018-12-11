@@ -46,6 +46,15 @@ class KeywordModel extends HTTP {
             words.unshift(keyword)
             // 更新缓存数据，setStorageSync的value是一组数组words
             wx.setStorageSync(this.key, words)            
+        }   else {
+            for(let i = 0; i< words.length; i++) {
+                if (words[i] === keyword) {
+                    words.splice(i, 1);
+                    break;
+                }
+            }
+            words.unshift(keyword)
+            wx.setStorageSync(this.key, words)
         }
 
     }

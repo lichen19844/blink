@@ -8,11 +8,18 @@ import {
   BookModel
 } from '../../models/book.js'
 
+import {
+  paginationBev
+} from '../behaviors/pagination.js'
+
 const bookModel = new BookModel()
 
 const keywordModel = new KeywordModel();
 
 Component({
+
+  behaviors: [paginationBev],
+
   /**
    * Component properties
    */
@@ -35,7 +42,7 @@ Component({
     hotWords: [],
     text: '',
     maxLength: 4,
-    dataArray: [],
+    // dataArray: [],
     searching: false,
     loading: false
   },
@@ -79,31 +86,39 @@ Component({
    */
   methods: {
 
+    // 只在页面上拉触底时触发此方法
     _load_more() {
       console.log('123123')
       if(!this.data.text) {
         return
       }
       // 同时发送了2个请求，要求一次只发送一个请求
-      // 锁
+      // 锁 如果不在加载数据将解锁继续往下执行，否则锁住并return
       if(this.data.loading) {
         return
       }
-      const length = this.data.dataArray.length;
-      // 锁住
+      // const length = this.data.dataArray.length;
+      if(this.hasMore()){
+      // 锁住 表示正在加载数据
       this.data.loading = true;
-      bookModel.search(length, this.data.text)
-      .then(res => {
-        // 老数据 this.data.dataArray
-        // 新数据 res.books
-        const tempArray = this.data.dataArray.concat(res.books)
-        this.setData({
-          dataArray: tempArray,
-          // loading: false
+      console.log('_load_more loading is ',this.data.loading)
+        // bookModel.search(length, this.data.text)
+        bookModel.search(this.getCurrentStart(), this.data.text)
+        .then(res => {
+          // 老数据 this.data.dataArray
+          // 新数据 res.books
+          // const tempArray = this.data.dataArray.concat(res.books)
+          this.setMoreData(res.books)
+          // this.setData({
+            // dataArray: tempArray,
+            // loading: false
+          // })
+          // 解锁 表示数据加载完成，此时不在加载数据
+          this.data.loading = false;
+          console.log('_load_more loading is ',this.data.loading)
         })
-        // 解锁
-        this.data.loading = false;
-      })
+      }
+
     },
 
     onCancel(event) {
@@ -114,34 +129,54 @@ Component({
       this.setData({
         searching: true
       })
+      // 每次回车先回到页面顶部
+      wx.pageScrollTo({
+        scrollTop: 0,
+        duration: 300
+      })      
       // 使用input组件的confirm属性读取写入的值，再传给addToHistory方法
       // const word = event.detail.value;
       // 放在这里不好，因为用户的搜索关键词中可能会包含很多无效的信息，缓存应该储存更有效的信息，所以应该在返回搜素结果之后再把关键字添加到缓存中
       // keywordModel.addToHistory(word);
       const q = event.detail.value || event.detail.text;
-      console.log('event.detail text is ', event.detail.text)
+      console.log('event.detail value or text is ', event.detail.value || event.detail.text)
       // 在调用搜索方法之前，提前setData绑定，这样用户体验好
       this.setData({
         text: q     
       })
-      // 搜索方法
+      if(this.data.loading) {
+        return
+      }
+      this.data.loading = true;
+      console.log('onConfirm loading is ',this.data.loading)
+      // 回车搜索后马上清空上一次搜索页面的数据
+      this.initialize()      
+      // 搜索方法，拿到api默认的前20条数据和总total数
       bookModel.search(0, q)
       .then(res => {
-        this.setData({
-          dataArray: res.books
-        })
+        console.log('then res is ', res)
+        this.setMoreData(res.books);
+        // this.setData({
+        //   dataArray: res.books
+        // })
+        this.setTotal(res.total);
         console.log('dataArray is ', this.data.dataArray)
+        this.data.loading = false;
+        console.log('onConfirm loading is ',this.data.loading)
         keywordModel.addToHistory(q);
         // 实时刷新记录历史搜索，不能用this.attatched()会报错
         const historyWords = keywordModel.getHistory();
         this.setData({
           historyWords: historyWords,
           // text: '',
-        })        
+        })       
       })
     },
 
     onClear(event){
+      if(this.data.loading) {
+        return
+      }
       this.setData({
         text: '',
         searching: false
