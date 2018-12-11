@@ -29,7 +29,7 @@ Component({
       // observer: function(newVal, oldVal, changePath) {
       // },
       // ❤️observer的另外一种表达方式，先在methods中定义一个方法，再以String的名字赋值给它
-      observer: '_load_more'
+      observer: 'loadMore'
     }
   },
 
@@ -87,21 +87,21 @@ Component({
   methods: {
 
     // 只在页面上拉触底时触发此方法
-    _load_more() {
+    loadMore() {
       console.log('123123')
       if(!this.data.text) {
         return
       }
       // 同时发送了2个请求，要求一次只发送一个请求
       // 锁 如果不在加载数据将解锁继续往下执行，否则锁住并return
-      if(this.data.loading) {
+      if(this._isLocked()) {
         return
       }
       // const length = this.data.dataArray.length;
       if(this.hasMore()){
       // 锁住 表示正在加载数据
-      this.data.loading = true;
-      console.log('_load_more loading is ',this.data.loading)
+      this._locked();
+      console.log('loadMore loading is ',this.data.loading)
         // bookModel.search(length, this.data.text)
         bookModel.search(this.getCurrentStart(), this.data.text)
         .then(res => {
@@ -114,11 +114,27 @@ Component({
             // loading: false
           // })
           // 解锁 表示数据加载完成，此时不在加载数据
-          this.data.loading = false;
-          console.log('_load_more loading is ',this.data.loading)
+          this._unLocked();
+          console.log('loadMore loading is ',this.data.loading)
+        }, () => {
+          // 用在网络发生错误的时候避免死锁
+          this._unLocked()
         })
       }
 
+    },
+
+    // 锁可以封装成Class类
+    _isLocked() {
+      return this.data.loading?true: false
+    },
+
+    _locked() {
+      this.data.loading = true;
+    },
+
+    _unLocked() {
+      this.data.loading = false;
     },
 
     onCancel(event) {
@@ -126,9 +142,7 @@ Component({
     },
 
     onConfirm(event) {
-      this.setData({
-        searching: true
-      })
+      this._showResult();
       // 每次回车先回到页面顶部
       wx.pageScrollTo({
         scrollTop: 0,
@@ -144,10 +158,10 @@ Component({
       this.setData({
         text: q     
       })
-      if(this.data.loading) {
+      if(this._isLocked()) {
         return
       }
-      this.data.loading = true;
+      this._locked();
       console.log('onConfirm loading is ',this.data.loading)
       // 回车搜索后马上清空上一次搜索页面的数据
       this.initialize()      
@@ -161,7 +175,7 @@ Component({
         // })
         this.setTotal(res.total);
         console.log('dataArray is ', this.data.dataArray)
-        this.data.loading = false;
+        this._unLocked();
         console.log('onConfirm loading is ',this.data.loading)
         keywordModel.addToHistory(q);
         // 实时刷新记录历史搜索，不能用this.attatched()会报错
@@ -170,17 +184,30 @@ Component({
           historyWords: historyWords,
           // text: '',
         })       
+      }, () => {
+        // 用在网络发生错误的时候避免死锁
+        this._unLocked()
       })
     },
 
-    onClear(event){
-      if(this.data.loading) {
-        return
-      }
+    _showResult() {
+      this.setData({
+        searching: true
+      })
+    },
+
+    _closeResult() {
       this.setData({
         text: '',
         searching: false
       })
+    },
+
+    onClear(event){
+      if(this._isLocked()) {
+        return
+      }
+      this._closeResult()
     }
 
     // 上滑触底加载更多 scroll-view  | Page  onReachBottom
