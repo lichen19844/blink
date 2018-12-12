@@ -37,14 +37,17 @@
         </view>
     </view>
 
-        <view wx:if = "{{searching}}" class="books-container">
-            <block wx:key="data_array.id" wx:for="{{dataArray}}" wx:for-item="data_array">
-                <book-cmp book="{{data_array}}" class="toast book"></book-cmp>
-            </block>  
-        </view>
-        <loading-cmp class="loading-center" wx:if="{{loadingCenter}}" />
-        <loading-cmp class="loading" wx:if="{{loadingMore}}" />
-
+    <view wx:if = "{{searching}}" class="books-container">
+        <block wx:key="data_array.id" wx:for="{{dataArray}}" wx:for-item="data_array">
+            <book-cmp book="{{data_array}}" class="toast book"></book-cmp>
+        </block>          
+    </view>
+    <view class="loading-align" wx:if="{{loadingMore}}">
+        <loading-cmp class="loading" />
+        <loading-cmp class="loading" />
+        <loading-cmp class="loading" />
+    </view>          
+    <loading-cmp class="loading-center" wx:if="{{loadingCenter}}" />
 </view>
 
 

@@ -90,7 +90,6 @@ Component({
 
     // 只在页面上拉触底时触发此方法
     loadMore() {
-      this._showLoadingMore()
       console.log('123123')
       // ❤️判断输入字符是否为空，但此代码效果存疑，为什么不在onConfirm也设置
       if(!this.data.text) {
@@ -99,8 +98,11 @@ Component({
       // 同时发送了2个请求，要求一次只发送一个请求
       // 锁 如果不在加载数据将解锁继续往下执行，否则锁住并return
       if(this._isLocked()) {
+        this._hideLoadingMore()
         return
       }
+      this._showLoadingMore()
+
       // const length = this.data.dataArray.length;
       if(this.hasMore()){
         // 锁住 表示正在加载数据
@@ -151,12 +153,12 @@ Component({
 
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
+      // this._hideLoadingMore()
     },
 
     onConfirm(event) {
       this._showResult();
       this._hideLoadingMore();
-      this._showLoadingCenter();
       // 每次回车先回到页面顶部
       wx.pageScrollTo({
         scrollTop: 0,
@@ -175,6 +177,7 @@ Component({
       if(this._isLocked()) {
         return
       }
+      this._showLoadingCenter();
       this._locked();
       console.log('onConfirm loading is ',this.data.loading)
       // 回车搜索后马上清空上一次搜索页面的数据

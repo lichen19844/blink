@@ -153,6 +153,13 @@
     margin-bottom: 10rpx;
 }
 
+.loading-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .loading-center {
     position: absolute;
     top: 50%;
@@ -160,5 +167,5 @@
 }
 
 .loading {
-    margin: 50rpx 150rpx 50rpx 0;
+    margin: 50rpx 0 50rpx 0;
 }
