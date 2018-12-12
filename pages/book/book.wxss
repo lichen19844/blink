@@ -23,7 +23,7 @@
     justify-content: center;
     box-shadow: 0 0 13px 0 #e3e3e3;
     z-index: 99;   
-    border: 1px solid; 
+    /* border: 1px solid;  */
 }
 
 .box {
@@ -41,7 +41,7 @@
     height: 68rpx;
     width: 600rpx;
     color: #999999;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .box image {
@@ -49,7 +49,7 @@
     width: 14px;
     height: 14px;
     margin-bottom: -2px;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .sub-container {
@@ -60,14 +60,14 @@
     margin-top: 100rpx;
     /* width: 80%; */
     /* height: 500px; */
-    border: 5px solid;
+    /* border: 5px solid; */
 }
 
 .head-img {
     width: 106rpx;
     height: 34rpx;
     margin-top: 40rpx;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .books-container {
@@ -79,7 +79,7 @@
     /* align-items: center; */
     /* height: 100%; */
     padding: 0 90rpx 0 90rpx;
-    border: 2px solid;
+    /* border: 2px solid; */
 }
 
 .books-container book-cmp {

@@ -44,7 +44,9 @@ Component({
     maxLength: 4,
     // dataArray: [],
     searching: false,
-    loading: false
+    loading: false,
+    loadingMore: false,
+    loadingCenter: false
   },
 
   attached() {
@@ -88,7 +90,9 @@ Component({
 
     // 只在页面上拉触底时触发此方法
     loadMore() {
+      this._showLoadingMore()
       console.log('123123')
+      // ❤️判断输入字符是否为空，但此代码效果存疑，为什么不在onConfirm也设置
       if(!this.data.text) {
         return
       }
@@ -99,9 +103,9 @@ Component({
       }
       // const length = this.data.dataArray.length;
       if(this.hasMore()){
-      // 锁住 表示正在加载数据
-      this._locked();
-      console.log('loadMore loading is ',this.data.loading)
+        // 锁住 表示正在加载数据
+        this._locked();
+        console.log('loadMore loading is ',this.data.loading)
         // bookModel.search(length, this.data.text)
         bookModel.search(this.getCurrentStart(), this.data.text)
         .then(res => {
@@ -120,21 +124,29 @@ Component({
           // 用在网络发生错误的时候避免死锁
           this._unLocked()
         })
+      } else {
+          this._hideLoadingMore()
       }
 
     },
 
     // 锁可以封装成Class类
     _isLocked() {
-      return this.data.loading?true: false
+      return this.data.loading? true: false
     },
 
     _locked() {
-      this.data.loading = true;
+      this.setData({
+        loading: true
+      })
+      // this.data.loading = true;
     },
 
     _unLocked() {
-      this.data.loading = false;
+      this.setData({
+        loading: false
+      })
+      // this.data.loading = false;
     },
 
     onCancel(event) {
@@ -143,6 +155,8 @@ Component({
 
     onConfirm(event) {
       this._showResult();
+      this._hideLoadingMore();
+      this._showLoadingCenter();
       // 每次回车先回到页面顶部
       wx.pageScrollTo({
         scrollTop: 0,
@@ -178,6 +192,7 @@ Component({
         this._unLocked();
         console.log('onConfirm loading is ',this.data.loading)
         keywordModel.addToHistory(q);
+        this._hideLoadingCenter();
         // 实时刷新记录历史搜索，不能用this.attatched()会报错
         const historyWords = keywordModel.getHistory();
         this.setData({
@@ -203,11 +218,37 @@ Component({
       })
     },
 
+    _showLoadingCenter() {
+      this.setData({
+        loadingCenter: true
+      })
+    },
+
+    _hideLoadingCenter() {
+      this.setData({
+        loadingCenter: false
+      })
+    },
+
+    _showLoadingMore() {
+      this.setData({
+        loadingMore: true
+      })
+    },
+
+    _hideLoadingMore() {
+      this.setData({
+        loadingMore: false
+      })
+    },
+
     onClear(event){
+      // 当正在加载的时候点击x，使点击无效
       if(this._isLocked()) {
         return
       }
       this._closeResult()
+      this._hideLoadingMore()
     }
 
     // 上滑触底加载更多 scroll-view  | Page  onReachBottom

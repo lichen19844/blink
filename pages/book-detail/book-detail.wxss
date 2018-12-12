@@ -3,7 +3,7 @@
 .book-detail-container {
     background-color: #f5f5f5;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .head {
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
 }
 
 .head image {
@@ -42,7 +42,7 @@
     margin-top: 30rpx;
     background-color: #ffffff;
     padding: 30rpx;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .headline {
@@ -50,7 +50,7 @@
     font-weight: 600;
     color: #2f2f2f;
     margin-bottom: 20rpx;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 /* 针对第一段文本的空格css */
@@ -60,7 +60,7 @@
 }
 
 .comment-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -114,7 +114,7 @@
     margin-bottom: 100rpx;
     font-size: 28rpx;
     color: #666;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .vertical {
@@ -139,7 +139,7 @@
     align-items: center;
     padding: 0 30rpx;
     justify-content: space-between;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .post-fake {
