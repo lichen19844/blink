@@ -77,7 +77,7 @@ Page({
 
     bookModel.getHotList()
       .then(res => {
-        // console.log('模拟第一次调用API', res);
+        console.log('模拟第一次调用API', res);
         // return bookModel.getMyBookCount()
         this.setData({
           books: res
