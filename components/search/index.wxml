@@ -31,7 +31,7 @@
             </view>
             <view class="tags">
                 <block wx:key="" wx:for="{{hotWords}}" wx:for-item="hotword">
-                    <tag-cmp text="{{hotword}}" />
+                    <tag-cmp bind:tapping="onConfirm" text="{{hotword}}" />
                 </block>
             </view>              
         </view>
@@ -39,7 +39,7 @@
 
     <view wx:if = "{{searching}}" class="books-container">
         <block wx:key="data_array.id" wx:for="{{dataArray}}" wx:for-item="data_array">
-            <book-cmp book="{{data_array}}" class="toast book"></book-cmp>
+            <book-cmp showLike="{{false}}" book="{{data_array}}" class="toast book"></book-cmp>
         </block>          
     </view>
     <view class="loading-align" wx:if="{{loadingMore}}">
@@ -48,6 +48,7 @@
         <loading-cmp class="loading" />
     </view>          
     <loading-cmp class="loading-center" wx:if="{{loadingCenter}}" />
+    <text wx:if="{{noneResult}}" class="empty-tip">没有搜索到书籍</text>
 </view>
 
 

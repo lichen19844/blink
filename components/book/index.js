@@ -5,7 +5,12 @@ Component({
    */
   properties: {
     // properties的属性book可以拿到id号
-    book: Object
+    book: Object,
+    showLike: {
+      type: Boolean,
+      value: true
+    }
+
   },
 
   /**

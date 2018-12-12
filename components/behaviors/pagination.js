@@ -3,7 +3,9 @@ const paginationBev = Behavior({
     data: {
         // dataArray管理的是一个页面中要呈现的所有数据
         dataArray: [],
-        total: null
+        total: null,
+        noneResult: false,
+        loading: false
     },
     methods:{
         // 用于分页的数据，setMoreData要传进的dataArray是新添加的数据
@@ -21,6 +23,11 @@ const paginationBev = Behavior({
 
         setTotal(total) {
             this.data.total = total;
+            if(total == 0) {
+                this.setData({
+                    noneResult: true
+                })
+            }
         },
 
         // 是否还有更多的数据还要加载
@@ -37,11 +44,31 @@ const paginationBev = Behavior({
 
         initialize() {
             this.setData({
-                dataArray: []
+                dataArray: [],
+                noneResult: false
             })
             // this.data.dataArray = [];
             this.data.total = null;
-        }
+        },
+
+        // 锁可以封装成Class类
+        isLocked() {
+            return this.data.loading? true: false
+        },
+
+        locked() {
+            this.setData({
+                loading: true
+            })
+            // this.data.loading = true;
+        },
+
+        unLocked() {
+            this.setData({
+                loading: false
+            })
+            // this.data.loading = false;
+        }        
     }
 })
 

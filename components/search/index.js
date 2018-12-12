@@ -41,10 +41,10 @@ Component({
     historyWords: [],
     hotWords: [],
     text: '',
-    maxLength: 4,
+    maxLength: 8,
     // dataArray: [],
     searching: false,
-    loading: false,
+    // loading: false,
     loadingMore: false,
     loadingCenter: false
   },
@@ -97,7 +97,7 @@ Component({
       }
       // 同时发送了2个请求，要求一次只发送一个请求
       // 锁 如果不在加载数据将解锁继续往下执行，否则锁住并return
-      if(this._isLocked()) {
+      if(this.isLocked()) {
         this._hideLoadingMore()
         return
       }
@@ -106,7 +106,7 @@ Component({
       // const length = this.data.dataArray.length;
       if(this.hasMore()){
         // 锁住 表示正在加载数据
-        this._locked();
+        this.locked();
         console.log('loadMore loading is ',this.data.loading)
         // bookModel.search(length, this.data.text)
         bookModel.search(this.getCurrentStart(), this.data.text)
@@ -120,40 +120,20 @@ Component({
             // loading: false
           // })
           // 解锁 表示数据加载完成，此时不在加载数据
-          this._unLocked();
+          this.unLocked();
           console.log('loadMore loading is ',this.data.loading)
         }, () => {
           // 用在网络发生错误的时候避免死锁
-          this._unLocked()
+          this.unLocked()
         })
       } else {
           this._hideLoadingMore()
       }
-
-    },
-
-    // 锁可以封装成Class类
-    _isLocked() {
-      return this.data.loading? true: false
-    },
-
-    _locked() {
-      this.setData({
-        loading: true
-      })
-      // this.data.loading = true;
-    },
-
-    _unLocked() {
-      this.setData({
-        loading: false
-      })
-      // this.data.loading = false;
     },
 
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
-      // this._hideLoadingMore()
+      this.initialize()      
     },
 
     onConfirm(event) {
@@ -174,11 +154,11 @@ Component({
       this.setData({
         text: q     
       })
-      if(this._isLocked()) {
+      if(this.isLocked()) {
         return
       }
       this._showLoadingCenter();
-      this._locked();
+      this.locked();
       console.log('onConfirm loading is ',this.data.loading)
       // 回车搜索后马上清空上一次搜索页面的数据
       this.initialize()      
@@ -192,7 +172,7 @@ Component({
         // })
         this.setTotal(res.total);
         console.log('dataArray is ', this.data.dataArray)
-        this._unLocked();
+        this.unLocked();
         console.log('onConfirm loading is ',this.data.loading)
         keywordModel.addToHistory(q);
         this._hideLoadingCenter();
@@ -204,7 +184,7 @@ Component({
         })       
       }, () => {
         // 用在网络发生错误的时候避免死锁
-        this._unLocked()
+        this.unLocked()
       })
     },
 
@@ -247,11 +227,13 @@ Component({
 
     onClear(event){
       // 当正在加载的时候点击x，使点击无效
-      if(this._isLocked()) {
+      if(this.isLocked()) {
         return
       }
       this._closeResult()
       this._hideLoadingMore()
+      this.initialize()      
+
     }
 
     // 上滑触底加载更多 scroll-view  | Page  onReachBottom
