@@ -45,9 +45,10 @@ Page({
               })
             }
           })
-        } else {
-          console.log('没有得到用户授权，报一个err看看')
         }
+        // else {
+        //   console.log('没有得到用户授权，报一个err看看')
+        // }
       }
     })
   },

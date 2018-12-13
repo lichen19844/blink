@@ -35,10 +35,32 @@
 
 .like {
     margin-top: 6rpx;
+    /* border: 1px solid;
+    padding: 5rpx; */
 }
 
 .navi{
     /* 到底部设置绝对高度 */
     position: absolute;
     bottom: 40rpx;
+}
+
+.like-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30rpx;
+}
+
+.share-btn {
+    margin-top: 28rpx;
+    margin-left: 10rpx;
+    /* border: 1px solid; */
+}
+
+.share {
+    width: 40rpx;
+    height: 40rpx;
+    /* border: 1px solid; */
 }

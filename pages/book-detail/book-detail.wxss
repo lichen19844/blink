@@ -164,11 +164,23 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-right: 10rpx;
 }
 
 .like {
-    margin-right: 30rpx;
     margin-top: 10rpx;
+}
+
+.share-btn {
+    margin-top: 28rpx;
+    margin-left: 10rpx;
+    /* border: 1px solid; */
+}
+
+.share {
+    width: 40rpx;
+    height: 40rpx;
+    /* border: 1px solid; */
 }
 
 .posting-container {
