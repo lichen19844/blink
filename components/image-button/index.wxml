@@ -1,0 +1,7 @@
+<!--components/iamge-button/index.wxml-->
+<!-- properties 定义段中，openType属性名采用驼峰写法，应用于数据绑定时也采用驼峰写法 -->
+<button bind:getuserinfo="onGetUserInfo"
+    open-type="{{openType}}" plain="{{true}}"
+    class="container">
+    <slot name="img"></slot>
+    </button>

@@ -1,0 +1,6 @@
+/* components/iamge-button/index.wxss */
+/* 为了覆盖button的一些默认样式 */
+.container {
+    padding: 0 !important;
+    border: none !important;
+}

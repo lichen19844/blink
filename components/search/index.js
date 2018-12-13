@@ -161,7 +161,12 @@ Component({
       this.locked();
       console.log('onConfirm loading is ',this.data.loading)
       // 回车搜索后马上清空上一次搜索页面的数据
-      this.initialize()      
+      this.initialize()
+      // ❤️判空的简单方法
+      if(!this.data.text || this.data.text.includes(" ")) {
+        this.onCancel()
+        return
+      }
       // 搜索方法，拿到api默认的前20条数据和总total数
       bookModel.search(0, q)
       .then(res => {
