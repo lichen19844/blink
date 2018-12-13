@@ -90,6 +90,14 @@ class ClassicModel extends HTTP {
         return latestIndex == index ? true: false
     }
 
+    getMyFavor(success) {
+        const params = {
+            url: 'classic/favor',
+            success: success
+        }
+        this.request(params)
+    }
+
     // 私有方法，专门接收latest的index
     _setLatestIndex(index){
         // 'latest'即为key，即缓存的名字，index即为value，即缓存的值

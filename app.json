@@ -6,7 +6,10 @@
     "pages/classiccc/classiccc",
     "pages/my/my",
     "pages/book/book",
-    "pages/book-detail/book-detail"
+    "pages/book-detail/book-detail",
+    "pages/about/about",
+    "pages/course/course",
+    "pages/classic-detail/classic-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -43,5 +46,7 @@
       }
     ]
   },
-  "requiredBackgroundModes": ["audio"]
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }

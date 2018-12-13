@@ -24,9 +24,12 @@ Component({
             // Number的初始值是0
             type: Number,
             // value: 12
-        }
+        },
         // 相当于
         // count: Number
+        readOnly: {
+            type: Boolean
+        }
     },
 
     /**
@@ -58,7 +61,9 @@ Component({
         onLike: function(event) {
             // event的数据是系统给的js复杂对象，而非api数据
             console.log('like event数据是系统给的js复杂对象，而非api，注意detail中此时没有需传递信息 ', event);
-
+            if(this.properties.readOnly) {
+                return
+            }
             // 自定义事件，1、该事件要通知页面我们点击了某个组件  2、给页面附加一个状态
             // 在onLike方法中激活（发起）自定义事件，并且这个事件需要携带behavior这个状态
             // this.properties.like和this.properties.count，也可以写成this.data.like和this.data.count

@@ -1,4 +1,15 @@
 // pages/my/my.js
+import {
+  BookModel
+} from '../../models/book.js'
+
+import {
+  ClassicModel
+} from '../../models/classic.js'
+
+const bookModel = new BookModel()
+const classicModel = new ClassicModel()
+
 Page({
 
   /**
@@ -6,7 +17,9 @@ Page({
    */
   data: {
     authorized: false,
-    userInfo: null
+    userInfo: null,
+    bookCount: 0,
+    classics: null
   },
 
   /**
@@ -15,6 +28,8 @@ Page({
   onLoad: function (options) {
 
     this.userAuthorized()
+    this.getMyBookCount()
+    this.getMyFavor()
     // 只有用户授权了，才能使用
     // wx.getUserInfo({
     //   success: data => {
@@ -65,6 +80,44 @@ Page({
         authorized: true
       })
     }
+  },
+
+  onJumpToAbout() {
+    wx.navigateTo({
+      url: '/pages/about/about'
+    })
+  },
+
+  onStudy() {
+    wx.navigateTo({
+      url: '/pages/course/course'
+    })
+  },
+
+  getMyBookCount() {
+    bookModel.getMyBookCount()
+    .then(res => {
+      this.setData({
+        bookCount: res.count
+      })
+    })
+  },
+
+  getMyFavor() {
+    classicModel.getMyFavor(res => {
+      this.setData({
+        classics: res
+      })
+      console.log('getMyFavor res is ', this.data.classics)
+    })
+  },
+
+  onJumpToDetail(event) {
+    const cid = event.detail.cid
+    const type = event.detail.type
+    // wx.navigateTo({
+    //   url: 'pages/classic'
+    // })
   },
 
   /**
