@@ -104,6 +104,7 @@ Page({
   },
 
   getMyFavor() {
+    // 通过3步拿到了res ：1、调用getMyfavor 2、调用http的request  3、调用wx.request的success
     classicModel.getMyFavor(res => {
       this.setData({
         classics: res
