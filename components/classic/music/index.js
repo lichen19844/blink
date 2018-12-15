@@ -37,7 +37,7 @@ Component({
     vinylSrc: 'images/play.png',
     pauseSrc: 'images/player@pause.png',
     playSrc: 'images/player@play.png',
-    src: '',
+    judgeSrc: '',
     // {{!playing ? playSrc: pauseSrc}}等同于{{playing ? pauseSrc: playSrc}}更直观一点，其中playing是我们人为定义的“正在播放”，然而我们给playing的初值是false，初值false、true和播不播放的状态无关，只和图标有关，当!playing为true显示play图标，人为定义不播放；点击一下，!playing变成false，显示pause图标，人为定义正在播放
     // 视图层的!playing，其中playing的值false和true只是!的开关，出现在视图层的!只关联图片的切换，然后再映射到视图层
     playing: false,
@@ -102,8 +102,8 @@ Component({
             console.log('❤️paused continue mMgr.src is', mMgr.src)
             const stopFlat = this.data.stopFlat;
             // 是否已经停止
-            if(!stopFlat) {
-              // 继续播放❤️❤️但是这一块在安卓真机上有bug 会报fail: src is null
+            if(!stopFlat && mMgr.src) {
+              // 继续播放❤️❤️但是这一块在安卓真机上有bug 会报fail: src is null，实际有src
               mMgr.play()
             } else {
               // 从头播放
