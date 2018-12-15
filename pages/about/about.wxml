@@ -7,3 +7,37 @@
 <text>123</text>
 </view> -->
 
+<!-- copy classic wxml -->
+<view class="{{classic.type == 200 ? 'classic-container-music':'classic-container'}}">
+    <view class="episode-header">
+        <episode-cmp class="episode" index="{{classic.index}}" />
+        <view class="like-container">
+            <!-- like-cmp组件中的like是其组件内部properties中的like，不是setData中的like， count同理；setData中的like、count被应用到了index.wxml中 -->
+            <!-- 将api解析出来的数据如classic.like_status通过设置到like-cmp组件的like属性，传递到了组件的内部去(index.js)，成为properties中like属性的值，会覆盖原来的初值 -->
+            <!-- 点击’喜欢‘图标的瞬间，会关联like的wxml，同时点击只会先激活like组件中index.js的onLike事件，然后具有自定义特征的triggerEvent会确定【事件名、detail对象和事件选项】，由于事件名为like，会被此处page页面的bind:like捕捉，再关联到classic.js中的onLike事件，detail数据的传递过程如下： -->
+            <!-- 1、index.js中detail对象为{behavior:behavior}，behavior是一个状态 -->
+            <!-- 2、此时classic.js中的onLike方法会拿到detail对象，let behavior = event.detail.behavior -->
+            <!-- 3、紧接着将behavior状态变成专门处理数据的like Model中like方法的一个实参，待进一步处理 -->
+            <!-- 4、再由上述like方法拿到的behavior状态，来确定要传入http.js中request实参对象里的url -->
+            <!-- 使用独立变量后，就不再写成like="{{classic.like_status}}" count="{{classic.fav_nums}}"  -->
+            <like-cmp class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+            <!-- <text>classic.like_status is {{classic.like_status}}</text> -->
+            <!-- 也可以将解析的数据直接显示出来 -->
+            <button-cmp class="share-btn" open-type="share">
+                <image class="share" slot="img" src="/images/icon/share.png" />
+            </button-cmp>            
+        </view>
+
+    </view>
+
+    <!-- <view>{{classic.title}}</view> -->
+    <!-- 自定义组件可以使用wx:if，但不直接支持条件渲染hidden，需要通过properties自定义一个属性变通一下，这里仍然取hidden -->
+    <movie-cmp hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <!-- <music-cmp hidden="{{classic.type!=200}}" img="{{classic.image}}" content="{{classic.content}}" src= "{{classic.url}}" title="{{classic.title}}" /> -->
+    <music-cmp wx:if="{{classic.type==200}}" img="{{classic.image}}" content="{{classic.content}}" src= "{{classic.url}}" title="{{classic.title}}" />
+    <essay-cmp hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}" />
+    <!-- navi-cmp组件中的first和latest是其组件内部properties中的first和latest -->
+    <!-- 而{{first}}和{{latest}}则对应了 classic.js中data的first和latest -->    
+    <!-- 点击右箭头的时候，看似点击的是onPrevious，实际点击瞬间先触发的是navi组件<image bind:tap="onRight">，而后由triggerEvent才关联到了onPrevious -->
+    <navi-cmp bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}" />
+</view>
