@@ -173,6 +173,9 @@ Component({
 
       mMgr.onPause(()=> {
         this._recoverStatus()
+        this.setData({
+          stopFlat: false
+        })
         console.log('testOnPause')
         if(mMgr.src == this.properties.src){
           console.log('mMgr.src consolePlayingPause')        
@@ -189,6 +192,10 @@ Component({
 
       mMgr.onEnded(()=> {
         this._recoverStatus()
+        console.log('mMgr.onEnded')
+        this.setData({
+          stopFlat: true
+        })
       })
     }
   }
