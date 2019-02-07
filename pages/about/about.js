@@ -80,6 +80,7 @@ Page({
             },
         })       
     },
+    
     switchNav(event){
         var cur = event.currentTarget.dataset.current; 
         //每个tab选项宽度占1/5
